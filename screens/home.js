@@ -1,13 +1,16 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button } from 'react-native';
-
+import { View, Text, StyleSheet, Button,ScrollView } from 'react-native';
+import Header from '../components/header'
 
 const Home = ({navigation})=>{
     return(
-        <View style={styles.container}>
-            <Text>Home Screen</Text>
-            <Button title="Click Here" onClick={()=>{alert('Home Screen')}}></Button>
-        </View>
+        <ScrollView>
+            <View style={styles.container}>
+                <View style={{width: '100%'}}>
+                    <Header  />
+                </View>
+            </View>
+        </ScrollView>
     )
 }
 
@@ -16,7 +19,7 @@ export default Home;
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        alignItems: 'center',
+        // alignItems: 'center',
         justifyContent: 'center',
         backgroundColor:'#f1f1f1'
     }

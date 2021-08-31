@@ -1,12 +1,14 @@
-import React,{useState} from 'react';
+import React,{useState,useContext} from 'react';
 import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input,CheckBox,Button } from 'react-native-elements';
 import FacebookIcon from '../assets/svg/facebook.svg'
 import GoogleIcon from '../assets/svg/google.svg'
+import AppContext from '../components/appcontext'
 
 const Login = ({navigation})=>{
-    const [remember,setRemember] = useState(false)
+    const [remember,setRemember] = useState(false);
+    const myContext = useContext(AppContext)
     return(
         <View style={styles.container}>
             <View style={{alignItems: 'center',width: '100%'}}>
@@ -56,6 +58,7 @@ const Login = ({navigation})=>{
                     <Button
                         title="Log In"
                         type="solid"
+                        onPress={()=> myContext.setuserToken('token09098790909')}
                         buttonStyle={{
                             backgroundColor:'#1E3865',
                             padding:15,
