@@ -11,9 +11,14 @@ import PreLogin from './screens/prelogin'
 import Login from './screens/login'
 import SignIn from './screens/signin'
 import DrawerContent from './screens/drawercontent';
+import DonationHistory from './screens/donationhistory'
+import PaymentMethod from './screens/payment-method'
+import DepositeAmount from './screens/deposite-amount'
+import ConfirmPayment from './screens/confirm-payment'
+
 const App = (navigation) => {
 
-  const [userToken, setuserToken] = useState(null);
+  const [userToken, setuserToken] = useState('null');
   const userSettings = {
     setting1name: userToken,
     setuserToken,
@@ -48,6 +53,10 @@ const App = (navigation) => {
         ) : (
           <>
             <Stack.Screen name="Home" component={Home} options={{headerShown:false}} onPress={()=>navigation.navigate('Home',{data:userToken})} />
+            <Stack.Screen name="DonationHistory" component={DonationHistory} options={{headerShown:false}}/>
+            <Stack.Screen name="PaymentMethod" component={PaymentMethod} options={{headerShown:false}}/>
+            <Stack.Screen name="DepositeAmount" component={DepositeAmount} options={{headerShown:false}}/>
+            <Stack.Screen name="ConfirmPayment" component={ConfirmPayment} options={{headerShown:false}}/>
           </>
         )}
       </Stack.Navigator>
@@ -58,12 +67,18 @@ const App = (navigation) => {
   <AppContext.Provider value={userSettings}>
     <NavigationContainer>
        <Drawer.Navigator
-        screenOptions={{swipeEnabled: false}}
+        // screenOptions={{swipeEnabled: false}}
+        screenOptions={{
+          drawerStyle: {
+            backgroundColor: '#fff',
+            width: '85%',
+            borderTopEndRadius:25,
+            borderBottomEndRadius:25,
+            overflow: 'hidden',
+          },
+        }}
         drawerContent={(props) => <DrawerContent {...props} />}
         initialRouteName="Root"
-        drawerStyle={{
-          backgroundColor: 'transparent',
-        }}
         >
         <Drawer.Screen name="List" options={{headerShown:false}} component={Root} />
       </Drawer.Navigator>

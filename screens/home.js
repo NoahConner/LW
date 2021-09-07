@@ -1,16 +1,124 @@
 import React from 'react';
-import { View, Text, StyleSheet, Button,ScrollView } from 'react-native';
+import { View,SafeAreaView, Text, StyleSheet,ScrollView,ActivityIndicator,TouchableOpacity,FlatList } from 'react-native';
+import { Image, Button,Icon } from 'react-native-elements';
 import Header from '../components/header'
+import Location from '../assets/svg/location.svg';
+
+
+var allRestT = [
+    {
+        'name':'McDonald',
+        'image':'https://www.visitdanvillearea.com/wp-content/uploads/2015/08/McDonalds-Logo-square.jpg',
+        'distance':'2.8 km',
+        'id':'1'
+    },
+    {
+        'name':'Starbucks',
+        'image':'https://d1fdloi71mui9q.cloudfront.net/1vPHHK9SRKh0mUL2BjPc_RBjju5UYRJ2kCGdJ',
+        'distance':'1.3 km',
+        'id':'2'
+    },
+    {
+        'name':'Burger King',
+        'image':'https://e7.pngegg.com/pngimages/121/1018/png-clipart-hamburger-whopper-chophouse-restaurant-burger-king-cheeseburger-burger-king-logo-food-king-thumbnail.png',
+        'distance':'0.5 km',
+        'id':'3'
+    },
+    {
+        'name':'Subway',
+        'image':'https://w7.pngwing.com/pngs/852/202/png-transparent-subway-hoboken-logo-fast-food-restaurant-burger-king-thumbnail.png',
+        'distance':'2.7 km',
+        'id':'4'
+    },
+    {
+        'name':'Hardee`s',
+        'image':'https://e7.pngegg.com/pngimages/836/810/png-clipart-hardee-s-breakfast-fast-food-restaurant-eating-breakfast-thumbnail.png',
+        'distance':'0.3 km',
+        'id':'6'
+    },
+    {
+        'name':'McDonald',
+        'image':'https://www.visitdanvillearea.com/wp-content/uploads/2015/08/McDonalds-Logo-square.jpg',
+        'distance':'2.8 km',
+        'id':'5'
+    },
+    {
+        'name':'Starbucks',
+        'image':'https://d1fdloi71mui9q.cloudfront.net/1vPHHK9SRKh0mUL2BjPc_RBjju5UYRJ2kCGdJ',
+        'distance':'1.3 km',
+        'id':'7'
+    },
+    {
+        'name':'Burger King',
+        'image':'https://e7.pngegg.com/pngimages/121/1018/png-clipart-hamburger-whopper-chophouse-restaurant-burger-king-cheeseburger-burger-king-logo-food-king-thumbnail.png',
+        'distance':'0.5 km',
+        'id':'8'
+    },
+    {
+        'name':'Subway',
+        'image':'https://w7.pngwing.com/pngs/852/202/png-transparent-subway-hoboken-logo-fast-food-restaurant-burger-king-thumbnail.png',
+        'distance':'2.7 km',
+        'id':'9'
+    },
+    {
+        'name':'Hardee`s',
+        'image':'https://e7.pngegg.com/pngimages/836/810/png-clipart-hardee-s-breakfast-fast-food-restaurant-eating-breakfast-thumbnail.png',
+        'distance':'0.3 km',
+        'id':'10'
+    },
+]
+
+const mcCards = (d,i)=>{
+    return (
+        <TouchableOpacity>
+            <View style={styles.mcCard} key={d.id}>
+                <View style={{backgroundColor:'#fff',borderRadius: 8,overflow: 'hidden'}}>
+                    <Image
+                        source={{ uri: d.image }}
+                        style={{ width: 65, height: 70,  resizeMode: 'contain' }}
+                        PlaceholderContent={<ActivityIndicator />}
+                    />
+                </View>
+                <View style={{marginLeft:15,width:'100%',paddingRight:100}}>
+                    <Text style={{fontWeight:'bold',fontSize:20,marginBottom:5}}>{d.name}</Text>
+                    <View style={{flexDirection: 'row',alignItems: 'center'}}>
+                    <Location
+                    style={{height:18,width:15,marginRight:10}}
+                    />
+                        <Text numberOfLines={1} style={{fontSize:16}}>{d.distance} </Text>
+                    </View>
+                </View>
+            </View>
+        </TouchableOpacity>
+    )
+}
 
 const Home = ({navigation})=>{
     return(
-        <ScrollView>
-            <View style={styles.container}>
-                <View style={{width: '100%'}}>
-                    <Header  />
-                </View>
+        <View style={styles.container}>
+            <View style={{width: '100%'}}>
+                <Header navigation={navigation} />
             </View>
-        </ScrollView>
+           
+
+            <SafeAreaView style={{...styles.container,paddingHorizontal:20}}>
+            
+                <FlatList
+                    data={allRestT}
+                    renderItem={({ item, index }) => (
+                        mcCards(item,index)
+                    )}
+                    keyExtractor={item => item.id}
+                    showsVerticalScrollIndicator={false}
+                    showsHorizontalScrollIndicator={false}
+                    ListHeaderComponent={
+                        <View style={{padding:20}}>
+                            <Text style={{fontSize:26,fontWeight: 'bold'}}>All Restaurants</Text>
+                        </View>
+                    }
+                />
+            </SafeAreaView>
+        </View>
     )
 }
 
@@ -21,6 +129,18 @@ const styles = StyleSheet.create({
         flex:1,
         // alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor:'#f1f1f1'
+        backgroundColor:'#fff'
+    },
+    mcCard:{
+        backgroundColor:'#F6F8FA',
+        shadowColor: 'black',
+        shadowOffset: { width: 5, height: 5 },
+        shadowOpacity: 0.5,
+        shadowRadius: 5,
+        borderRadius:12,textAlign: 'center',
+        padding:12,
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginBottom:15,
     }
 })

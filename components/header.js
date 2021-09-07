@@ -17,34 +17,34 @@ const Header = ({navigation})=>{
             borderBottomEndRadius:15,
             borderBottomStartRadius:15
         }}>
-                <View style={{flexDirection: 'row',alignItems: 'center'}}>
+                <View style={{flexDirection: 'row',alignItems: 'center',width: '90%',paddingLeft:5}} numberOfLines={1}>
                         <Button
                             icon={
-                                <Bars style={{height:25,width:32}}/>
+                                <Bars style={{height:29,width:40}}/>
                             }
                             title=""
                             containerStyle={{width:35}}
                             buttonStyle={{backgroundColor:'transparent'}}
-                            onPress={()=> alert('00')}
+                            onPress={()=> navigation.openDrawer()}
                         />
-                    <View style={{marginLeft:20,width:'70%'}}>
+                    <View style={{marginLeft:25,width:'100%',paddingRight:100}}>
                         <Text style={{fontWeight:'bold',fontSize:20,marginBottom:5}}>Location Radius</Text>
                         <View style={{flexDirection: 'row',alignItems: 'center'}}>
                         <Location
                         style={{height:18,width:15,marginRight:10}}
                          />
-                            <Text numberOfLines={1}>4001 Oral Lake Road, New York, NY</Text>
+                            <Text numberOfLines={1}>4001 Oral Lake Road, New York, NY  </Text>
                         </View>
                     </View>
                 </View>
-                <View>
+                <View style={{width: '10%',alignItems: 'flex-end',paddingRight:2}}>
                     <TouchableOpacity>
                         <Button
                             icon={
                                 <Wallet style={{height:25,width:35}} />
                             }
                             title=""
-                            containerStyle={{width:35}}
+                            containerStyle={{width:30}}
                             buttonStyle={{backgroundColor:'transparent'}}
 
                         />
@@ -69,3 +69,6 @@ const styles = StyleSheet.create({
         elevation: 4,
     }
 })
+
+
+
