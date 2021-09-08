@@ -1,18 +1,14 @@
-import React, { Component,useState } from "react";
+import React, { Component,useState,useContext } from "react";
 import { StyleSheet, View, Switch,Modal,Alert,Pressable } from "react-native";
 import { CheckBox ,Button,Text,Icon,Image  } from 'react-native-elements'
 import ReviewImg from '../assets/svg/review.svg'
 import VisaIcon from '../assets/svg/visa.svg'
 import MasterIcon from '../assets/svg/master.svg'
 import Tick from '../assets/svg/tick.svg'
+import AppContext from '../components/appcontext'
 
 const ReviewPayment = ({navigation})=>{
-    const [modalVisible, setModalVisible] = useState(false);
-    if(modalVisible){
-        // setTimeout(()=>{
-        //     setModalVisible(false)
-        // },10000)
-    }
+    const myContext = useContext(AppContext);
 
     return(
         <View style={{padding:20}}>
@@ -43,6 +39,7 @@ const ReviewPayment = ({navigation})=>{
                     title="Confirm"
                     buttonStyle={styles.NextBtns}
                     titleStyle={{fontSize:18}}
+                    onPress={()=> myContext.setCongratesModal(true)}
                 />
                 <Button
                     title="Modify"

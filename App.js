@@ -19,9 +19,16 @@ import ConfirmPayment from './screens/confirm-payment'
 const App = (navigation) => {
 
   const [userToken, setuserToken] = useState('null');
+  const [CongratesModal,setCongratesModal] = useState(false);
+  const [SorryModal,setSorryModal] = useState(false);
+  const [CouponModal,setCouponModal] = useState(false);
   const userSettings = {
     setting1name: userToken,
+    CongratesModalCon:CongratesModal,
     setuserToken,
+    setCongratesModal,
+    setSorryModal,
+    setCouponModal
   };
 
 

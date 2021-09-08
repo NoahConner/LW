@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react';
-import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity,Dimensions,Modal  } from 'react-native';
+import React, { useState, useRef,useContext } from 'react';
+import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity,Dimensions,ImageBackground  } from 'react-native';
 import { Image, Button, Icon,Input ,CheckBox } from 'react-native-elements';
 import StackHeader from '../components/stackheader'
 import PaymentIcon from '../assets/svg/paymentIcon.svg';
@@ -9,6 +9,8 @@ import Trash from '../assets/svg/bin.svg'
 import RBSheet from "react-native-raw-bottom-sheet";
 import AddCardSheet from '../components/add-card-sheet'
 import ReviewPayment from '../components/review-pay';
+import Modals from '../components/modals';
+
 
 const defaultCad = [
     {
@@ -28,11 +30,13 @@ const defaultCad = [
     }
 ]
 const ConfirmPayment = ({navigation,route })=>{
+    
     const { amount } = route.params;
     const refRBSheet = useRef();
     const refRBSheetReview = useRef();
     const [cards, setCards] = useState(defaultCad)
     const [cardSelect,SetcardSelect] = useState(defaultCad[0].card_name);
+
     const cardDiv = (d, i) => {
         return (
             <View style={{ ...styles.Ccard, marginTop: i == 0 ? 20 : 15 }}>
@@ -106,7 +110,7 @@ const ConfirmPayment = ({navigation,route })=>{
             </View>
             <View style={{position: 'absolute',bottom:15,width:'100%',left:20}}>
                 <Button
-                    title="Next"
+                    title="Review"
                     buttonStyle={styles.NextBtns}
                     titleStyle={{fontSize:18}}
                     onPress={() => refRBSheetReview.current.open()}
@@ -158,6 +162,9 @@ const ConfirmPayment = ({navigation,route })=>{
             </RBSheet>
 
             </View>
+
+                <Modals />
+            
         </View>
     )
 }
@@ -188,5 +195,9 @@ const styles = StyleSheet.create({
         paddingHorizontal:26,
         paddingVertical:18
         ,borderRadius:15
+    },
+    image: {
+        flex: 1,
+        justifyContent: "center"
     }
 })
