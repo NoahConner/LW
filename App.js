@@ -15,6 +15,8 @@ import DonationHistory from './screens/donationhistory'
 import PaymentMethod from './screens/payment-method'
 import DepositeAmount from './screens/deposite-amount'
 import ConfirmPayment from './screens/confirm-payment'
+import Resturants from './screens/resturants'
+import Wallet from './screens/wallet'
 
 const App = (navigation) => {
 
@@ -25,6 +27,8 @@ const App = (navigation) => {
   const userSettings = {
     setting1name: userToken,
     CongratesModalCon:CongratesModal,
+    SorryModalCon:SorryModal,
+    CouponModalCon:CouponModal,
     setuserToken,
     setCongratesModal,
     setSorryModal,
@@ -64,6 +68,8 @@ const App = (navigation) => {
             <Stack.Screen name="PaymentMethod" component={PaymentMethod} options={{headerShown:false}}/>
             <Stack.Screen name="DepositeAmount" component={DepositeAmount} options={{headerShown:false}}/>
             <Stack.Screen name="ConfirmPayment" component={ConfirmPayment} options={{headerShown:false}}/>
+            <Stack.Screen name="Resturants" component={Resturants} options={{headerShown:false}}/>
+            <Stack.Screen name="Wallet" component={Wallet} options={{headerShown:false}}/>
           </>
         )}
       </Stack.Navigator>

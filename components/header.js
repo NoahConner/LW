@@ -46,7 +46,7 @@ const Header = ({navigation})=>{
                             title=""
                             containerStyle={{width:30}}
                             buttonStyle={{backgroundColor:'transparent'}}
-
+                            onPress={() => navigation.navigate('Wallet')}
                         />
                     </TouchableOpacity>
                 </View>

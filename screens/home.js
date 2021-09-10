@@ -68,9 +68,9 @@ var allRestT = [
     },
 ]
 
-const mcCards = (d,i)=>{
+const mcCards = (d,i,navigation)=>{
     return (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=> navigation.navigate('Resturants')}>
             <View style={styles.mcCard} key={d.id}>
                 <View style={{backgroundColor:'#fff',borderRadius: 8,overflow: 'hidden'}}>
                     <Image
@@ -106,7 +106,7 @@ const Home = ({navigation})=>{
                 <FlatList
                     data={allRestT}
                     renderItem={({ item, index }) => (
-                        mcCards(item,index)
+                        mcCards(item,index,navigation)
                     )}
                     keyExtractor={item => item.id}
                     showsVerticalScrollIndicator={false}
