@@ -119,7 +119,7 @@ const ConfirmPayment = ({navigation,route })=>{
             <RBSheet
                 ref={refRBSheet}
                 closeOnDragDown={true}
-                closeOnPressMask={false}
+                closeOnPressMask={true}
                 customStyles={{
                     wrapper: {
                         backgroundColor: "#0000009e",
@@ -142,7 +142,7 @@ const ConfirmPayment = ({navigation,route })=>{
             <RBSheet
                 ref={refRBSheetReview}
                 closeOnDragDown={true}
-                closeOnPressMask={false}
+                closeOnPressMask={true}
                 customStyles={{
                     wrapper: {
                         backgroundColor: "#0000009e",
@@ -158,12 +158,12 @@ const ConfirmPayment = ({navigation,route })=>{
                 }}
                 height={590}
             >
-                <ReviewPayment statement={'deposite'} />
+                <ReviewPayment navigation={navigation} amount={amount}  statement={'deposite'} />
             </RBSheet>
 
             </View>
 
-                <Modals />
+                <Modals navigation={navigation} />
             
         </View>
     )

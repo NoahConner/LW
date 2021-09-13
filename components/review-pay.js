@@ -7,20 +7,24 @@ import MasterIcon from '../assets/svg/master.svg'
 import Tick from '../assets/svg/tick.svg'
 import AppContext from '../components/appcontext'
 
-const ReviewPayment = ({navigation})=>{
+const ReviewPayment = ({navigation,amount})=>{
     const myContext = useContext(AppContext);
+    const depositeAmount = ()=>{
+        myContext.setWalletAmount(amount)
+        myContext.setCongratesModal(true)
+    }
 
     return(
         <View style={{padding:20}}>
             <View style={styles.flexRow}>
                 <ReviewImg style={{height:60,width:60}} />
-                <Text style={{fontSize:26,fontWeight: 'bold',marginTop:0,color:'#000',marginLeft:20}}>Review and Confirm</Text>
+                <Text style={{fontSize:23,fontWeight: 'bold',marginTop:0,color:'#000',marginLeft:20}}>Review and Confirm</Text>
             </View>
             <Text style={{marginTop:40,fontSize:19,color:'#666666'}}>Deposit Amount</Text>
-            <Text style={{marginTop:5,fontSize:33,color:'#000',fontWeight:'bold'}}>$10.00</Text>
+            <Text style={{marginTop:5,fontSize:28,color:'#000',fontWeight:'bold'}}>${amount}</Text>
 
             <Text style={{marginTop:25,fontSize:19,color:'#666666'}}>PayPal Charges</Text>
-            <Text style={{marginTop:5,fontSize:33,color:'#000',fontWeight:'bold'}}>$1.25</Text>
+            <Text style={{marginTop:5,fontSize:28,color:'#000',fontWeight:'bold'}}>$1.25</Text>
 
             <View style={{alignItems: 'flex-end',justifyContent: 'space-between',flexDirection: 'row',marginBottom:40,marginTop:0}}>
                 <View style={{...styles.flexRow}}>
@@ -30,7 +34,7 @@ const ReviewPayment = ({navigation})=>{
                 </View>
                 <View style={{alignItems: 'flex-end',}}>
                     <Text style={{fontSize:19,color:'#666666'}}>Total</Text>
-                    <Text style={{marginTop:5,fontSize:33,color:'#000',fontWeight:'bold'}}>$1.25</Text>
+                    <Text style={{marginTop:5,fontSize:28,color:'#000',fontWeight:'bold'}}>${parseInt(amount)+1.25}</Text>
                 </View>
             </View>
 
@@ -39,12 +43,13 @@ const ReviewPayment = ({navigation})=>{
                     title="Confirm"
                     buttonStyle={styles.NextBtns}
                     titleStyle={{fontSize:18}}
-                    onPress={()=> myContext.setCongratesModal(true)}
+                    onPress={()=> depositeAmount()}
                 />
                 <Button
                     title="Modify"
                     buttonStyle={{...styles.NextBtns,backgroundColor:'#F6F8FA',marginTop:10}}
                     titleStyle={{fontSize:18,color:'#1E3865'}}
+                    onPress={()=> navigation.goBack()}
                 />
             </View>
         </View>

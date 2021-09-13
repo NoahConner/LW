@@ -12,6 +12,7 @@ import Coupon from '../assets/svg/coupon.svg'
 import { ScrollView } from 'react-native-gesture-handler';
 import DepositImg from '../assets/svg/deposite.svg'
 import SCheader from '../components/screensheader'
+import AppContext from '../components/appcontext'
 
 const defaultCad = [
     {
@@ -56,12 +57,13 @@ var donationHistory = [
 ]
 
 const Wallet = ({navigation}) => {
+    const myContext = useContext(AppContext);
     const refRBSheet = useRef();
     const [cards, setCards] = useState(defaultCad)
     const [cardSelect,SetcardSelect] = useState(defaultCad[0].card_name);
     const cardDiv = (d, i) => {
         return (
-            <View style={{ ...styles.Ccard, marginTop: i == 0 ? 20 : 15 }}>
+            <View style={{ ...styles.Ccard, marginTop: i == 0 ? 20 : 15 }} key={i}>
                 <View style={styles.flexRow}>
                     {
                         d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 40 }} /> :
@@ -96,14 +98,14 @@ const Wallet = ({navigation}) => {
                     <Coupon style={{marginRight:15}} />
                     <View style={{flexDirection:'column'}}>
                         <View style={styles.flexRow}>
-                            <Text style={{fontWeight:'bold',fontSize:21,marginRight:20}}>Donated</Text>
+                            <Text style={{fontWeight:'bold',fontSize:18,marginRight:20}}>Donated</Text>
                             <Text style={styles.dater}>11/11/2021</Text>
                         </View>
                         <Text style={styles.dater}>KFC</Text>
                     </View>
                 </View>
                 <View>
-                    <Text style={{fontWeight:'bold',fontSize:21}}>-$1.300</Text>
+                    <Text style={{fontWeight:'bold',fontSize:18}}>-$1.300</Text>
                 </View>
             </View>
         )
@@ -117,17 +119,17 @@ const Wallet = ({navigation}) => {
                 <View style={styles.depoCard}>
                     <View style={{flexDirection:'row',alignItems: 'center',width:'100%',justifyContent: 'space-between'}}>
                         <View>
-                            <Text style={{fontSize:22,color:'#000'}}>Available Credit</Text>
+                            <Text style={{fontSize:19,color:'#000'}}>Available Credit</Text>
                         </View>
                         <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
                             <View style={{...styles.flexRow}}>
-                                <DepositImg style={{height:40,width:40}} />
-                                <Text style={{fontSize:22,color:'#FF3C40',marginLeft:15}}>Deposit</Text>
+                                <DepositImg style={{height:38,width:38}} />
+                                <Text style={{fontSize:20,color:'#FF3C40',marginLeft:15}}>Deposit</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View>
-                        <Text style={{fontSize:26,color:'#000',fontWeight:'bold',marginTop:5}}>$300.00</Text>
+                        <Text style={{fontSize:24,color:'#000',fontWeight:'bold',marginTop:5}}>${myContext.WalletAmount}</Text>
                     </View>
                 </View>
             </View>
@@ -177,7 +179,7 @@ const Wallet = ({navigation}) => {
                 <RBSheet
                     ref={refRBSheet}
                     closeOnDragDown={true}
-                    closeOnPressMask={false}
+                    closeOnPressMask={true}
                     customStyles={{
                         wrapper: {
                             backgroundColor: "#0000009e",

@@ -1,8 +1,8 @@
-import React from 'react';
-import { View, Text, StyleSheet, Button,FlatList,SafeAreaView } from 'react-native';
+import React,{useRef} from 'react';
+import { View, Text, StyleSheet, Button,FlatList,SafeAreaView,TouchableOpacity } from 'react-native';
 import StackHeader from '../components/stackheader'
 import Coupon from '../assets/svg/coupon.svg'
-
+import RBSheet from "react-native-raw-bottom-sheet";
 
 var donationHistory = [
     {
@@ -70,26 +70,30 @@ var donationHistory = [
     }
 ]
 
-const dCards = (d,i)=>{
+const dCards = (d,i,refRBSheet)=>{
     return(
-        <View style={{...styles.flexRow,paddingHorizontal:20,justifyContent:'space-between',width:'100%',marginTop:i == 0 ? 20 : 50}}>
-            <View style={styles.flexRow}>
-                <Coupon style={{marginRight:15}} />
-                <View style={{flexDirection:'column'}}>
-                    <View style={styles.flexRow}>
-                        <Text style={{fontWeight:'bold',fontSize:21,marginRight:20}}>Donated</Text>
-                        <Text style={styles.dater}>11/11/2021</Text>
+        <TouchableOpacity onPress={() => refRBSheet.current.open()}>
+            <View style={{...styles.flexRow,paddingHorizontal:20,justifyContent:'space-between',width:'100%',marginTop:i == 0 ? 20 : 50}}>
+                <View style={styles.flexRow}>
+                    <Coupon style={{marginRight:15}} />
+                    <View style={{flexDirection:'column'}}>
+                        <View style={styles.flexRow}>
+                            <Text style={{fontWeight:'bold',fontSize:18
+                            ,marginRight:20}}>Donated</Text>
+                            <Text style={styles.dater}>11/11/2021</Text>
+                        </View>
+                        <Text style={styles.dater}>KFC</Text>
                     </View>
-                    <Text style={styles.dater}>KFC</Text>
+                </View>
+                <View>
+                    <Text style={{fontWeight:'bold',fontSize:18}}>-$1.300</Text>
                 </View>
             </View>
-            <View>
-                <Text style={{fontWeight:'bold',fontSize:21}}>-$1.300</Text>
-            </View>
-        </View>
+        </TouchableOpacity>
     )
 }
 const DonationHistory = ({navigation})=>{
+    const refRBSheet = useRef();
     return(
         <View style={styles.container}>
             <StackHeader navigation={navigation} name={'Donation History'} />
@@ -99,19 +103,92 @@ const DonationHistory = ({navigation})=>{
                 <FlatList
                     data={donationHistory}
                     renderItem={({ item, index }) => (
-                        dCards(item,index)
+                        dCards(item,index,refRBSheet)
                     )}
                     keyExtractor={item => item.id}
                     showsVerticalScrollIndicator={false}
                     showsHorizontalScrollIndicator={false}
-                    // ListHeaderComponent={
-                    //     <View style={{padding:20}}>
-                    //         <Text style={{fontSize:26,fontWeight: 'bold'}}>All Restaurants</Text>
-                    //     </View>
-                    // }
                 />
             </SafeAreaView>
             </View>
+            <RBSheet
+                ref={refRBSheet}
+                closeOnDragDown={true}
+                closeOnPressMask={true}
+                customStyles={{
+                    wrapper: {
+                        backgroundColor: "#0000009e",
+                    },
+                    draggableIcon: {
+                        backgroundColor: "#E6E6E6"
+                    },
+                    container:{
+                        backgroundColor: "#fff",
+                        borderTopEndRadius:20,
+                        borderTopStartRadius:20
+                    }
+                }}
+                height={425}
+            >
+                <View style={{padding:20}}>
+                    <Text style={{fontWeight: "bold",fontSize: 20,marginBottom:15,borderBottomWidth:1,borderBottomColor: "#666",paddingBottom:15}}>Donation Details</Text>
+                    
+                    <View style={{...styles.flexRow,marginTop:10}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold"}}>Date/Time:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16 }}>4 August, 1821 5:12 am</Text>
+                        </View>
+                    </View>
+                    <View style={{...styles.flexRow,marginTop:10}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold"}}>Resturant:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16 }}>KFC</Text>
+                        </View>
+                    </View>
+                    <View style={{...styles.flexRow,marginTop:10}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold"}}>Amount:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16 }}>-$40.00</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:10}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold"}}>Coupon:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16 }}>B45IUOPL</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:10}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold"}}>Coupon Status:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16 }}>Withdrawal</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:10}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold"}}>Withdrawal Time:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16 }}>4 August, 1821 9:38 am</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:10}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold"}}>Leaper Name:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16 }}>Ethen James</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:10}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold"}}>Leaper DOB:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16 }}>06 Sep, 1995</Text>
+                        </View>
+                    </View>
+
+                </View>
+            </RBSheet>
         </View>
     )
 }

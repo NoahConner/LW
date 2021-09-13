@@ -17,6 +17,7 @@ import DepositeAmount from './screens/deposite-amount'
 import ConfirmPayment from './screens/confirm-payment'
 import Resturants from './screens/resturants'
 import Wallet from './screens/wallet'
+import Profile from './screens/profile'
 
 const App = (navigation) => {
 
@@ -24,15 +25,21 @@ const App = (navigation) => {
   const [CongratesModal,setCongratesModal] = useState(false);
   const [SorryModal,setSorryModal] = useState(false);
   const [CouponModal,setCouponModal] = useState(false);
+  const [CurrentCoupon,setCurrentCoupon] = useState('N/A');
+  const [WalletAmount,setWalletAmount] = useState(0);
   const userSettings = {
     setting1name: userToken,
     CongratesModalCon:CongratesModal,
     SorryModalCon:SorryModal,
     CouponModalCon:CouponModal,
+    CurrentCoupon:CurrentCoupon,
+    WalletAmount:WalletAmount,
     setuserToken,
     setCongratesModal,
     setSorryModal,
-    setCouponModal
+    setCouponModal,
+    setCurrentCoupon,
+    setWalletAmount
   };
 
 
@@ -70,6 +77,7 @@ const App = (navigation) => {
             <Stack.Screen name="ConfirmPayment" component={ConfirmPayment} options={{headerShown:false}}/>
             <Stack.Screen name="Resturants" component={Resturants} options={{headerShown:false}}/>
             <Stack.Screen name="Wallet" component={Wallet} options={{headerShown:false}}/>
+            <Stack.Screen name="Profile" component={Profile} options={{headerShown:false}}/>
           </>
         )}
       </Stack.Navigator>

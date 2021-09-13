@@ -38,24 +38,27 @@ const DepositeAmount = ({navigation})=>{
                     <Text style={styles.txtAmount}>Cuurent Balance: </Text>
                     <Text style={styles.txtAmount}>$300.00</Text>
                 </View>
-                <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'space-between',marginTop:40}}>
+                <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'space-between',marginTop:40,width:'100%'}}>
                     <Button
                         title="-$ 10.00"
                         buttonStyle={styles.amountBtns}
-                        titleStyle={{fontSize:15}}
-                        onPress={()=> navigation.navigate('ConfirmPayment',{amount:'10.00'})}
+                        titleStyle={{fontSize:14}}
+                        containerStyle={{width:'32%'}}
+                        onPress={()=> navigation.navigate('ConfirmPayment',{amount:'10'})}
                     />
                     <Button
                         title="-$ 50.00"
                         buttonStyle={styles.amountBtns}
-                        titleStyle={{fontSize:15}}
-                        onPress={()=> navigation.navigate('ConfirmPayment',{amount:'50.00'})}
+                        titleStyle={{fontSize:14}}
+                        containerStyle={{width:'32%'}}
+                        onPress={()=> navigation.navigate('ConfirmPayment',{amount:'50'})}
                     />
                     <Button
                         title="-$ 100.00"
                         buttonStyle={styles.amountBtns}
-                        titleStyle={{fontSize:15}}
-                        onPress={()=> navigation.navigate('ConfirmPayment',{amount:'100.00'})}
+                        titleStyle={{fontSize:14}}
+                        containerStyle={{width:'32%'}}
+                        onPress={()=> navigation.navigate('ConfirmPayment',{amount:'100'})}
                     />
                 </View>
                 <View style={{marginTop:25}}>
@@ -99,7 +102,7 @@ const styles = StyleSheet.create({
         backgroundColor:'#1E3865',
         paddingHorizontal:26,
         paddingVertical:13
-        ,borderRadius:11
+        ,borderRadius:11,
     },
     NextBtns:{
         backgroundColor:'#1E3865',

@@ -118,7 +118,7 @@ const PaymentMethod = ({ navigation }) => {
             <RBSheet
                 ref={refRBSheet}
                 closeOnDragDown={true}
-                closeOnPressMask={false}
+                closeOnPressMask={true}
                 customStyles={{
                     wrapper: {
                         backgroundColor: "#0000009e",

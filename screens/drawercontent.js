@@ -66,7 +66,7 @@ const DrawerContent = ({ navigation }) => {
                             <Text style={styles.textStyle}>Deposite</Text>
                         </View>
                     </TouchableOpacity>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={()=> navigation.navigate('Profile')}>
                         <View style={{ ...styles.flexCon, marginBottom: 40 }}>
                             <ProfileIcon style={{ fill: '#fff', width: '28', height: '28' }} />
                             <Text style={styles.textStyle}>Profile</Text>
