@@ -87,7 +87,8 @@ const Resturants = ({navigation}) => {
     };
   
     const handleConfirm = (date) => {
-        setdatePick(moment(date).format('d MMM, y'))
+        console.log(date)
+        setdatePick(moment(date).format('DD MMM, yy'))
       hideDatePicker();
     };
 

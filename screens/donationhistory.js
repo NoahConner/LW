@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Button,FlatList,SafeAreaView,TouchableOpacity }
 import StackHeader from '../components/stackheader'
 import Coupon from '../assets/svg/coupon.svg'
 import RBSheet from "react-native-raw-bottom-sheet";
+import { ScrollView } from 'react-native-gesture-handler';
 
 var donationHistory = [
     {
@@ -130,64 +131,68 @@ const DonationHistory = ({navigation})=>{
                 }}
                 height={425}
             >
+                <ScrollView style={{paddingBottom:20}}>
                 <View style={{padding:20}}>
                     <Text style={{fontWeight: "bold",fontSize: 20,marginBottom:15,borderBottomWidth:1,borderBottomColor: "#666",paddingBottom:15}}>Donation Details</Text>
                     
-                    <View style={{...styles.flexRow,marginTop:10}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold"}}>Date/Time:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16 }}>4 August, 1821 5:12 am</Text>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Date/Time:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>4 August, 1821 5:12 am</Text>
                         </View>
                     </View>
-                    <View style={{...styles.flexRow,marginTop:10}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold"}}>Resturant:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16 }}>KFC</Text>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Resturant:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>KFC</Text>
                         </View>
                     </View>
-                    <View style={{...styles.flexRow,marginTop:10}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold"}}>Amount:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16 }}>-$40.00</Text>
-                        </View>
-                    </View>
-
-                    <View style={{...styles.flexRow,marginTop:10}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold"}}>Coupon:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16 }}>B45IUOPL</Text>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Amount:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>-$40.00</Text>
                         </View>
                     </View>
 
-                    <View style={{...styles.flexRow,marginTop:10}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold"}}>Coupon Status:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16 }}>Withdrawal</Text>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Coupon:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>B45IUOPL</Text>
                         </View>
                     </View>
 
-                    <View style={{...styles.flexRow,marginTop:10}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Coupon Status:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>Withdrawal</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
                             <Text style={{fontSize:18,fontWeight: "bold"}}>Withdrawal Time:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16 }}>4 August, 1821 9:38 am</Text>
+                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>4 August, 1821 9:38 am</Text>
                         </View>
                     </View>
 
-                    <View style={{...styles.flexRow,marginTop:10}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold"}}>Leaper Name:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16 }}>Ethen James</Text>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Leaper Name:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>Ethen James</Text>
                         </View>
                     </View>
 
-                    <View style={{...styles.flexRow,marginTop:10}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-end"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold"}}>Leaper DOB:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16 }}>06 Sep, 1995</Text>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Leaper DOB:</Text>
+                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>06 Sep, 1995</Text>
                         </View>
                     </View>
+
+                    
 
                 </View>
+                </ScrollView>
             </RBSheet>
         </View>
     )

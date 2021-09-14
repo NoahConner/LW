@@ -73,13 +73,13 @@ const PaymentMethod = ({ navigation }) => {
                             <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: 22, fontWeight: 'bold' }}>{d.card_name}</Text>
+                        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{d.card_name}</Text>
                         <Text style={{ color: '#666666', fontSize: 16, marginTop: 5 }}>{d.card_no}</Text>
                     </View>
                 </View>
                 <View>
                     <TouchableOpacity>
-                        <Trash style={{ height: 32, width: 30 }} onPress={() => removeCard(d.id)} />
+                        <Trash style={{ height: 30, width: 28 }} onPress={() => removeCard(d.id)} />
                     </TouchableOpacity>
                 </View>
             </View>

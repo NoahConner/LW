@@ -20,6 +20,14 @@ const Modals = ({ navigation }) => {
         showmodal = false
     }
 
+    if(myContext.CongratesModalCon){
+        setTimeout(function(){
+            myContext.setCongratesModal(false);
+            showmodal = false;
+            navigation.navigate('Home')
+        },6000)
+    }
+
     const modalConditionsClose = () => {
         if (myContext.CongratesModalCon) {
             myContext.setCongratesModal(false)

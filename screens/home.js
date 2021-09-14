@@ -80,7 +80,7 @@ const mcCards = (d,i,navigation)=>{
                     />
                 </View>
                 <View style={{marginLeft:15,width:'100%',paddingRight:100}}>
-                    <Text style={{fontWeight:'bold',fontSize:20,marginBottom:5}}>{d.name}</Text>
+                    <Text style={{fontWeight:'bold',fontSize:18,marginBottom:5}}>{d.name}</Text>
                     <View style={{flexDirection: 'row',alignItems: 'center'}}>
                     <Location
                     style={{height:18,width:15,marginRight:10}}
@@ -113,7 +113,7 @@ const Home = ({navigation})=>{
                     showsHorizontalScrollIndicator={false}
                     ListHeaderComponent={
                         <View style={{padding:20}}>
-                            <Text style={{fontSize:26,fontWeight: 'bold'}}>All Restaurants</Text>
+                            <Text style={{fontSize:22,fontWeight: 'bold'}}>All Restaurants</Text>
                         </View>
                     }
                 />

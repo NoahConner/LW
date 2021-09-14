@@ -32,7 +32,7 @@ const DepositeAmount = ({navigation})=>{
             <View style={{padding:20,width:'100%',height:Dimensions.get('window').height-100}}>
                 <View style={styles.flexRow}>
                     <Wallet style={{height:25,width:35}} />
-                    <Text style={{fontWeight: 'bold',fontSize:26,marginLeft:15}}>Wallet</Text>
+                    <Text style={{fontWeight: 'bold',fontSize:24,marginLeft:15}}>Wallet</Text>
                 </View>
                 <View style={{...styles.flexRow,marginTop:10}}>
                     <Text style={styles.txtAmount}>Cuurent Balance: </Text>
@@ -67,7 +67,7 @@ const DepositeAmount = ({navigation})=>{
                         inputContainerStyle={{backgroundColor:'#F6F8FA',paddingVertical:15,borderRadius:15,paddingHorizontal:20,borderBottomWidth:0}}
                         containerStyle={{paddingHorizontal:0}}
                         onChangeText={(amountt) => SetcustomAmount(amountt)}
-                        inputStyle={{padding:0,margin:0,fontSize: 22}}
+                        inputStyle={{padding:0,margin:0,fontSize: 20}}
                         leftIcon={{ type: 'font-awesome', name: 'dollar',color:'#666' }}
                     />
                 </View>

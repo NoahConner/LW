@@ -119,12 +119,12 @@ const Wallet = ({navigation}) => {
                 <View style={styles.depoCard}>
                     <View style={{flexDirection:'row',alignItems: 'center',width:'100%',justifyContent: 'space-between'}}>
                         <View>
-                            <Text style={{fontSize:19,color:'#000'}}>Available Credit</Text>
+                            <Text style={{fontSize:18,color:'#000'}}>Available Credit</Text>
                         </View>
                         <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
                             <View style={{...styles.flexRow}}>
-                                <DepositImg style={{height:38,width:38}} />
-                                <Text style={{fontSize:20,color:'#FF3C40',marginLeft:15}}>Deposit</Text>
+                                <DepositImg style={{height:36,width:36}} />
+                                <Text style={{fontSize:18,color:'#FF3C40',marginLeft:15}}>Deposit</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
@@ -137,7 +137,7 @@ const Wallet = ({navigation}) => {
             <View style={{paddingTop:60,paddingBottom:30}}>
                 <View style={{...styles.flexRow,marginTop:20}}>
                     <PaymentIcon style={{ height: 28, width: 38 }}/>
-                    <Text style={{fontWeight:'bold',fontSize:22,marginLeft:20}}>Payment Methods</Text>
+                    <Text style={{fontWeight:'bold',fontSize:21,marginLeft:20}}>Payment Methods</Text>
                 </View>
                 <View style={{ marginTop: 0, width: '100%', paddingBottom:40 }}>
                     <SafeAreaView >
@@ -162,8 +162,8 @@ const Wallet = ({navigation}) => {
                 </View>
                 <View>
                     <View style={{...styles.flexRow,marginTop:0}}>
-                        <History style={{ height: 36, width: 38 }}/>
-                        <Text style={{fontWeight:'bold',fontSize:22,marginLeft:20}}>Donation History</Text>
+                        <History style={{ height: 34, width: 36 }}/>
+                        <Text style={{fontWeight:'bold',fontSize:21,marginLeft:20}}>Donation History</Text>
                     </View>
                     <View>
                         {
