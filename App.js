@@ -1,5 +1,5 @@
 import 'react-native-gesture-handler';
-import React,{useState } from 'react';
+import React,{useState,useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { createStackNavigator,HeaderStyleInterpolators } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
@@ -18,6 +18,7 @@ import ConfirmPayment from './screens/confirm-payment'
 import Resturants from './screens/resturants'
 import Wallet from './screens/wallet'
 import Profile from './screens/profile'
+import RNBootSplash from 'react-native-bootsplash'
 
 const App = (navigation) => {
 
@@ -83,6 +84,17 @@ const App = (navigation) => {
       </Stack.Navigator>
     );
   }
+
+  useEffect(() => {
+    const init = async () => {
+      // …do multiple sync or async tasks
+    };
+
+    init().finally(async () => {
+       setTimeout(() => {  RNBootSplash.hide({ fade: true }); },1000)
+      console.log("Bootsplash has been hidden successfully");
+    });
+  }, []);
 
   return(
   <AppContext.Provider value={userSettings}>
