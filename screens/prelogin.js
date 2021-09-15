@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet ,Dimensions } from 'react-native';
 import PreImg from '../assets/svg/preloginscreen.svg'
 import { Button } from 'react-native-elements';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 
 const windowWidth = Dimensions.get('window').width;
@@ -11,9 +12,9 @@ const PreLogin = ({navigation})=>{
         <View style={styles.container}>
            <View  style={{paddingLeft:30,paddingRight:30,width:'100%'}}>
                <View style={{width:'100%',alignItems: 'center'}}>
-                    <PreImg style={{height:220,width:'100%'}} />
-                    <Text style={{color:'#FF4D4D',fontSize:26,fontWeight:'bold',marginTop:30}}>Donate Food</Text>
-                    <Text style={{color:'#666666',fontSize:15,marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text>
+                    <PreImg style={{height:RFPercentage(32),width:'100%'}} />
+                    <Text style={{color:'#FF4D4D',fontSize:RFPercentage(3.7),fontWeight:'bold',marginTop:30}}>Donate Food</Text>
+                    <Text style={{color:'#666666',fontSize:RFPercentage(2.2),marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text>
                     <View style={{width:'100%'}}>
                         <Button
                             title="Sign Up"

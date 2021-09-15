@@ -2,6 +2,7 @@ import React, { useState, useRef,useContext } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity,Dimensions,ImageBackground   } from 'react-native';
 import { Image, Button, Icon,Input ,CheckBox } from 'react-native-elements';
 import Wallet from '../assets/svg/wallet.svg'
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 
 const SCheader = ({navigation,backbutton,name,wallet}) => {
@@ -30,7 +31,7 @@ const SCheader = ({navigation,backbutton,name,wallet}) => {
                     {
                         name != null || name != '' || name != undefined ? (
                             <>
-                            <Text style={{fontSize:22,fontWeight:'bold',color:'#fff'}}>{name}</Text>
+                            <Text style={{fontSize:RFPercentage(3),fontWeight:'bold',color:'#fff'}}>{name}</Text>
                             </>
                         ):(
                             null

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
 import { Button,Icon } from 'react-native-elements';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const StackHeader = ({navigation,name})=>{
     return(
@@ -12,7 +13,7 @@ const StackHeader = ({navigation,name})=>{
             onPress={() => navigation.goBack()} 
             />
            
-            <Text style={{fontSize:22,fontWeight:'bold',marginLeft:20}}>{name}</Text>
+            <Text style={{fontSize:RFPercentage(2.8),fontWeight:'bold',marginLeft:20}}>{name}</Text>
         </View>
     )
 }

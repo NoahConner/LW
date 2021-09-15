@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, Alert ,Dimensions  } from 'react-native';
 import { Image, Button, Icon,Input  } from 'react-native-elements';
 import StackHeader from '../components/stackheader'
 import Wallet from '../assets/svg/wallet.svg';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const DepositeAmount = ({navigation})=>{
     const [customAmount,SetcustomAmount] = useState(null)
@@ -32,7 +33,7 @@ const DepositeAmount = ({navigation})=>{
             <View style={{padding:20,width:'100%',height:Dimensions.get('window').height-100}}>
                 <View style={styles.flexRow}>
                     <Wallet style={{height:25,width:35}} />
-                    <Text style={{fontWeight: 'bold',fontSize:24,marginLeft:15}}>Wallet</Text>
+                    <Text style={{fontWeight: 'bold',fontSize:RFPercentage(3),marginLeft:15}}>Wallet</Text>
                 </View>
                 <View style={{...styles.flexRow,marginTop:10}}>
                     <Text style={styles.txtAmount}>Cuurent Balance: </Text>
@@ -40,23 +41,23 @@ const DepositeAmount = ({navigation})=>{
                 </View>
                 <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'space-between',marginTop:40,width:'100%'}}>
                     <Button
-                        title="-$ 10.00"
+                        title="$ 10.00"
                         buttonStyle={styles.amountBtns}
-                        titleStyle={{fontSize:14}}
+                        titleStyle={{fontSize:RFPercentage(2)}}
                         containerStyle={{width:'32%'}}
                         onPress={()=> navigation.navigate('ConfirmPayment',{amount:'10'})}
                     />
                     <Button
-                        title="-$ 50.00"
+                        title="$ 50.00"
                         buttonStyle={styles.amountBtns}
-                        titleStyle={{fontSize:14}}
+                        titleStyle={{fontSize:RFPercentage(2)}}
                         containerStyle={{width:'32%'}}
                         onPress={()=> navigation.navigate('ConfirmPayment',{amount:'50'})}
                     />
                     <Button
-                        title="-$ 100.00"
+                        title="$ 100.00"
                         buttonStyle={styles.amountBtns}
-                        titleStyle={{fontSize:14}}
+                        titleStyle={{fontSize:RFPercentage(2)}}
                         containerStyle={{width:'32%'}}
                         onPress={()=> navigation.navigate('ConfirmPayment',{amount:'100'})}
                     />
@@ -67,7 +68,7 @@ const DepositeAmount = ({navigation})=>{
                         inputContainerStyle={{backgroundColor:'#F6F8FA',paddingVertical:15,borderRadius:15,paddingHorizontal:20,borderBottomWidth:0}}
                         containerStyle={{paddingHorizontal:0}}
                         onChangeText={(amountt) => SetcustomAmount(amountt)}
-                        inputStyle={{padding:0,margin:0,fontSize: 20}}
+                        inputStyle={{padding:0,margin:0,fontSize: RFPercentage(2.8)}}
                         leftIcon={{ type: 'font-awesome', name: 'dollar',color:'#666' }}
                     />
                 </View>
@@ -75,7 +76,7 @@ const DepositeAmount = ({navigation})=>{
                     <Button
                         title="Next"
                         buttonStyle={styles.NextBtns}
-                        titleStyle={{fontSize:18}}
+                        titleStyle={{fontSize:RFPercentage(2.5)}}
                         onPress={()=> verifyAmont()}
                     />
                 </View>
@@ -100,7 +101,7 @@ const styles = StyleSheet.create({
     },
     amountBtns:{
         backgroundColor:'#1E3865',
-        paddingHorizontal:26,
+        paddingHorizontal:10,
         paddingVertical:13
         ,borderRadius:11,
     },

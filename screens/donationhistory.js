@@ -4,6 +4,7 @@ import StackHeader from '../components/stackheader'
 import Coupon from '../assets/svg/coupon.svg'
 import RBSheet from "react-native-raw-bottom-sheet";
 import { ScrollView } from 'react-native-gesture-handler';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 var donationHistory = [
     {
@@ -79,7 +80,7 @@ const dCards = (d,i,refRBSheet)=>{
                     <Coupon style={{marginRight:15}} />
                     <View style={{flexDirection:'column'}}>
                         <View style={styles.flexRow}>
-                            <Text style={{fontWeight:'bold',fontSize:18
+                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)
                             ,marginRight:20}}>Donated</Text>
                             <Text style={styles.dater}>11/11/2021</Text>
                         </View>
@@ -87,7 +88,7 @@ const dCards = (d,i,refRBSheet)=>{
                     </View>
                 </View>
                 <View>
-                    <Text style={{fontWeight:'bold',fontSize:18}}>-$1.300</Text>
+                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
                 </View>
             </View>
         </TouchableOpacity>
@@ -133,59 +134,59 @@ const DonationHistory = ({navigation})=>{
             >
                 <ScrollView style={{paddingBottom:20}}>
                 <View style={{padding:20}}>
-                    <Text style={{fontWeight: "bold",fontSize: 20,marginBottom:15,borderBottomWidth:1,borderBottomColor: "#666",paddingBottom:15}}>Donation Details</Text>
+                    <Text style={{fontWeight: "bold",fontSize: RFPercentage(2.8),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#666",paddingBottom:15}}>Donation Details</Text>
                     
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Date/Time:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>4 August, 1821 5:12 am</Text>
+                            <Text style={{fontSize:RFPercentage(2.5),fontWeight: "bold",marginTop:-3}}>Date/Time:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1 }}>4 August, 1821 5:12 am</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Resturant:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>KFC</Text>
+                            <Text style={{fontSize:RFPercentage(2.5),fontWeight: "bold",marginTop:-3}}>Resturant:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1 }}>KFC</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Amount:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>-$40.00</Text>
-                        </View>
-                    </View>
-
-                    <View style={{...styles.flexRow,marginTop:15}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Coupon:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>B45IUOPL</Text>
+                            <Text style={{fontSize:RFPercentage(2.5),fontWeight: "bold",marginTop:-3}}>Amount:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1 }}>-$40.00</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Coupon Status:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>Withdrawal</Text>
+                            <Text style={{fontSize:RFPercentage(2.5),fontWeight: "bold",marginTop:-3}}>Coupon:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1 }}>B45IUOPL</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold"}}>Withdrawal Time:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>4 August, 1821 9:38 am</Text>
+                            <Text style={{fontSize:RFPercentage(2.5),fontWeight: "bold",marginTop:-3}}>Coupon Status:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1 }}>Withdrawal</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Leaper Name:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>Ethen James</Text>
+                            <Text style={{fontSize:RFPercentage(2.5),fontWeight: "bold"}}>Withdrawal Time:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1 }}>4 August, 1821 9:38 am</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:18,fontWeight: "bold",marginTop:-3}}>Leaper DOB:</Text>
-                            <Text style={{fontSize:16,marginLeft: 16,flexShrink: 1 }}>06 Sep, 1995</Text>
+                            <Text style={{fontSize:RFPercentage(2.5),fontWeight: "bold",marginTop:-3}}>Leaper Name:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1 }}>Ethen James</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:RFPercentage(2.5),fontWeight: "bold",marginTop:-3}}>Leaper DOB:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1 }}>06 Sep, 1995</Text>
                         </View>
                     </View>
 
@@ -210,6 +211,6 @@ const styles = StyleSheet.create({
         flexDirection:'row',alignItems: 'center'
     },
     dater:{
-        fontSize:16,color:'#666666'
+        fontSize:RFPercentage(2),color:'#666666'
     }
 })

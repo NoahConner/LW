@@ -8,7 +8,7 @@ import Trash from '../assets/svg/bin.svg'
 import RBSheet from "react-native-raw-bottom-sheet";
 import AddCardSheet from '../components/add-card-sheet'
 import PaymentIcon from '../assets/svg/paymentIcon.svg';
-
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const defaultCad = [
     {
@@ -73,8 +73,8 @@ const PaymentMethod = ({ navigation }) => {
                             <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: 20, fontWeight: 'bold' }}>{d.card_name}</Text>
-                        <Text style={{ color: '#666666', fontSize: 16, marginTop: 5 }}>{d.card_no}</Text>
+                        <Text style={{ fontSize: RFPercentage(2.7), fontWeight: 'bold' }}>{d.card_name}</Text>
+                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>{d.card_no}</Text>
                     </View>
                 </View>
                 <View>
@@ -105,10 +105,10 @@ const PaymentMethod = ({ navigation }) => {
                                     name='plus'
                                     type='font-awesome'
                                     color='#FF3C40'
-                                    iconStyle={{ fontSize: 24 }}
+                                    iconStyle={{ fontSize: RFPercentage(2.5) }}
                                     style={{ marginRight: 24 }}
                                 />
-                                <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Add Payment Method</Text>
+                                <Text style={{ fontWeight: 'bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
                             </TouchableOpacity>
                         }
                     />

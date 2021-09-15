@@ -21,7 +21,7 @@ import ProfileIcon from '../assets/svg/profileIcon.svg';
 import DepositeIcon from '../assets/svg/deposite.svg';
 import PaymentIcon from '../assets/svg/paymentIcon.svg';
 import DonationIcon from '../assets/svg/historyIcon.svg';
-
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 
 const DrawerContent = ({ navigation }) => {
@@ -32,17 +32,12 @@ const DrawerContent = ({ navigation }) => {
         <View style={{ flex: 1, paddingBottom: 30 }}>
             <DrawerContentScrollView>
                 <View style={{...styles.flexCon,backgroundColor: '#FF3C40',alignItems: 'flex-end',paddingLeft:20,paddingRight:10,paddingBottom:10,marginTop:10,marginTop:-5,position:'relative'}} >
-                    {/* <Image
-                        source={{ uri: 'https://i.pinimg.com/736x/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg' }}
-                        style={{ width: 65, height: 70, borderRadius: 8,marginTop:50 }}
-                        PlaceholderContent={<ActivityIndicator />}
-                    /> */}
                     <View style={{ width: 65, height: 70, borderRadius: 10,marginTop:50, backgroundColor:'#FFFFFF', display: 'flex', alignItems: 'center' , justifyContent: 'center'}}>
-                        <Text style={{ fontSize:26,fontWeight:'bold',color:"#FF3C40"}}>JG</Text>
+                        <Text style={{ fontSize:RFPercentage(4),fontWeight:'bold',color:"#FF3C40"}}>JG</Text>
                     </View>
                     <View style={{ width: '80%'}} numberOfLines={1}>
-                        <Title style={{ ...styles.textStyle, color: '#fff',marginLeft:10,fontSize:24,fontWeight: 'bold'}} numberOfLines={1}>Jacob Gomez</Title>
-                        {/* <Text style={{ ...styles.textStyle, ...styles.email }} numberOfLines={1} ellipsizeMode={'tail'} >noahConner@gmail.com</Text> */}
+                        <Title style={{ ...styles.textStyle, color: '#fff',marginLeft:10,fontSize:RFPercentage(3.3),fontWeight: 'bold'}} numberOfLines={1}>Jacob Gomez</Title>
+                       
                     </View>
                     <View style={{position: 'absolute',right: 10, top:10}}>
                         <Icon
@@ -61,33 +56,6 @@ const DrawerContent = ({ navigation }) => {
                     </View>
                 </View>
 
-                {/* <Drawer.Section style={{ marginTop: 70,paddingLeft:20,paddingRight:20}}>
-
-                    <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
-                        <View style={{ ...styles.flexCon, marginBottom: 40 }}>
-                            <DepositeIcon style={{ fill: '#fff', width: '28', height: '28' }} />
-                            <Text style={styles.textStyle}>Deposite</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=> navigation.navigate('Profile')}>
-                        <View style={{ ...styles.flexCon, marginBottom: 40 }}>
-                            <ProfileIcon style={{ fill: '#fff', width: '28', height: '28' }} />
-                            <Text style={styles.textStyle}>Profile</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>navigation.navigate('PaymentMethod')}>
-                        <View style={{ ...styles.flexCon, marginBottom: 40 }}>
-                            <PaymentIcon style={{ fill: '#fff', width: '28', height: '28' }} />
-                            <Text style={styles.textStyle}>Payment Method</Text>
-                        </View>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={()=>navigation.navigate('DonationHistory')} >
-                        <View style={{ ...styles.flexCon, marginBottom: 40 }}>
-                            <DonationIcon style={{ fill: '#fff', width: '28', height: '28' }} />
-                            <Text style={styles.textStyle}>Donation History</Text>
-                        </View>
-                    </TouchableOpacity>
-                </Drawer.Section> */}
                 <View style={{ marginTop: 70,paddingLeft:20,paddingRight:20}}>
                 <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
                         <View style={{ ...styles.flexCon, marginBottom: 40 }}>
@@ -146,14 +114,14 @@ const styles = StyleSheet.create({
     textStyle: {
         fontFamily: 'Montserrat',
         marginLeft: 20,
-        fontSize: 19,
+        fontSize: RFPercentage(2.6),
         color: '#000'
     },
     email:
     {
         textAlign: 'center',
         color: '#fff',
-        fontSize: 16,
+        fontSize: RFPercentage(2.5),
         paddingEnd: 10,
     }
 })

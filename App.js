@@ -19,6 +19,7 @@ import Resturants from './screens/resturants'
 import Wallet from './screens/wallet'
 import Profile from './screens/profile'
 import RNBootSplash from 'react-native-bootsplash'
+import ForgotPassword from './screens/forgotpassword'
 
 const App = (navigation) => {
 
@@ -55,19 +56,19 @@ const App = (navigation) => {
       <Stack.Navigator >
         {userToken == null ? (
           <>
-          <Stack.Screen
-            name="PreLogin"
-            component={PreLogin}
-            options={{
-              title: '',
-              animationTypeForReplace: isSignout ? 'pop' : 'push',
-              headerShown:false,
-              headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
-            }}
-          />
-          <Stack.Screen name="Login" component={Login} options={{headerShown:false}} />
-          <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}  />
-          
+            <Stack.Screen
+              name="PreLogin"
+              component={PreLogin}
+              options={{
+                title: '',
+                animationTypeForReplace: isSignout ? 'pop' : 'push',
+                headerShown:false,
+                headerStyleInterpolator: HeaderStyleInterpolators.forUIKit,
+              }}
+            />
+            <Stack.Screen name="Login" component={Login} options={{headerShown:false}} />
+            <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}  />
+            <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{headerShown:false}}  />
           </>
         ) : (
           <>

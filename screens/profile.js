@@ -5,6 +5,7 @@ import StackHeader from '../components/stackheader'
 import EditIcon from '../assets/svg/edit.svg'
 import { ScrollView } from 'react-native-gesture-handler';
 import RBSheet from "react-native-raw-bottom-sheet";
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const Profile = ({navigation})=>{
     const refRBSheet = useRef();
@@ -16,7 +17,7 @@ const Profile = ({navigation})=>{
                     editCOn == 'name' ? 
                     (
                         <>
-                            <Text style={{fontSize:18}}>Name</Text>
+                            <Text style={{fontSize:RFPercentage(2.4)}}>Name</Text>
                             <Input
                                 placeholder='Jacb Gomez'
                                 containerStyle={{
@@ -33,7 +34,7 @@ const Profile = ({navigation})=>{
                     editCOn == 'email' ?
                     (
                         <>
-                            <Text style={{fontSize:18}}>Email</Text>
+                            <Text style={{fontSize:RFPercentage(2.4)}}>Email</Text>
                             <Input
                                 placeholder='jacob@gmail.com'
                                 containerStyle={{
@@ -50,7 +51,7 @@ const Profile = ({navigation})=>{
                     editCOn == 'phone' ?
                     (
                         <>
-                            <Text style={{fontSize:18}}>Phone</Text>
+                            <Text style={{fontSize:RFPercentage(2.4)}}>Phone</Text>
                             <Input
                                 placeholder='+1234567898'
                                 containerStyle={{
@@ -79,24 +80,24 @@ const Profile = ({navigation})=>{
             <StackHeader navigation={navigation} name={'Profile'} />
             <ScrollView style={{padding:20,marginTop:10,paddingBottom:10}}>
                 <View style={styles.mainCard}>
-                    <Text style={{fontSize:18}}>Name</Text>
-                    <Text style={{fontSize:20,color:'#000',fontWeight:'bold',marginTop:10}}>Jacob Gomez</Text>
+                    <Text style={{fontSize:RFPercentage(2.5)}}>Name</Text>
+                    <Text style={{fontSize:RFPercentage(2.7),color:'#000',fontWeight:'bold',marginTop:10}}>Jacob Gomez</Text>
                     <TouchableOpacity style={{position:'absolute',right:15,top:10}} onPress={() => openSheet('name')}>
                         <EditIcon style={{height:35,width:20}}/>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.mainCard}>
-                    <Text style={{fontSize:18}}>Email</Text>
-                    <Text style={{fontSize:20,color:'#000',fontWeight:'bold',marginTop:10}}>jacob@gmail.com</Text>
+                    <Text style={{fontSize:RFPercentage(2.5)}}>Email</Text>
+                    <Text style={{fontSize:RFPercentage(2.7),color:'#000',fontWeight:'bold',marginTop:10}}>jacob@gmail.com</Text>
                     <TouchableOpacity style={{position:'absolute',right:15,top:10}} onPress={() => openSheet('email')}>
                         <EditIcon style={{height:35,width:20}}/>
                     </TouchableOpacity>
                 </View>
 
                 <View style={styles.mainCard}>
-                    <Text style={{fontSize:18}}>Phone</Text>
-                    <Text style={{fontSize:20,color:'#000',fontWeight:'bold',marginTop:10}}>+1234567898</Text>
+                    <Text style={{fontSize:RFPercentage(2.5)}}>Phone</Text>
+                    <Text style={{fontSize:RFPercentage(2.7),color:'#000',fontWeight:'bold',marginTop:10}}>+1234567898</Text>
                     <TouchableOpacity style={{position:'absolute',right:15,top:10}} onPress={() => openSheet('phone')}>
                         <EditIcon style={{height:35,width:20}}/>
                     </TouchableOpacity>

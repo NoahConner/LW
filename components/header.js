@@ -4,6 +4,7 @@ import { Button,Icon } from 'react-native-elements';
 import Wallet from '../assets/svg/wallet.svg';
 import Bars from '../assets/svg/bars.svg';
 import Location from '../assets/svg/location.svg';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const Header = ({navigation})=>{
     return(
@@ -28,7 +29,7 @@ const Header = ({navigation})=>{
                             onPress={()=> navigation.openDrawer()}
                         />
                     <View style={{marginLeft:25,width:'100%',paddingRight:100}}>
-                        <Text style={{fontWeight:'bold',fontSize:20,marginBottom:5}}>Location Radius</Text>
+                        <Text style={{fontWeight:'bold',fontSize:RFPercentage(3),marginBottom:5}}>Location Radius</Text>
                         <View style={{flexDirection: 'row',alignItems: 'center'}}>
                         <Location
                         style={{height:18,width:15,marginRight:10}}

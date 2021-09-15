@@ -3,6 +3,7 @@ import { View,SafeAreaView, Text, StyleSheet,ScrollView,ActivityIndicator,Toucha
 import { Image, Button,Icon } from 'react-native-elements';
 import Header from '../components/header'
 import Location from '../assets/svg/location.svg';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 
 var allRestT = [
@@ -80,12 +81,12 @@ const mcCards = (d,i,navigation)=>{
                     />
                 </View>
                 <View style={{marginLeft:15,width:'100%',paddingRight:100}}>
-                    <Text style={{fontWeight:'bold',fontSize:18,marginBottom:5}}>{d.name}</Text>
+                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5),marginBottom:5}}>{d.name}</Text>
                     <View style={{flexDirection: 'row',alignItems: 'center'}}>
                     <Location
                     style={{height:18,width:15,marginRight:10}}
                     />
-                        <Text numberOfLines={1} style={{fontSize:16}}>{d.distance} </Text>
+                        <Text numberOfLines={1} style={{fontSize:RFPercentage(2)}}>{d.distance} </Text>
                     </View>
                 </View>
             </View>
@@ -95,12 +96,12 @@ const mcCards = (d,i,navigation)=>{
 
 const Home = ({navigation})=>{
     return(
+        
         <View style={styles.container}>
             <View style={{width: '100%'}}>
                 <Header navigation={navigation} />
             </View>
            
-
             <SafeAreaView style={{...styles.container,paddingHorizontal:20}}>
             
                 <FlatList
@@ -113,7 +114,7 @@ const Home = ({navigation})=>{
                     showsHorizontalScrollIndicator={false}
                     ListHeaderComponent={
                         <View style={{padding:20}}>
-                            <Text style={{fontSize:22,fontWeight: 'bold'}}>All Restaurants</Text>
+                            <Text style={{fontSize:RFPercentage(3),fontWeight: 'bold'}}>All Restaurants</Text>
                         </View>
                     }
                 />

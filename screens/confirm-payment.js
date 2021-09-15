@@ -10,6 +10,7 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import AddCardSheet from '../components/add-card-sheet'
 import ReviewPayment from '../components/review-pay';
 import Modals from '../components/modals';
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 
 const defaultCad = [
@@ -47,8 +48,8 @@ const ConfirmPayment = ({navigation,route })=>{
                             <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{d.card_name}</Text>
-                        <Text style={{ color: '#666666', fontSize: 16, marginTop: 5 }}>{d.card_no}</Text>
+                        <Text style={{ fontSize: RFPercentage(2.5), fontWeight: 'bold' }}>{d.card_name}</Text>
+                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>{d.card_no}</Text>
                     </View>
                 </View>
                 <View>
@@ -73,12 +74,12 @@ const ConfirmPayment = ({navigation,route })=>{
             <StackHeader navigation={navigation} name={'Confirm Payment Method'} />
             <View style={{padding:20,width:'100%',height:Dimensions.get('window').height-100}}>
                 <View style={{...styles.flexRow,justifyContent: 'space-between'}}>
-                    <Text style={{color:'#666666',fontSize:18}}>Deposit Amont</Text>
-                    <Text style={{color:'#000',fontSize:18,fontWeight:'bold'}}>${amount}</Text>
+                    <Text style={{color:'#666666',fontSize:RFPercentage(2.5)}}>Deposit Amont</Text>
+                    <Text style={{color:'#000',fontSize:RFPercentage(2.5),fontWeight:'bold'}}>${amount}</Text>
                 </View>
                 <View style={{...styles.flexRow,marginTop:50}}>
                     <PaymentIcon style={{ height: 28, width: 38 }}/>
-                    <Text style={{fontWeight:'bold',fontSize:22,marginLeft:20}}>Payment Methods</Text>
+                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(3),marginLeft:20}}>Payment Methods</Text>
                 </View>
 
                 <View style={{ marginTop: 0, width: '100%', paddingBottom: 80 }}>
@@ -97,10 +98,10 @@ const ConfirmPayment = ({navigation,route })=>{
                                     name='plus'
                                     type='font-awesome'
                                     color='#FF3C40'
-                                    iconStyle={{ fontSize: 24 }}
+                                    iconStyle={{ fontSize: RFPercentage(3) }}
                                     style={{ marginRight: 24 }}
                                 />
-                                <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Add Payment Method</Text>
+                                <Text style={{ fontWeight: 'bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
                             </TouchableOpacity>
                         }
                     />
@@ -112,7 +113,7 @@ const ConfirmPayment = ({navigation,route })=>{
                 <Button
                     title="Review"
                     buttonStyle={styles.NextBtns}
-                    titleStyle={{fontSize:18}}
+                    titleStyle={{fontSize:RFPercentage(2.5)}}
                     onPress={() => refRBSheetReview.current.open()}
                 />
             </View>

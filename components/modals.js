@@ -4,6 +4,7 @@ import { Image, Button, Icon, Input, CheckBox } from 'react-native-elements';
 import Modal from "react-native-modal";
 import Tick from '../assets/svg/tick.svg'
 import AppContext from '../components/appcontext'
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const Modals = ({ navigation }) => {
     const myContext = useContext(AppContext);
@@ -20,13 +21,13 @@ const Modals = ({ navigation }) => {
         showmodal = false
     }
 
-    if(myContext.CongratesModalCon){
-        setTimeout(function(){
-            myContext.setCongratesModal(false);
-            showmodal = false;
-            navigation.navigate('Home')
-        },6000)
-    }
+    // setTimeout(function(){
+    //     if(myContext.CongratesModalCon){
+    //         myContext.setCongratesModal(false);
+    //         showmodal = false;
+    //         navigation.navigate('Home')
+    //     }
+    // },5000)
 
     const modalConditionsClose = () => {
         if (myContext.CongratesModalCon) {
@@ -54,14 +55,14 @@ const Modals = ({ navigation }) => {
                             {myContext.CongratesModalCon ? (
                                 <>
                                     <Tick style={{ height: 55, width: 55, marginBottom: 20 }} />
-                                    <Text style={{ color: '#FF3C40', fontSize: 23, fontWeight: 'bold' }}>Deposit Successfull! </Text>
-                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: 16, marginTop: 5 }}>You have Successfully Deposited  the Amount.</Text>
+                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.8), fontWeight: 'bold' }}>Deposit Successfull! </Text>
+                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>You have Successfully Deposited  the Amount.</Text>
                                 </>
                             ) : myContext.SorryModalCon ? (
                                 <>
 
-                                    <Text style={{ color: '#FF3C40', fontSize: 23, fontWeight: 'bold' }}>Sorry :(</Text>
-                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: 16, marginTop: 5 }}>you don't have insufficient balance in your wallet, Please deposit money on you wallet</Text>
+                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.8), fontWeight: 'bold' }}>Sorry :(</Text>
+                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>you don't have insufficient balance in your wallet, Please deposit money on you wallet</Text>
                                     <Button
                                         title="Deposit"
                                         type="solid"
@@ -72,7 +73,7 @@ const Modals = ({ navigation }) => {
                                             borderRadius: 15,
                                         }}
                                         titleStyle={{
-                                            fontSize: 18
+                                            fontSize: RFPercentage(2.3)
                                         }}
                                         containerStyle={{ width: '100%', marginTop: 30 }}
                                         onPress={()=> goOnDeposit()}
@@ -81,9 +82,9 @@ const Modals = ({ navigation }) => {
                             ) : myContext.CouponModalCon ? (
                                 <>
 
-                                    <Text style={{ color: '#FF3C40', fontSize: 23, fontWeight: 'bold' }}>Thanks For Your Donation! </Text>
-                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: 16, marginTop: 5 }}>Here`s the coupon code for your Leaper`s Food.</Text>
-                                    <Text style={{ textAlign: 'center', color: '#1E3865', fontSize: 18, marginTop: 25, fontWeight: 'bold' }}>Coupon Code</Text>
+                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.8), fontWeight: 'bold' }}>Thanks For Your Donation! </Text>
+                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>Here`s the coupon code for your Leaper`s Food.</Text>
+                                    <Text style={{ textAlign: 'center', color: '#1E3865', fontSize: RFPercentage(2.5), marginTop: 25, fontWeight: 'bold' }}>Coupon Code</Text>
                                     <Button
                                         title={myContext.CurrentCoupon}
                                         type="solid"
@@ -94,7 +95,7 @@ const Modals = ({ navigation }) => {
                                             borderRadius: 15,
                                         }}
                                         titleStyle={{
-                                            fontSize: 22
+                                            fontSize: RFPercentage(2.6)
                                         }}
                                         containerStyle={{ width: '100%', marginTop: 15 }}
                                     />

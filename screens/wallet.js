@@ -13,6 +13,7 @@ import { ScrollView } from 'react-native-gesture-handler';
 import DepositImg from '../assets/svg/deposite.svg'
 import SCheader from '../components/screensheader'
 import AppContext from '../components/appcontext'
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const defaultCad = [
     {
@@ -71,8 +72,8 @@ const Wallet = ({navigation}) => {
                             <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: 18, fontWeight: 'bold' }}>{d.card_name}</Text>
-                        <Text style={{ color: '#666666', fontSize: 16, marginTop: 5 }}>{d.card_no}</Text>
+                        <Text style={{ fontSize: RFPercentage(2.5), fontWeight: 'bold' }}>{d.card_name}</Text>
+                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>{d.card_no}</Text>
                     </View>
                 </View>
                 <View>
@@ -98,14 +99,14 @@ const Wallet = ({navigation}) => {
                     <Coupon style={{marginRight:15}} />
                     <View style={{flexDirection:'column'}}>
                         <View style={styles.flexRow}>
-                            <Text style={{fontWeight:'bold',fontSize:18,marginRight:20}}>Donated</Text>
+                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:20}}>Donated</Text>
                             <Text style={styles.dater}>11/11/2021</Text>
                         </View>
                         <Text style={styles.dater}>KFC</Text>
                     </View>
                 </View>
                 <View>
-                    <Text style={{fontWeight:'bold',fontSize:18}}>-$1.300</Text>
+                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
                 </View>
             </View>
         )
@@ -119,17 +120,17 @@ const Wallet = ({navigation}) => {
                 <View style={styles.depoCard}>
                     <View style={{flexDirection:'row',alignItems: 'center',width:'100%',justifyContent: 'space-between'}}>
                         <View>
-                            <Text style={{fontSize:18,color:'#000'}}>Available Credit</Text>
+                            <Text style={{fontSize:RFPercentage(2.5),color:'#000'}}>Available Credit</Text>
                         </View>
                         <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
                             <View style={{...styles.flexRow}}>
                                 <DepositImg style={{height:36,width:36}} />
-                                <Text style={{fontSize:18,color:'#FF3C40',marginLeft:15}}>Deposit</Text>
+                                <Text style={{fontSize:RFPercentage(2.5),color:'#FF3C40',marginLeft:10}}>Deposit</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View>
-                        <Text style={{fontSize:24,color:'#000',fontWeight:'bold',marginTop:5}}>${myContext.WalletAmount}</Text>
+                        <Text style={{fontSize:RFPercentage(2.8),color:'#000',fontWeight:'bold',marginTop:5}}>${myContext.WalletAmount}</Text>
                     </View>
                 </View>
             </View>
@@ -137,7 +138,7 @@ const Wallet = ({navigation}) => {
             <View style={{paddingTop:60,paddingBottom:30}}>
                 <View style={{...styles.flexRow,marginTop:20}}>
                     <PaymentIcon style={{ height: 28, width: 38 }}/>
-                    <Text style={{fontWeight:'bold',fontSize:21,marginLeft:20}}>Payment Methods</Text>
+                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.8),marginLeft:20}}>Payment Methods</Text>
                 </View>
                 <View style={{ marginTop: 0, width: '100%', paddingBottom:40 }}>
                     <SafeAreaView >
@@ -153,17 +154,17 @@ const Wallet = ({navigation}) => {
                                 name='plus'
                                 type='font-awesome'
                                 color='#FF3C40'
-                                iconStyle={{ fontSize: 24 }}
-                                style={{ marginRight: 24 }}
+                                iconStyle={{ fontSize: RFPercentage(3) }}
+                                style={{ marginRight: RFPercentage(3) }}
                             />
-                            <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Add Payment Method</Text>
+                            <Text style={{ fontWeight: 'bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
                         </TouchableOpacity>
                     </SafeAreaView>
                 </View>
                 <View>
                     <View style={{...styles.flexRow,marginTop:0}}>
-                        <History style={{ height: 34, width: 36 }}/>
-                        <Text style={{fontWeight:'bold',fontSize:21,marginLeft:20}}>Donation History</Text>
+                        <History style={{ height: 34, width: 32 }}/>
+                        <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.8),marginLeft:20}}>Donation History</Text>
                     </View>
                     <View>
                         {
@@ -228,7 +229,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     dater:{
-        fontSize:16,color:'#666666'
+        fontSize:RFPercentage(2.2),color:'#666666'
     },
     depoCard:{
         shadowColor: "#000",

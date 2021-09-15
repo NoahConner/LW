@@ -4,6 +4,7 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input,CheckBox,Button } from 'react-native-elements';
 import FacebookIcon from '../assets/svg/facebook.svg'
 import GoogleIcon from '../assets/svg/google.svg'
+import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 const SignIn = ({navigation})=>{
     const [remember,setRemember] = useState(false)
@@ -12,8 +13,8 @@ const SignIn = ({navigation})=>{
         <View style={styles.container}>
             
             <View style={{alignItems: 'center',width: '100%'}}>
-                <Text style={{color:'#E83131',fontSize:26,fontWeight:'bold',marginTop:30}}>Sign Up</Text>
-                <Text style={{color:'#666666',fontSize:15,marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text>
+                <Text style={{color:'#E83131',fontSize:RFPercentage(4),fontWeight:'bold',marginTop:30}}>Sign Up</Text>
+                <Text style={{color:'#666666',fontSize:RFPercentage(2),marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text>
                 <View style={{width:'100%'}}>
                     <Input
                      placeholder='Full Name'
@@ -67,7 +68,7 @@ const SignIn = ({navigation})=>{
                             borderRadius:15
                         }}
                     />
-                    <Text style={{color:'#666666',textAlign:'center',fontSize:16,marginTop:10,marginBottom:10}}>Or</Text>
+                    <Text style={{color:'#666666',textAlign:'center',fontSize:RFPercentage(2),marginTop:10,marginBottom:10}}>Or</Text>
                     <Button
                         title="Continue with Facebook"
                         type="solid"
