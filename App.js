@@ -20,6 +20,10 @@ import Wallet from './screens/wallet'
 import Profile from './screens/profile'
 import RNBootSplash from 'react-native-bootsplash'
 import ForgotPassword from './screens/forgotpassword'
+import DepositHistory from './screens/deposit-history'
+import TermCondition from './screens/terms-con'
+import PrivacyPolicy from './screens/privacy-policy'
+
 
 const App = (navigation) => {
 
@@ -29,6 +33,7 @@ const App = (navigation) => {
   const [CouponModal,setCouponModal] = useState(false);
   const [CurrentCoupon,setCurrentCoupon] = useState('N/A');
   const [WalletAmount,setWalletAmount] = useState(0);
+  const [profileImagee,setprofileImagee] = useState(null)
   const userSettings = {
     setting1name: userToken,
     CongratesModalCon:CongratesModal,
@@ -36,12 +41,14 @@ const App = (navigation) => {
     CouponModalCon:CouponModal,
     CurrentCoupon:CurrentCoupon,
     WalletAmount:WalletAmount,
+    profileImagee:profileImagee,
     setuserToken,
     setCongratesModal,
     setSorryModal,
     setCouponModal,
     setCurrentCoupon,
-    setWalletAmount
+    setWalletAmount,
+    setprofileImagee
   };
 
 
@@ -80,7 +87,11 @@ const App = (navigation) => {
             <Stack.Screen name="Resturants" component={Resturants} options={{headerShown:false}}/>
             <Stack.Screen name="Wallet" component={Wallet} options={{headerShown:false}}/>
             <Stack.Screen name="Profile" component={Profile} options={{headerShown:false}}/>
+            <Stack.Screen name="DepositHistory" component={DepositHistory} options={{headerShown:false}}/>
+            <Stack.Screen name="TermCondition" component={TermCondition} options={{headerShown:false}}/>
+            <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} options={{headerShown:false}}/>
           </>
+
         )}
       </Stack.Navigator>
     );
@@ -105,7 +116,7 @@ const App = (navigation) => {
         screenOptions={{
           drawerStyle: {
             backgroundColor: '#fff',
-            width: '85%',
+            width: '80%',
             borderTopEndRadius:25,
             borderBottomEndRadius:25,
             overflow: 'hidden',

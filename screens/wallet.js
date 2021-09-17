@@ -60,27 +60,24 @@ var donationHistory = [
 const Wallet = ({navigation}) => {
     const myContext = useContext(AppContext);
     const refRBSheet = useRef();
-    const [cards, setCards] = useState(defaultCad)
-    const [cardSelect,SetcardSelect] = useState(defaultCad[0].card_name);
     const cardDiv = (d, i) => {
         return (
-            <View style={{ ...styles.Ccard, marginTop: i == 0 ? 20 : 15 }} key={i}>
-                <View style={styles.flexRow}>
+            <View style={{ ...styles.Ccard,marginTop:i == 0 ? 40 : 25 }} key={i}>
+                {/* <View style={styles.flexRow}>
                     {
-                        d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 40 }} /> :
-                            d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 40 }} /> :
-                            <PaymentIcon style={{ height: 30, width: 40 }}/>
+                        d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 32 }} /> :
+                            d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 32 }} /> :
+                            <PaymentIcon style={{ height: 30, width: 32 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: RFPercentage(2.5), fontWeight: 'bold' }}>{d.card_name}</Text>
-                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>{d.card_no}</Text>
+                        <Text style={{ fontSize: RFPercentage(2.2), fontFamily:'Gilroy-Bold' }}>{d.card_name}</Text>
+                        <Text style={{ color: '#666666', fontSize: RFPercentage(1.8), marginTop: 5,fontFamily:'Gilroy-Medium' }}>{d.card_no}</Text>
                     </View>
                 </View>
                 <View>
                     <CheckBox
                         title=''
                         checked={cardSelect == d.card_name ? true : false}
-                        // onPress={()=> SetcardSelect(d.card_name)}
                         iconType='font-awesome'
                         checkedColor='#1E3865'
                         uncheckedColor='#E6E6E6'
@@ -88,26 +85,49 @@ const Wallet = ({navigation}) => {
                         uncheckedIcon='circle-o'
                         containerStyle={{padding:0,marginRight:0}}
                     />
+                </View> */}
+                <View style={{...styles.flexRow,justifyContent:'space-between',width:'100%'}} key={i}>
+                    <View style={{flexDirection:'row',width:'100%'}}>
+                    {
+                        d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 32,marginRight:25 }} /> :
+                            d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 32,marginRight:25 }} /> :
+                            <PaymentIcon style={{ height: 30, width: 32 ,marginRight:25}}/>
+                    }
+                        <View style={{flexDirection:'column',width:'83%'}}>
+                            <View style={{...styles.flexRow,justifyContent:'space-between'}}>
+                                <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:0}}>Deposited</Text>
+                                <Text style={{...styles.dater}}>11/11/2021</Text>
+                                <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
+                            </View>
+                            {/* <Text style={styles.dater}>*** 1234</Text> */}
+                            <View style={{...styles.flexRow,justifyContent:'space-between'}}>
+                                <Text style={styles.dater}>*** 1234</Text>
+                                <Text style={styles.dater}>Service Charge:</Text>
+                                <Text style={{...styles.dater,marginTop:2}}>-$1.00</Text>
+                            </View>
+                        </View>
+                    </View>
                 </View>
             </View>
         )
     }
     const dCards = (d,i)=>{
         return(
-            <View style={{...styles.flexRow,justifyContent:'space-between',width:'100%',marginTop:i == 0 ? 60 : 45}} key={i}>
-                <View style={styles.flexRow}>
+            <View style={{...styles.flexRow,justifyContent:'space-between',width:'100%',marginTop:i == 0 ? 50 : 45}} key={i}>
+                <View style={{flexDirection:'row',width:'100%'}}>
                     <Coupon style={{marginRight:15}} />
-                    <View style={{flexDirection:'column'}}>
-                        <View style={styles.flexRow}>
-                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:20}}>Donated</Text>
-                            <Text style={styles.dater}>11/11/2021</Text>
+                    <View style={{flexDirection:'column',width:'83%'}}>
+                        <View style={{...styles.flexRow,justifyContent:'space-between'}}>
+                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:0}}>Donated</Text>
+                            <Text style={{...styles.dater}}>11/11/2021</Text>
+                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
                         </View>
                         <Text style={styles.dater}>KFC</Text>
                     </View>
                 </View>
-                <View>
+                {/* <View>
                     <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
-                </View>
+                </View> */}
             </View>
         )
     }
@@ -120,25 +140,25 @@ const Wallet = ({navigation}) => {
                 <View style={styles.depoCard}>
                     <View style={{flexDirection:'row',alignItems: 'center',width:'100%',justifyContent: 'space-between'}}>
                         <View>
-                            <Text style={{fontSize:RFPercentage(2.5),color:'#000'}}>Available Credit</Text>
+                            <Text style={{fontSize:RFPercentage(2.3),color:'#000',fontFamily:'Gilroy-Medium'}}>Available Credit</Text>
                         </View>
                         <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
                             <View style={{...styles.flexRow}}>
-                                <DepositImg style={{height:36,width:36}} />
-                                <Text style={{fontSize:RFPercentage(2.5),color:'#FF3C40',marginLeft:10}}>Deposit</Text>
+                                <DepositImg style={{height:33,width:32}} />
+                                <Text style={{fontSize:RFPercentage(2.3),color:'#FF3C40',marginLeft:10,fontFamily:'Gilroy-Medium'}}>Deposit</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View>
-                        <Text style={{fontSize:RFPercentage(2.8),color:'#000',fontWeight:'bold',marginTop:5}}>${myContext.WalletAmount}</Text>
+                        <Text style={{fontSize:RFPercentage(3),color:'#000',fontFamily:'Gilroy-Bold',marginTop:5}}>${myContext.WalletAmount}</Text>
                     </View>
                 </View>
             </View>
             <ScrollView style={{backgroundColor:'#fff',width:'100%',height:'100%',borderTopLeftRadius:20,borderTopRightRadius:20,marginTop:-30,paddingHorizontal:20}}>
             <View style={{paddingTop:60,paddingBottom:30}}>
                 <View style={{...styles.flexRow,marginTop:20}}>
-                    <PaymentIcon style={{ height: 28, width: 38 }}/>
-                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.8),marginLeft:20}}>Payment Methods</Text>
+                    <PaymentIcon style={{ height: 22, width: 32 }}/>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize:RFPercentage(2.5),marginLeft:20}}>Deposit History</Text>
                 </View>
                 <View style={{ marginTop: 0, width: '100%', paddingBottom:40 }}>
                     <SafeAreaView >
@@ -149,7 +169,7 @@ const Wallet = ({navigation}) => {
                                 )
                             })
                         }
-                        <TouchableOpacity style={{ ...styles.flexRow, marginTop: 20, marginBottom: 20, width: '70%' }} onPress={() => refRBSheet.current.open()}>
+                        {/* <TouchableOpacity style={{ ...styles.flexRow, marginTop: 20, marginBottom: 20, width: '70%' }} onPress={() => refRBSheet.current.open()}>
                             <Icon
                                 name='plus'
                                 type='font-awesome'
@@ -158,13 +178,13 @@ const Wallet = ({navigation}) => {
                                 style={{ marginRight: RFPercentage(3) }}
                             />
                             <Text style={{ fontWeight: 'bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
-                        </TouchableOpacity>
+                        </TouchableOpacity> */}
                     </SafeAreaView>
                 </View>
                 <View>
-                    <View style={{...styles.flexRow,marginTop:0}}>
-                        <History style={{ height: 34, width: 32 }}/>
-                        <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.8),marginLeft:20}}>Donation History</Text>
+                    <View style={{...styles.flexRow,marginTop:20}}>
+                        <History style={{ height: 26, width: 32 }}/>
+                        <Text style={{fontFamily:'Gilroy-Bold',fontSize:RFPercentage(2.5),marginLeft:20}}>Donation History</Text>
                     </View>
                     <View>
                         {

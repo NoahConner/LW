@@ -81,12 +81,12 @@ const mcCards = (d,i,navigation)=>{
                     />
                 </View>
                 <View style={{marginLeft:15,width:'100%',paddingRight:100}}>
-                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5),marginBottom:5}}>{d.name}</Text>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize:RFPercentage(2.3),marginBottom:5}}>{d.name}</Text>
                     <View style={{flexDirection: 'row',alignItems: 'center'}}>
                     <Location
-                    style={{height:18,width:15,marginRight:10}}
+                    style={{height:16,width:13,marginRight:10}}
                     />
-                        <Text numberOfLines={1} style={{fontSize:RFPercentage(2)}}>{d.distance} </Text>
+                        <Text numberOfLines={1} style={{fontSize:RFPercentage(2),fontFamily:'Gilroy-Medium'}}>{d.distance} </Text>
                     </View>
                 </View>
             </View>
@@ -114,7 +114,7 @@ const Home = ({navigation})=>{
                     showsHorizontalScrollIndicator={false}
                     ListHeaderComponent={
                         <View style={{padding:20}}>
-                            <Text style={{fontSize:RFPercentage(3),fontWeight: 'bold'}}>All Restaurants</Text>
+                            <Text style={{fontSize:RFPercentage(2.7),fontFamily:'Gilroy-Bold'}}>All Restaurants</Text>
                         </View>
                     }
                 />

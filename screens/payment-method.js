@@ -68,18 +68,18 @@ const PaymentMethod = ({ navigation }) => {
             <View style={{ ...styles.Ccard, marginTop: i == 0 ? 20 : 15 }}>
                 <View style={styles.flexRow}>
                     {
-                        d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 40 }} /> :
-                            d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 40 }} /> :
-                            <PaymentIcon style={{ height: 30, width: 40 }}/>
+                        d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 32 }} /> :
+                            d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 32 }} /> :
+                            <PaymentIcon style={{ height: 30, width: 32 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: RFPercentage(2.7), fontWeight: 'bold' }}>{d.card_name}</Text>
-                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>{d.card_no}</Text>
+                        <Text style={{ fontSize: RFPercentage(2.2), fontFamily:'Gilroy-Bold' }}>{d.card_name}</Text>
+                        <Text style={{ color: '#666666', fontSize: RFPercentage(1.8), marginTop: 5,fontFamily:'Gilroy-Medium' }}>{d.card_no}</Text>
                     </View>
                 </View>
                 <View>
                     <TouchableOpacity>
-                        <Trash style={{ height: 30, width: 28 }} onPress={() => removeCard(d.id)} />
+                        <Trash style={{ height: 24, width: 24 }} onPress={() => removeCard(d.id)} />
                     </TouchableOpacity>
                 </View>
             </View>

@@ -13,7 +13,7 @@ const StackHeader = ({navigation,name})=>{
             onPress={() => navigation.goBack()} 
             />
            
-            <Text style={{fontSize:RFPercentage(2.8),fontWeight:'bold',marginLeft:20}}>{name}</Text>
+            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginLeft:20}}>{name}</Text>
         </View>
     )
 }

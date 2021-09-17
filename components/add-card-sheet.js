@@ -45,7 +45,7 @@ export default class AddCardSheet extends Component {
                         title='Save my card'
                         checked={this.state.checked}
                         checkedColor='#1E3865'
-                        textStyle={{fontSize:17}}
+                        textStyle={{fontSize:17,fontFamily:'Gilroy-Medium'}}
                         containerStyle={{width:180,backgroundColor:'transparent',borderColor:'transparent',}}
                         onPress={()=>this.setState({ checked: !this.state.checked })}
                       />

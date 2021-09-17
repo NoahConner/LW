@@ -33,7 +33,7 @@ const DepositeAmount = ({navigation})=>{
             <View style={{padding:20,width:'100%',height:Dimensions.get('window').height-100}}>
                 <View style={styles.flexRow}>
                     <Wallet style={{height:25,width:35}} />
-                    <Text style={{fontWeight: 'bold',fontSize:RFPercentage(3),marginLeft:15}}>Wallet</Text>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize:RFPercentage(2.5),marginLeft:15}}>Wallet</Text>
                 </View>
                 <View style={{...styles.flexRow,marginTop:10}}>
                     <Text style={styles.txtAmount}>Cuurent Balance: </Text>
@@ -43,21 +43,21 @@ const DepositeAmount = ({navigation})=>{
                     <Button
                         title="$ 10.00"
                         buttonStyle={styles.amountBtns}
-                        titleStyle={{fontSize:RFPercentage(2)}}
+                        titleStyle={{fontSize:RFPercentage(1.8),fontFamily:'Gilroy-Medium'}}
                         containerStyle={{width:'32%'}}
                         onPress={()=> navigation.navigate('ConfirmPayment',{amount:'10'})}
                     />
                     <Button
                         title="$ 50.00"
                         buttonStyle={styles.amountBtns}
-                        titleStyle={{fontSize:RFPercentage(2)}}
+                        titleStyle={{fontSize:RFPercentage(1.8),fontFamily:'Gilroy-Medium'}}
                         containerStyle={{width:'32%'}}
                         onPress={()=> navigation.navigate('ConfirmPayment',{amount:'50'})}
                     />
                     <Button
                         title="$ 100.00"
                         buttonStyle={styles.amountBtns}
-                        titleStyle={{fontSize:RFPercentage(2)}}
+                        titleStyle={{fontSize:RFPercentage(1.8),fontFamily:'Gilroy-Medium'}}
                         containerStyle={{width:'32%'}}
                         onPress={()=> navigation.navigate('ConfirmPayment',{amount:'100'})}
                     />
@@ -68,7 +68,7 @@ const DepositeAmount = ({navigation})=>{
                         inputContainerStyle={{backgroundColor:'#F6F8FA',paddingVertical:15,borderRadius:15,paddingHorizontal:20,borderBottomWidth:0}}
                         containerStyle={{paddingHorizontal:0}}
                         onChangeText={(amountt) => SetcustomAmount(amountt)}
-                        inputStyle={{padding:0,margin:0,fontSize: RFPercentage(2.8)}}
+                        inputStyle={{padding:0,margin:0,fontSize: RFPercentage(2.3),fontFamily:'Gilroy-Medium'}}
                         leftIcon={{ type: 'font-awesome', name: 'dollar',color:'#666' }}
                     />
                 </View>
@@ -76,7 +76,7 @@ const DepositeAmount = ({navigation})=>{
                     <Button
                         title="Next"
                         buttonStyle={styles.NextBtns}
-                        titleStyle={{fontSize:RFPercentage(2.5)}}
+                        titleStyle={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold'}}
                         onPress={()=> verifyAmont()}
                     />
                 </View>
@@ -97,7 +97,10 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     txtAmount:{
-        color:'#666666',fontSize:16
+        color:'#666666',
+        fontFamily:'Gilroy-Medium',
+        fontSize: RFPercentage(2)
+
     },
     amountBtns:{
         backgroundColor:'#1E3865',

@@ -29,12 +29,12 @@ const Header = ({navigation})=>{
                             onPress={()=> navigation.openDrawer()}
                         />
                     <View style={{marginLeft:25,width:'100%',paddingRight:100}}>
-                        <Text style={{fontWeight:'bold',fontSize:RFPercentage(3),marginBottom:5}}>Location Radius</Text>
+                        <Text style={{fontSize:RFPercentage(2.5),marginBottom:5,fontFamily:'Gilroy-Bold'}}>Location Radius</Text>
                         <View style={{flexDirection: 'row',alignItems: 'center'}}>
                         <Location
-                        style={{height:18,width:15,marginRight:10}}
+                        style={{height:16,width:12,marginRight:10}}
                          />
-                            <Text numberOfLines={1}>4001 Oral Lake Road, New York, NY  </Text>
+                            <Text style={{fontSize:RFPercentage(1.7),fontFamily:'Gilroy-Medium'}} numberOfLines={1}>4001 Oral Lake Road, New York, NY  </Text>
                         </View>
                     </View>
                 </View>

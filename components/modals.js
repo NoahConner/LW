@@ -55,14 +55,14 @@ const Modals = ({ navigation }) => {
                             {myContext.CongratesModalCon ? (
                                 <>
                                     <Tick style={{ height: 55, width: 55, marginBottom: 20 }} />
-                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.8), fontWeight: 'bold' }}>Deposit Successfull! </Text>
-                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>You have Successfully Deposited  the Amount.</Text>
+                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.5), fontFamily:'Gilroy-Bold' }}>Deposit Successfull! </Text>
+                                    <Text style={{ textAlign: 'center', color: '#666666', ontSize:RFPercentage(1.8), marginTop: 10,fontFamily:'Gilroy-Medium' }}>You have Successfully Deposited  the Amount.</Text>
                                 </>
                             ) : myContext.SorryModalCon ? (
                                 <>
 
-                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.8), fontWeight: 'bold' }}>Sorry :(</Text>
-                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>you don't have insufficient balance in your wallet, Please deposit money on you wallet</Text>
+                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.5), fontFamily:'Gilroy-Bold' }}>Sorry :(</Text>
+                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: RFPercentage(1.8), marginTop: 10,fontFamily:'Gilroy-Medium' }}>you don't have insufficient balance in your wallet, Please deposit money on you wallet</Text>
                                     <Button
                                         title="Deposit"
                                         type="solid"
@@ -73,7 +73,8 @@ const Modals = ({ navigation }) => {
                                             borderRadius: 15,
                                         }}
                                         titleStyle={{
-                                            fontSize: RFPercentage(2.3)
+                                            fontSize: RFPercentage(2.3),
+                                            fontFamily:'Gilroy-Bold'
                                         }}
                                         containerStyle={{ width: '100%', marginTop: 30 }}
                                         onPress={()=> goOnDeposit()}
@@ -82,9 +83,9 @@ const Modals = ({ navigation }) => {
                             ) : myContext.CouponModalCon ? (
                                 <>
 
-                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.8), fontWeight: 'bold' }}>Thanks For Your Donation! </Text>
-                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>Here`s the coupon code for your Leaper`s Food.</Text>
-                                    <Text style={{ textAlign: 'center', color: '#1E3865', fontSize: RFPercentage(2.5), marginTop: 25, fontWeight: 'bold' }}>Coupon Code</Text>
+                                    <Text style={{ color: '#FF3C40',fontSize: RFPercentage(2.5), fontFamily:'Gilroy-Bold' }}>Thanks For Your Donation! </Text>
+                                    <Text style={{ textAlign: 'center', color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily:'Gilroy-Medium' }}>Here`s the coupon code for your Leaper`s Food.</Text>
+                                    <Text style={{ textAlign: 'center', color: '#1E3865', fontSize: RFPercentage(2.5), marginTop: 25, fontFamily:'Gilroy-Bold' }}>Coupon Code</Text>
                                     <Button
                                         title={myContext.CurrentCoupon}
                                         type="solid"
@@ -95,7 +96,8 @@ const Modals = ({ navigation }) => {
                                             borderRadius: 15,
                                         }}
                                         titleStyle={{
-                                            fontSize: RFPercentage(2.6)
+                                            fontSize: RFPercentage(2.5),
+                                            fontFamily:'Gilroy-Bold'
                                         }}
                                         containerStyle={{ width: '100%', marginTop: 15 }}
                                     />

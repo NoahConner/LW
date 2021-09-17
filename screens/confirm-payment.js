@@ -48,11 +48,11 @@ const ConfirmPayment = ({navigation,route })=>{
                             <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: RFPercentage(2.5), fontWeight: 'bold' }}>{d.card_name}</Text>
-                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5 }}>{d.card_no}</Text>
+                        <Text style={{ fontSize: RFPercentage(2.3), fontFamily: 'Gilroy-Bold'}}>{d.card_name}</Text>
+                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium'}}>{d.card_no}</Text>
                     </View>
                 </View>
-                <View>
+                {/* <View>
                     <CheckBox
                         title=''
                         checked={cardSelect == d.card_name ? true : false}
@@ -64,6 +64,24 @@ const ConfirmPayment = ({navigation,route })=>{
                         uncheckedIcon='circle-o'
                         containerStyle={{padding:0,marginRight:0}}
                     />
+                </View> */}
+                <View style={{ position: 'relative', marginTop: 10 }}>
+                    <Icon
+                        name='square'
+                        type='font-awesome'
+                        color={cardSelect == d.card_name ? '#1E3865' : '#E6E6E6'}
+                        iconStyle={{ fontSize: 28 }}
+                        onPress={()=> SetcardSelect(d.card_name)}
+                    />
+                    <CheckBox
+                        title=''
+                        iconType='font-awesome'
+                        uncheckedIcon='square'
+                        checkedColor="black"
+                        uncheckedColor="transparent"
+                        checked={cardSelect == d.card_name ? true : false}
+                        containerStyle={{ position: 'absolute', right: 30, bottom: -7, padding: 0, width: 0, overflow: 'hidden', borderRadius: 50 }}
+                    />
                 </View>
             </View>
         )
@@ -74,12 +92,12 @@ const ConfirmPayment = ({navigation,route })=>{
             <StackHeader navigation={navigation} name={'Confirm Payment Method'} />
             <View style={{padding:20,width:'100%',height:Dimensions.get('window').height-100}}>
                 <View style={{...styles.flexRow,justifyContent: 'space-between'}}>
-                    <Text style={{color:'#666666',fontSize:RFPercentage(2.5)}}>Deposit Amont</Text>
-                    <Text style={{color:'#000',fontSize:RFPercentage(2.5),fontWeight:'bold'}}>${amount}</Text>
+                    <Text style={{color:'#666666',fontSize:RFPercentage(2.5), fontFamily:'Gilroy-Medium'}}>Deposit Amont</Text>
+                    <Text style={{color:'#000',fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold'}}>${amount}</Text>
                 </View>
                 <View style={{...styles.flexRow,marginTop:50}}>
                     <PaymentIcon style={{ height: 28, width: 38 }}/>
-                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(3),marginLeft:20}}>Payment Methods</Text>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize:RFPercentage(2.7),marginLeft:20}}>Payment Methods</Text>
                 </View>
 
                 <View style={{ marginTop: 0, width: '100%', paddingBottom: 80 }}>
@@ -98,10 +116,10 @@ const ConfirmPayment = ({navigation,route })=>{
                                     name='plus'
                                     type='font-awesome'
                                     color='#FF3C40'
-                                    iconStyle={{ fontSize: RFPercentage(3) }}
+                                    iconStyle={{ fontSize: RFPercentage(2.7) }}
                                     style={{ marginRight: 24 }}
                                 />
-                                <Text style={{ fontWeight: 'bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
+                                <Text style={{ fontFamily:'Gilroy-Bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
                             </TouchableOpacity>
                         }
                     />
@@ -113,7 +131,7 @@ const ConfirmPayment = ({navigation,route })=>{
                 <Button
                     title="Review"
                     buttonStyle={styles.NextBtns}
-                    titleStyle={{fontSize:RFPercentage(2.5)}}
+                    titleStyle={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold'}}
                     onPress={() => refRBSheetReview.current.open()}
                 />
             </View>
@@ -157,7 +175,7 @@ const ConfirmPayment = ({navigation,route })=>{
                         borderTopStartRadius:20
                     }
                 }}
-                height={590}
+                height={530}
             >
                 <ReviewPayment navigation={navigation} amount={amount}  statement={'deposite'} />
             </RBSheet>

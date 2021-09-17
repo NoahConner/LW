@@ -31,7 +31,7 @@ const SCheader = ({navigation,backbutton,name,wallet}) => {
                     {
                         name != null || name != '' || name != undefined ? (
                             <>
-                            <Text style={{fontSize:RFPercentage(3),fontWeight:'bold',color:'#fff'}}>{name}</Text>
+                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',color:'#fff'}}>{name}</Text>
                             </>
                         ):(
                             null
