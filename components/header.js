@@ -1,12 +1,14 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import { View, Text, StyleSheet,TouchableOpacity  } from 'react-native';
 import { Button,Icon } from 'react-native-elements';
 import Wallet from '../assets/svg/wallet.svg';
 import Bars from '../assets/svg/bars.svg';
 import Location from '../assets/svg/location.svg';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import AppContext from '../components/appcontext'
 
 const Header = ({navigation})=>{
+    const myContext = useContext(AppContext);
     return(
         <View style={styles.header}>
             <View style={{width: '100%',flexDirection: 'row',justifyContent: 'space-between',alignItems: 'center',padding:10,textAlign:'center',
@@ -28,15 +30,17 @@ const Header = ({navigation})=>{
                             buttonStyle={{backgroundColor:'transparent'}}
                             onPress={()=> navigation.openDrawer()}
                         />
-                    <View style={{marginLeft:25,width:'100%',paddingRight:100}}>
-                        <Text style={{fontSize:RFPercentage(2.5),marginBottom:5,fontFamily:'Gilroy-Bold'}}>Location Radius</Text>
-                        <View style={{flexDirection: 'row',alignItems: 'center'}}>
-                        <Location
-                        style={{height:16,width:12,marginRight:10}}
-                         />
-                            <Text style={{fontSize:RFPercentage(1.7),fontFamily:'Gilroy-Medium'}} numberOfLines={1}>4001 Oral Lake Road, New York, NY  </Text>
+                    <TouchableOpacity onPress={()=> myContext.setmapModal(true)}>
+                        <View style={{marginLeft:25,width:'100%',paddingRight:100}}>
+                            <Text style={{fontSize:RFPercentage(2.5),marginBottom:5,fontFamily:'Gilroy-Bold'}}>Location Radius</Text>
+                            <View style={{flexDirection: 'row',alignItems: 'center'}}>
+                            <Location
+                            style={{height:16,width:12,marginRight:10}}
+                            />
+                                <Text style={{fontSize:RFPercentage(1.7),fontFamily:'Gilroy-Medium'}} numberOfLines={1}>4001 Oral Lake Road, New York, NY  </Text>
+                            </View>
                         </View>
-                    </View>
+                    </TouchableOpacity>
                 </View>
                 <View style={{width: '10%',alignItems: 'flex-end',paddingRight:2}}>
                     <TouchableOpacity>

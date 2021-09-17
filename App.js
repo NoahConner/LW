@@ -33,7 +33,8 @@ const App = (navigation) => {
   const [CouponModal,setCouponModal] = useState(false);
   const [CurrentCoupon,setCurrentCoupon] = useState('N/A');
   const [WalletAmount,setWalletAmount] = useState(0);
-  const [profileImagee,setprofileImagee] = useState(null)
+  const [profileImagee,setprofileImagee] = useState(null);
+  const [mapModal, setmapModal] = useState(false);
   const userSettings = {
     setting1name: userToken,
     CongratesModalCon:CongratesModal,
@@ -42,13 +43,15 @@ const App = (navigation) => {
     CurrentCoupon:CurrentCoupon,
     WalletAmount:WalletAmount,
     profileImagee:profileImagee,
+    mapModal:mapModal,
     setuserToken,
     setCongratesModal,
     setSorryModal,
     setCouponModal,
     setCurrentCoupon,
     setWalletAmount,
-    setprofileImagee
+    setprofileImagee,
+    setmapModal
   };
 
 

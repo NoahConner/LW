@@ -3,9 +3,20 @@ import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity,Dimens
 import { Image, Button, Icon,Input ,CheckBox } from 'react-native-elements';
 import Wallet from '../assets/svg/wallet.svg'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-
+import AppContext from '../components/appcontext'
 
 const SCheader = ({navigation,backbutton,name,wallet}) => {
+
+    const appContext = useContext(AppContext)
+
+    const bactNav = (c)=>{
+        if(c == 'Map'){
+            appContext.setmapModal(false)
+        }else{
+            navigation.goBack()
+        }
+    }
+
     return(
         <View style={{position:'absolute',zIndex:1000,width:Dimensions.get('window').width}}>
             <View style={{...styles.flexRow,width:'100%',paddingHorizontal:20,paddingVertical:10}}>
@@ -13,13 +24,13 @@ const SCheader = ({navigation,backbutton,name,wallet}) => {
                     {
                         backbutton != false ? (
                             <>
-                            <TouchableOpacity onPress={() => navigation.goBack()}>
+                            <TouchableOpacity onPress={() => bactNav(name)}>
                                 <View style={{backgroundColor:'#fff',paddingVertical:10,paddingHorizontal:12,borderRadius:50,marginRight:15}}>
                                     <Icon
                                         name='arrow-left'
                                         type='font-awesome'
                                         color='#FF3C40'
-                                        onPress={() => navigation.goBack()} 
+                                        onPress={() => bactNav(name)} 
                                     />
                                 </View>
                             </TouchableOpacity>
