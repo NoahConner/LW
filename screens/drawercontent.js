@@ -27,6 +27,7 @@ import DepoHis from '../assets/svg/deposite-history.svg'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Collapsible from 'react-native-collapsible';
 import LegalIcon from '../assets/svg/legalicon.svg'
+import SocialIcon from '../assets/svg/social-media.svg'
 
 
 const DrawerContent = ({ navigation }) => {
@@ -34,9 +35,10 @@ const DrawerContent = ({ navigation }) => {
     const myContext = useContext(AppContext);
     const [toggleIcon,settoggleIcon] = useState(false);
     const [collapse,setCollapse] = useState(true);
+    const [collapse2,setCollapse2] = useState(true);
     return (
         <View style={{ flex: 1, paddingBottom: 30 }}>
-            <DrawerContentScrollView>
+           
                 <View style={{...styles.flexCon,backgroundColor: '#FF3C40',alignItems: 'flex-end',paddingLeft:20,paddingRight:10,paddingBottom:10,marginTop:10,marginTop:-5,position:'relative'}} >
                     <View style={{flexDirection:'row',width:'100%',alignItems: 'center',marginTop:50}}>
                         <View style={{ width: 65, height: 70, borderRadius: 10,marginTop:0, backgroundColor:'#FFFFFF', display: 'flex', alignItems: 'center' , justifyContent: 'center',overflow: 'hidden'}}>
@@ -74,8 +76,8 @@ const DrawerContent = ({ navigation }) => {
                         onPress={() => navigation.closeDrawer()} />
                     </View>
                 </View>
-
-                <View style={{ marginTop: 40,paddingLeft:20,paddingRight:20}}>
+            <DrawerContentScrollView>
+                <View style={{ marginTop: 40,paddingLeft:20,paddingRight:20,paddingBottom:30}}>
                     <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
                         <View style={{ ...styles.flexCon, marginBottom: 35 }}>
                             <DepositeIcon style={{ fill: '#fff', width: 28, height: 28 }} />
@@ -128,35 +130,72 @@ const DrawerContent = ({ navigation }) => {
                                 }}
                             />
                         </View>
-                        
                     </TouchableOpacity>
-                    <Collapsible collapsed={collapse} style={{backgroundColor:'#f1f1f1',padding:20,borderRadius:10}}>
-                        <TouchableOpacity onPress={()=>navigation.navigate('PrivacyPolicy')} >
-                            <View style={{ ...styles.flexCon, marginBottom: 20 }}>
-                                <TermsIcon style={{  width: 28, height: 24 }} />
-                                <Text style={styles.textStyle}>Privacy Policy</Text>
-                            </View>
-                        </TouchableOpacity>
-                        <TouchableOpacity onPress={()=>navigation.navigate('TermCondition')} >
-                            <View style={{ ...styles.flexCon }}>
-                                <PrivacyIcon style={{  width: 28, height: 24 }} />
-                                <Text style={styles.textStyle}>Terms & Condition</Text>
-                            </View>
-                        </TouchableOpacity>
-                    </Collapsible>
+                    <View style={{marginBottom:collapse ? 0 : 20}}>
+                        <Collapsible collapsed={collapse} style={{backgroundColor:'#f1f1f1',padding:20,borderRadius:10}}>
+                            <TouchableOpacity onPress={()=>navigation.navigate('PrivacyPolicy')} >
+                                <View style={{ ...styles.flexCon, marginBottom: 20 }}>
+                                    <TermsIcon style={{  width: 28, height: 24 }} />
+                                    <Text style={styles.textStyle}>Privacy Policy</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={()=>navigation.navigate('TermCondition')} >
+                                <View style={{ ...styles.flexCon }}>
+                                    <PrivacyIcon style={{  width: 28, height: 24 }} />
+                                    <Text style={styles.textStyle}>Terms & Condition</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </Collapsible>
+                    </View>
+
+                    <TouchableOpacity  onPress={()=>setCollapse2(!collapse2)} >
+                        <View style={{ ...styles.flexCon, marginBottom: 25,position:'relative' }}>
+                            <SocialIcon  style={{  width: 28, height: 24 }} />
+                            <Text style={styles.textStyle}>Social Media</Text>
+
+                            <Icon
+                                name='angle-down'
+                                type='font-awesome'
+                                color='#f50'
+                                containerStyle={{
+                                    position:'absolute',
+                                    right:0,
+                                    transform: [{ rotate: !collapse2 ? "180deg" : '360deg'}]
+                                }}
+                            />
+                        </View>
+                    </TouchableOpacity>
+                    <View style={{marginBottom:collapse2 ? 0 : 20}}>
+                        <Collapsible collapsed={collapse2} style={{backgroundColor:'#f1f1f1',padding:20,borderRadius:10}}>
+                            <TouchableOpacity onPress={()=>navigation.navigate('PrivacyPolicy')} >
+                                <View style={{ ...styles.flexCon, marginBottom: 20 }}>
+                                    {/* <TermsIcon style={{  width: 28, height: 24 }} /> */}
+                                        <Icon
+                                        name='facebook'
+                                        type='font-awesome'
+                                        color='#ff3c40'
+                                         />
+                                    <Text style={styles.textStyle}>Facebook</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity onPress={()=>navigation.navigate('TermCondition')} >
+                                <View style={{ ...styles.flexCon }}>
+                                    {/* <PrivacyIcon style={{  width: 28, height: 24 }} /> */}
+                                    <Icon
+                                        name='linkedin'
+                                        type='font-awesome'
+                                        color='#ff3c40'
+                                         />
+                                    <Text style={styles.textStyle}>Linked In</Text>
+                                </View>
+                            </TouchableOpacity>
+                        </Collapsible>
+                    </View>
 
                 </View>
 
             </DrawerContentScrollView>
-            {/* <Drawer.Section style={{paddingLeft:20}}>
-                <TouchableOpacity onPress={() => { myContext.setuserToken(null) }}>
-                    <View style={styles.flexCon}>
-                        <LogOut style={{ fill: '#fff', width: '28', height: '28' }} />
-                        <Text style={styles.textStyle}>Log out</Text>
-                    </View>
-                </TouchableOpacity>
-            </Drawer.Section> */}
-            <View style={{paddingLeft:20}}>
+            <View style={{paddingLeft:20,marginTop:20}}>
                 <TouchableOpacity onPress={() => { myContext.setuserToken(null) }}>
                     <View style={styles.flexCon}>
                         <LogOut style={{ fill: '#fff', width: 28, height:24 }} />

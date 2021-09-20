@@ -63,29 +63,6 @@ const Wallet = ({navigation}) => {
     const cardDiv = (d, i) => {
         return (
             <View style={{ ...styles.Ccard,marginTop:i == 0 ? 40 : 25 }} key={i}>
-                {/* <View style={styles.flexRow}>
-                    {
-                        d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 32 }} /> :
-                            d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 32 }} /> :
-                            <PaymentIcon style={{ height: 30, width: 32 }}/>
-                    }
-                    <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: RFPercentage(2.2), fontFamily:'Gilroy-Bold' }}>{d.card_name}</Text>
-                        <Text style={{ color: '#666666', fontSize: RFPercentage(1.8), marginTop: 5,fontFamily:'Gilroy-Medium' }}>{d.card_no}</Text>
-                    </View>
-                </View>
-                <View>
-                    <CheckBox
-                        title=''
-                        checked={cardSelect == d.card_name ? true : false}
-                        iconType='font-awesome'
-                        checkedColor='#1E3865'
-                        uncheckedColor='#E6E6E6'
-                        checkedIcon='dot-circle-o'
-                        uncheckedIcon='circle-o'
-                        containerStyle={{padding:0,marginRight:0}}
-                    />
-                </View> */}
                 <View style={{...styles.flexRow,justifyContent:'space-between',width:'100%'}} key={i}>
                     <View style={{flexDirection:'row',width:'100%'}}>
                     {
@@ -99,7 +76,6 @@ const Wallet = ({navigation}) => {
                                 <Text style={{...styles.dater}}>11/11/2021</Text>
                                 <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
                             </View>
-                            {/* <Text style={styles.dater}>*** 1234</Text> */}
                             <View style={{...styles.flexRow,justifyContent:'space-between'}}>
                                 <Text style={styles.dater}>*** 1234</Text>
                                 <Text style={styles.dater}>Service Charge:</Text>
@@ -113,9 +89,9 @@ const Wallet = ({navigation}) => {
     }
     const dCards = (d,i)=>{
         return(
-            <View style={{...styles.flexRow,justifyContent:'space-between',width:'100%',marginTop:i == 0 ? 50 : 45}} key={i}>
+            <View style={{...styles.flexRow,justifyContent:'space-between',marginTop:i == 0 ? 50 : 45}} key={i}>
                 <View style={{flexDirection:'row',width:'100%'}}>
-                    <Coupon style={{marginRight:15}} />
+                    <Coupon style={{marginRight:15,width:'17%'}} />
                     <View style={{flexDirection:'column',width:'83%'}}>
                         <View style={{...styles.flexRow,justifyContent:'space-between'}}>
                             <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:0}}>Donated</Text>
@@ -125,9 +101,6 @@ const Wallet = ({navigation}) => {
                         <Text style={styles.dater}>KFC</Text>
                     </View>
                 </View>
-                {/* <View>
-                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
-                </View> */}
             </View>
         )
     }
@@ -154,7 +127,7 @@ const Wallet = ({navigation}) => {
                     </View>
                 </View>
             </View>
-            <ScrollView style={{backgroundColor:'#fff',width:'100%',height:'100%',borderTopLeftRadius:20,borderTopRightRadius:20,marginTop:-30,paddingHorizontal:20}}>
+            <ScrollView style={{backgroundColor:'#fff',height:'100%',borderTopLeftRadius:20,borderTopRightRadius:20,marginTop:-30,paddingHorizontal:20}}>
             <View style={{paddingTop:60,paddingBottom:30}}>
                 <View style={{...styles.flexRow,marginTop:20}}>
                     <PaymentIcon style={{ height: 22, width: 32 }}/>
@@ -169,16 +142,6 @@ const Wallet = ({navigation}) => {
                                 )
                             })
                         }
-                        {/* <TouchableOpacity style={{ ...styles.flexRow, marginTop: 20, marginBottom: 20, width: '70%' }} onPress={() => refRBSheet.current.open()}>
-                            <Icon
-                                name='plus'
-                                type='font-awesome'
-                                color='#FF3C40'
-                                iconStyle={{ fontSize: RFPercentage(3) }}
-                                style={{ marginRight: RFPercentage(3) }}
-                            />
-                            <Text style={{ fontWeight: 'bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
-                        </TouchableOpacity> */}
                     </SafeAreaView>
                 </View>
                 <View>
