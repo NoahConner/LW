@@ -18,8 +18,8 @@ function log(eventName, e) {
 const MapModal = ({ navigation }) => {
 
   const ASPECT_RATIO = width / height;
-  const [LATITUDE, setLATITUDE] = useState(37.4219483);
-  const [LONGITUDE, setLONGITUDE] = useState(-122.0840039);
+  const [LATITUDE, setLATITUDE] = useState(29.9418);
+  const [LONGITUDE, setLONGITUDE] = useState(-95.3990887);
   const [LATITUDE_DELTA, setLATITUDE_DELTA] = useState(0.05);
   const [LONGITUDE_DELTA, setLONGITUDE_DELTA] = useState(LATITUDE_DELTA * ASPECT_RATIO);
 
@@ -30,10 +30,18 @@ const MapModal = ({ navigation }) => {
     })
     .then(location => {
         console.log(location);
-        setLATITUDE(location.latitude)
-        setLONGITUDE(location.longitude)
-        setLATITUDE_DELTA(0.05)
-        setLONGITUDE_DELTA(0.05)
+        // setLATITUDE(location.latitude)
+        // setLONGITUDE(location.longitude)
+        // setLATITUDE_DELTA(0.05000775767387111)
+        // setLONGITUDE_DELTA(0.029845274984822368)
+        setRegions(
+          {
+            latitude: location.latitude,
+            longitude: location.longitude,
+            latitudeDelta: LATITUDE_DELTA,
+            longitudeDelta: LONGITUDE_DELTA,
+          }
+        )
     })
     .catch(error => {
         const { code, message } = error;
@@ -43,11 +51,19 @@ const MapModal = ({ navigation }) => {
 
   const setRegion = (e) => {
     // console.log(e.nativeEvent)
-    // console.log(e)
-    setLATITUDE(e.latitude)
-    setLONGITUDE(e.longitude)
-    setLATITUDE_DELTA(e.latitudeDelta)
-    setLONGITUDE_DELTA(e.longitudeDelta)
+    console.log(e)
+    // setLATITUDE(e.latitude)
+    // setLONGITUDE(e.longitude)
+    // setLATITUDE_DELTA(e.latitudeDelta)
+    // setLONGITUDE_DELTA(e.longitudeDelta)
+    setRegions(
+      {
+        latitude: e.latitude,
+        longitude: e.longitude,
+        latitudeDelta: e.latitudeDelta,
+        longitudeDelta: e.longitudeDelta,
+      }
+    )
   }
 
   const changeAddress = (e) => {
@@ -55,6 +71,14 @@ const MapModal = ({ navigation }) => {
   } 
 
   const [markerV,setMarkerV] = useState(false)
+  const [regions,setRegions] = useState(
+    {
+    latitude: LATITUDE,
+    longitude: LONGITUDE,
+    latitudeDelta: LATITUDE_DELTA,
+    longitudeDelta: LONGITUDE_DELTA,
+  }
+  )
 
   return (
     <View style={styles.container}>
@@ -83,12 +107,8 @@ const MapModal = ({ navigation }) => {
       <MapView
         provider={PROVIDER_GOOGLE}
         style={{ height: height, width: width }}
-        initialRegion={{
-          latitude: LATITUDE,
-          longitude: LONGITUDE,
-          latitudeDelta: LATITUDE_DELTA,
-          longitudeDelta: LONGITUDE_DELTA,
-        }}
+        initialRegion={regions}
+        region={regions}
         // showsUserLocation={true}
         loadingEnabled={true}
         onRegionChangeComplete={e => setRegion(e)}

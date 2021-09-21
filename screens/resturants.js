@@ -88,9 +88,16 @@ const Resturants = ({navigation}) => {
     };
   
     const handleConfirm = (date) => {
-        console.log(date)
-        setdatePick(moment(date).format('DD MMM, yy'))
-      hideDatePicker();
+        var currentTime = new Date();
+        if(date < currentTime){
+            setdatePick(moment(date).format('DD MMM, yy'))
+            hideDatePicker();
+        }else{
+            alert('Invalid Date!');
+            hideDatePicker();
+        }
+        
+        
     };
 
     const myContext = useContext(AppContext);
