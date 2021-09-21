@@ -1,5 +1,5 @@
 import React, { useState, useRef,useContext } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity  } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity ,Dimensions } from 'react-native';
 import { Icon ,CheckBox } from 'react-native-elements';
 import PaymentIcon from '../assets/svg/paymentIcon.svg';
 import History from '../assets/svg/historyIcon.svg';
@@ -65,11 +65,13 @@ const Wallet = ({navigation}) => {
             <View style={{ ...styles.Ccard,marginTop:i == 0 ? 40 : 25 }} key={i}>
                 <View style={{...styles.flexRow,justifyContent:'space-between',width:'100%'}} key={i}>
                     <View style={{flexDirection:'row',width:'100%'}}>
-                    {
-                        d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 32,marginRight:25 }} /> :
-                            d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 32,marginRight:25 }} /> :
-                            <PaymentIcon style={{ height: 30, width: 32 ,marginRight:25}}/>
-                    }
+                    <View style={{width:'15%'}}>
+                        {
+                            d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 32 }} /> :
+                                d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 32 }} /> :
+                                <PaymentIcon style={{ height: 30, width: 32 }}/>
+                        }
+                    </View>
                         <View style={{flexDirection:'column',width:'83%'}}>
                             <View style={{...styles.flexRow,justifyContent:'space-between'}}>
                                 <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:0}}>Deposited</Text>
@@ -91,7 +93,9 @@ const Wallet = ({navigation}) => {
         return(
             <View style={{...styles.flexRow,justifyContent:'space-between',marginTop:i == 0 ? 50 : 45}} key={i}>
                 <View style={{flexDirection:'row',width:'100%'}}>
-                    <Coupon style={{marginRight:15,width:'17%'}} />
+                    <View style={{width:'15%'}}>
+                        <Coupon  />
+                    </View>
                     <View style={{flexDirection:'column',width:'83%'}}>
                         <View style={{...styles.flexRow,justifyContent:'space-between'}}>
                             <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:0}}>Donated</Text>
@@ -177,7 +181,7 @@ const Wallet = ({navigation}) => {
                             borderTopStartRadius:20
                         }
                     }}
-                    height={550}
+                    height={Dimensions.get('window').height}
                 >
                     <AddCardSheet statement={'deposite'} />
                 </RBSheet>

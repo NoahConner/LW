@@ -152,7 +152,7 @@ const ConfirmPayment = ({navigation,route })=>{
                         borderTopStartRadius:20
                     }
                 }}
-                height={550}
+                height={Dimensions.get('window').height}
             >
                 <AddCardSheet statement={'deposite'} />
             </RBSheet>

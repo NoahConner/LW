@@ -30,7 +30,10 @@ const Header = ({navigation})=>{
                             buttonStyle={{backgroundColor:'transparent'}}
                             onPress={()=> navigation.openDrawer()}
                         />
-                    <TouchableOpacity onPress={()=> myContext.setmapModal(true)}>
+                    <TouchableOpacity 
+                        // onPress={()=> myContext.setmapModal(true)}
+                        onPress={()=> navigation.navigate('MapModal')}
+                    >
                         <View style={{marginLeft:25,width:'100%',paddingRight:100}}>
                             <Text style={{fontSize:RFPercentage(2.5),marginBottom:5,fontFamily:'Gilroy-Bold'}}>Location Radius</Text>
                             <View style={{flexDirection: 'row',alignItems: 'center'}}>

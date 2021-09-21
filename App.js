@@ -23,6 +23,7 @@ import ForgotPassword from './screens/forgotpassword'
 import DepositHistory from './screens/deposit-history'
 import TermCondition from './screens/terms-con'
 import PrivacyPolicy from './screens/privacy-policy'
+import MapModal from './components/map'
 
 
 const App = (navigation) => {
@@ -93,6 +94,7 @@ const App = (navigation) => {
             <Stack.Screen name="DepositHistory" component={DepositHistory} options={{headerShown:false}}/>
             <Stack.Screen name="TermCondition" component={TermCondition} options={{headerShown:false}}/>
             <Stack.Screen name="PrivacyPolicy" component={PrivacyPolicy} options={{headerShown:false}}/>
+            <Stack.Screen name="MapModal" component={MapModal} options={{headerShown:false}}/>
           </>
 
         )}

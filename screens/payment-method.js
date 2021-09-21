@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity,Dimensions } from 'react-native';
 import { Image, Button, Icon } from 'react-native-elements';
 import StackHeader from '../components/stackheader'
 import VisaIcon from '../assets/svg/visa.svg'
@@ -132,7 +132,7 @@ const PaymentMethod = ({ navigation }) => {
                         borderTopStartRadius:20
                     }
                 }}
-                height={490}
+                height={Dimensions.get('window').height}
             >
                 <AddCardSheet statement={'payment-method'} />
             </RBSheet>

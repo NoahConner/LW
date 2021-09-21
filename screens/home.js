@@ -5,7 +5,7 @@ import Header from '../components/header'
 import Location from '../assets/svg/location.svg';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import AppContext from '../components/appcontext'
-import MapModal from '../components/map'
+// import MapModal from '../components/map'
 
 
 var allRestT = [
@@ -125,7 +125,7 @@ const Home = ({ navigation }) => {
                 />
             </SafeAreaView>
 
-            <Modal
+            {/* <Modal
                 animationType="slide"
                 transparent={true}
                 visible={myContext.mapModal}
@@ -135,7 +135,7 @@ const Home = ({ navigation }) => {
                 }}
             >
                 <MapModal navigation={navigation} />
-            </Modal>
+            </Modal> */}
         </View>
     )
 }

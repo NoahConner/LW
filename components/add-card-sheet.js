@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Switch } from "react-native";
+import { StyleSheet, View, Switch, ScrollView } from "react-native";
 import { CreditCardInput, LiteCreditCardInput } from "react-native-credit-card-input";
 import { CheckBox ,Button,Text } from 'react-native-elements'
 import Safe from '../assets/svg/safe.svg'
@@ -18,6 +18,7 @@ export default class AddCardSheet extends Component {
     render() {
       return (
         <View style={s.container}>
+            <ScrollView>
             <CreditCardInput
                 autoFocus
   
@@ -71,6 +72,7 @@ export default class AddCardSheet extends Component {
                         </View>
                     </View>
                 </View>
+            </ScrollView>
         </View>
       );
     }
@@ -80,6 +82,7 @@ const s = StyleSheet.create({
     container: {
       backgroundColor: "#fff",
       marginTop: 10,
+      paddingBottom:60
     },
     label: {
       color: "black",
