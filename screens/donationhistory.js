@@ -76,20 +76,6 @@ const dCards = (d,i,refRBSheet)=>{
     return(
         <TouchableOpacity onPress={() => refRBSheet.current.open()}>
             <View style={{...styles.flexRow,paddingHorizontal:20,justifyContent:'space-between',width:'100%',marginTop:i == 0 ? 20 : 50}}>
-                {/* <View style={styles.flexRow}>
-                    <Coupon style={{marginRight:15}} />
-                    <View style={{flexDirection:'column'}}>
-                        <View style={styles.flexRow}>
-                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)
-                            ,marginRight:20}}>Donated</Text>
-                            <Text style={styles.dater}>11/11/2021</Text>
-                        </View>
-                        <Text style={styles.dater}>KFC</Text>
-                    </View>
-                </View>
-                <View>
-                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
-                </View> */}
                 <View style={{...styles.flexRow,justifyContent:'space-between',width:'100%'}} key={i}>
                 <View style={{flexDirection:'row',width:'100%'}}>
                     <Coupon style={{marginRight:15}} />
@@ -102,9 +88,6 @@ const dCards = (d,i,refRBSheet)=>{
                         <Text style={styles.dater}>KFC</Text>
                     </View>
                 </View>
-                {/* <View>
-                    <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
-                </View> */}
             </View>
             </View>
         </TouchableOpacity>

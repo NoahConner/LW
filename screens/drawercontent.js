@@ -40,7 +40,7 @@ const DrawerContent = ({ navigation }) => {
     return (
         <View style={{ flex: 1, paddingBottom: 30 }}>
            
-                <View style={{...styles.flexCon,backgroundColor: '#FF3C40',alignItems: 'flex-end',position:'relative',padding:20}} >
+                <View style={{...styles.flexCon,backgroundColor: '#FF3C40',alignItems: 'flex-end',position:'relative',paddingLeft:20,paddingVertical:10}} >
                     <View style={{flexDirection:'row',width:'100%',alignItems: 'center'}}>
                         <View style={{ width: 65, height: 70, borderRadius: 10, backgroundColor:'#FFFFFF', display: 'flex', alignItems: 'center' , justifyContent: 'center',overflow: 'hidden'}}>
                             {
@@ -61,24 +61,11 @@ const DrawerContent = ({ navigation }) => {
                             <Title style={{ ...styles.textStyle, color: '#fff',marginLeft:10,fontSize:RFPercentage(3),fontFamily:'Gilroy-Bold'}} numberOfLines={1}>Jacob Gomez</Title>
                         </View>
                     </View>
-                    <TouchableOpacity style={{position: 'absolute',right: 10, top:10}} onPress={() => navigation.closeDrawer()}>
-                        {/* <Icon
-                        name='times'
-                        type='font-awesome'
-                        color='#FF3C40'
-                        containerStyle={{
-                            backgroundColor:'#fff',
-                            borderRadius:50,
-                            paddingTop:5,
-                            paddingBottom:5,
-                            paddingRight:7,
-                            paddingLeft:7,
-                        }}
-                        onPress={() => navigation.closeDrawer()} /> */}
+                    <TouchableOpacity style={{position: 'absolute',right: 15, top:15}} onPress={() => navigation.closeDrawer()}>
                         <CrossIco />
                     </TouchableOpacity>
                 </View>
-            <DrawerContentScrollView >
+            <DrawerContentScrollView showsVerticalScrollIndicator={false}>
                 <View style={{ marginTop: 40,paddingLeft:20,paddingRight:20,paddingBottom:30}}>
                     <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
                         <View style={{ ...styles.flexCon, marginBottom: 35 }}>
@@ -169,7 +156,7 @@ const DrawerContent = ({ navigation }) => {
                     </TouchableOpacity>
                     <View style={{marginBottom:collapse2 ? 0 : 20}}>
                         <Collapsible collapsed={collapse2} style={{backgroundColor:'#f1f1f1',padding:20,borderRadius:10}}>
-                            <TouchableOpacity onPress={()=>navigation.navigate('PrivacyPolicy')} >
+                            <TouchableOpacity >
                                 <View style={{ ...styles.flexCon, marginBottom: 20 }}>
                                     {/* <TermsIcon style={{  width: 28, height: 24 }} /> */}
                                         <Icon
@@ -181,8 +168,8 @@ const DrawerContent = ({ navigation }) => {
                                     <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Facebook</Text>
                                 </View>
                             </TouchableOpacity>
-                            <TouchableOpacity onPress={()=>navigation.navigate('TermCondition')} >
-                                <View style={{ ...styles.flexCon }}>
+                            <TouchableOpacity >
+                                <View style={{ ...styles.flexCon, marginBottom: 20 }}>
                                     {/* <PrivacyIcon style={{  width: 28, height: 24 }} /> */}
                                     <Icon
                                         name='linkedin'
@@ -190,7 +177,19 @@ const DrawerContent = ({ navigation }) => {
                                         color='#0073b1'
                                         iconStyle={{fontSize:26,width: 28}}
                                     />
-                                    <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Linked In</Text>
+                                    <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>LinkedIn</Text>
+                                </View>
+                            </TouchableOpacity>
+                            <TouchableOpacity >
+                                <View style={{ ...styles.flexCon }}>
+                                    {/* <PrivacyIcon style={{  width: 28, height: 24 }} /> */}
+                                    <Icon
+                                        name='twitter'
+                                        type='font-awesome'
+                                        color='#1d9bf0'
+                                        iconStyle={{fontSize:26,width: 28}}
+                                    />
+                                    <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Twitter</Text>
                                 </View>
                             </TouchableOpacity>
                         </Collapsible>

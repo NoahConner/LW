@@ -43,7 +43,12 @@ const ConfirmPayment = ({navigation,route })=>{
     const [cardSelect,SetcardSelect] = useState(myContext.paymentmethods[0].type);
 
 // console.log(myContext.paymentmethods[0])
-
+    const splitNo = (c) => {
+        var splitt = c.split(' ')
+        var lenghter = splitt.length
+        var cNoo = '**** '+splitt[lenghter-1]
+        return cNoo
+    }
 
     const cardDiv = (d, i) => {
         return (
@@ -59,8 +64,11 @@ const ConfirmPayment = ({navigation,route })=>{
                         <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: RFPercentage(2.3), fontFamily: 'Gilroy-Bold',textTransform:'capitalize'}}>{d.type}</Text>
-                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium'}}>{d.number}</Text>
+                        <Text style={{ fontSize: RFPercentage(2.3), fontFamily: 'Gilroy-Bold',textTransform:'capitalize'}}>{d.name}</Text>
+                        <View style={{...styles.flexRow}}>
+                            <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium',textTransform:'capitalize',marginRight:20}}>{d.type} :</Text>
+                            <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium'}}>{splitNo(d.number)}</Text>
+                        </View>
                     </View>
                 </View>
                 <View style={{ position: 'relative', marginTop: 10 }}>

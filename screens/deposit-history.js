@@ -5,6 +5,7 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import VisaIcon from '../assets/svg/visa.svg'
 import MasterIcon from '../assets/svg/master.svg'
 import PaymentIcon from '../assets/svg/paymentIcon.svg';
+import RBSheet from "react-native-raw-bottom-sheet";
 
 const defaultCad = [
     {
@@ -55,9 +56,10 @@ const defaultCad = [
 ]
 
 const DepositHistory = ({navigation}) => {
+    const refRBSheetDepos = useRef();
     const cardDiv = (d, i) => {
         return (
-            <View style={{ marginTop:30 }} key={i}>
+            <TouchableOpacity style={{ marginTop:30 }} key={i} onPress={() => refRBSheetDepos.current.open()}>
                 <View style={{...styles.flexRow,justifyContent:'space-between',width:'100%'}} key={i}>
                     <View style={{flexDirection:'row',width:'100%'}}>
                     {
@@ -80,7 +82,7 @@ const DepositHistory = ({navigation}) => {
                         </View>
                     </View>
                 </View>
-            </View>
+            </TouchableOpacity>
         )
     }
 
@@ -100,6 +102,71 @@ const DepositHistory = ({navigation}) => {
                 </SafeAreaView>
             </View>
             </ScrollView>
+
+            <RBSheet
+                ref={refRBSheetDepos}
+                closeOnDragDown={true}
+                closeOnPressMask={true}
+                customStyles={{
+                    wrapper: {
+                        backgroundColor: "#0000009e",
+                    },
+                    draggableIcon: {
+                        backgroundColor: "#E6E6E6"
+                    },
+                    container:{
+                        backgroundColor: "#fff",
+                        borderTopEndRadius:20,
+                        borderTopStartRadius:20
+                    }
+                }}
+                height={380}
+            >
+                <ScrollView style={{paddingBottom:20}}>
+                <View style={{padding:20}}>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize: RFPercentage(2.8),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#FF3C40",paddingBottom:15}}>Deposit Details</Text>
+                    
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Date/Time:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 2021 5:12 am</Text>
+                        </View>
+                    </View>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Card:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Visa</Text>
+                        </View>
+                    </View>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Cardholder:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Noah Conner</Text>
+                        </View>
+                    </View>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Amount:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.300</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Processing Fee:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.00</Text>
+                        </View>
+                    </View>
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Total:</Text>
+                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$2.300</Text>
+                        </View>
+                    </View>
+
+                </View>
+                </ScrollView>
+            </RBSheet>
         </View>
     )
 }

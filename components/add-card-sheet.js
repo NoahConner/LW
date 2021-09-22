@@ -94,9 +94,9 @@ const AddCardSheet = ({navigation,statement}) => {
       if(newCard == null){
         alert('Please fill the card fields.')
       }
-      // else if(!newCard.valid){
-      //   alert('Invalid Card!')
-      // }
+      else if(!newCard.valid){
+        alert('Invalid Card!')
+      }
       else if(newCard.valid){
         var iddf = Math.floor(Math.random() * 100);
         newCard.values["id"] = iddf
@@ -104,13 +104,6 @@ const AddCardSheet = ({navigation,statement}) => {
         allCards.push(newCard.values);
         myContext.setpaymentmethods(allCards);
         myContext.setcloseAllSheets(true)
-        // if(statement == 'payment-method'){
-        //   navigation.navigate('PaymentMethod')
-        //   console.log(statement);
-        // }else{
-        //   navigation.navigate('ConfirmPayment')
-        //   console.log(statement);
-        // }
       }
     }
 
