@@ -76,7 +76,7 @@ export default class CreditCardInput extends Component {
       name: "CARDHOLDER'S NAME",
       number: "CARD NUMBER",
       expiry: "EXPIRY",
-      cvc: "CVC/CCV",
+      cvc: "CVC/CVV",
       postalCode: "POSTAL CODE",
     },
     placeholders: {

@@ -4,6 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 import { createStackNavigator,HeaderStyleInterpolators } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import AppContext  from './components/appcontext';
 import Home from './screens/home'
@@ -38,7 +39,7 @@ const defaultCad = [
 
 const App = (navigation) => {
 
-  const [userToken, setuserToken] = useState('null');
+  const [userToken, setuserToken] = useState(null);
   const [CongratesModal,setCongratesModal] = useState(false);
   const [SorryModal,setSorryModal] = useState(false);
   const [CouponModal,setCouponModal] = useState(false);
@@ -71,13 +72,11 @@ const App = (navigation) => {
     setcloseAllSheets
   };
 
-
   const Root = ({navigation}) => {
     const isSignout = true
     if(userToken == null){
       navigation.closeDrawer();
     }
-
 
     return (
       <Stack.Navigator >
@@ -117,10 +116,20 @@ const App = (navigation) => {
       </Stack.Navigator>
     );
   }
-
+  const getData = async () => {
+    try {
+      const value = await AsyncStorage.getItem('@storage_Key')
+      if(value !== null) {
+        setuserToken(value)
+      }
+    } catch(e) {
+      console.log(e)
+      setuserToken(null)
+    }
+  }
   useEffect(() => {
     const init = async () => {
-      // …do multiple sync or async tasks
+      getData()
     };
 
     init().finally(async () => {
@@ -133,7 +142,6 @@ const App = (navigation) => {
   <AppContext.Provider value={userSettings}>
     <NavigationContainer>
        <Drawer.Navigator
-        // screenOptions={{swipeEnabled: false}}
         screenOptions={{
           drawerStyle: {
             backgroundColor: '#fff',
@@ -141,7 +149,9 @@ const App = (navigation) => {
             borderTopEndRadius:25,
             borderBottomEndRadius:25,
             overflow: 'hidden',
+            
           },
+          swipeEnabled: userToken == null ? false : true
         }}
         drawerContent={(props) => <DrawerContent {...props} />}
         initialRouteName="Root"

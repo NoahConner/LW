@@ -6,8 +6,19 @@ import FacebookIcon from '../assets/svg/facebook.svg'
 import GoogleIcon from '../assets/svg/google.svg'
 import AppContext from '../components/appcontext'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 const Login = ({navigation})=>{
+    
+    const storeData = async (value) => {
+        try {
+          await AsyncStorage.setItem('@storage_Key', value)
+          myContext.setuserToken(value)
+        } catch (e) {
+          console.log(e)
+        }
+      }
+
     const [remember,setRemember] = useState(false);
     const myContext = useContext(AppContext)
     return(
@@ -59,7 +70,7 @@ const Login = ({navigation})=>{
                     <Button
                         title="Log In"
                         type="solid"
-                        onPress={()=> myContext.setuserToken('token09098790909')}
+                        onPress={()=> storeData('0256985sd225sdwe')}
                         buttonStyle={{
                             backgroundColor:'#1E3865',
                             padding:15,

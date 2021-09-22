@@ -29,6 +29,8 @@ import Collapsible from 'react-native-collapsible';
 import LegalIcon from '../assets/svg/legalicon.svg'
 import SocialIcon from '../assets/svg/social-media.svg'
 import CrossIco from '../assets/svg/x-mark.svg'
+import AsyncStorage from '@react-native-async-storage/async-storage';
+
 
 
 const DrawerContent = ({ navigation }) => {
@@ -37,6 +39,17 @@ const DrawerContent = ({ navigation }) => {
     const [toggleIcon,settoggleIcon] = useState(false);
     const [collapse,setCollapse] = useState(true);
     const [collapse2,setCollapse2] = useState(true);
+    const storeData = async (value) => {
+        console.log(value)
+        try {
+          await AsyncStorage.removeItem('@storage_Key')
+          myContext.setuserToken(value)
+        } catch (e) {
+          console.log(e)
+        }
+    }
+    
+
     return (
         <View style={{ flex: 1, paddingBottom: 30 }}>
            
@@ -199,7 +212,7 @@ const DrawerContent = ({ navigation }) => {
 
             </DrawerContentScrollView>
             <View style={{paddingLeft:20,marginTop:20}}>
-                <TouchableOpacity onPress={() => { myContext.setuserToken(null) }}>
+                <TouchableOpacity onPress={() => { storeData(null) }}>
                     <View style={styles.flexCon}>
                         <LogOut style={{ fill: '#fff', width: 28, height:24 }} />
                         <Text style={styles.textStyle}>Log out</Text>
