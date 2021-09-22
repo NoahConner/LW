@@ -14,9 +14,8 @@ const Modals = ({ navigation }) => {
     }
 
     var showmodal = false;
-    if (myContext.CongratesModalCon || myContext.SorryModalCon || myContext.CouponModalCon) {
+    if (myContext.CongratesModalCon || myContext.SorryModalCon || myContext.CouponModalCon || myContext.closeAllSheets) {
         showmodal = true
-        console.log(true)
     } else {
         showmodal = false
     }
@@ -40,7 +39,9 @@ const Modals = ({ navigation }) => {
         else if (myContext.CouponModalCon) {
             myContext.setCouponModal(false)
         }
-        
+        else if (myContext.closeAllSheets) {
+            myContext.setcloseAllSheets(false)
+        }
     }
 
     return (
@@ -52,10 +53,18 @@ const Modals = ({ navigation }) => {
                 <View style={{ backgroundColor: '#fff', height: 280, borderRadius: 20 }}>
                     <ImageBackground source={require('../assets/svg/modal-back.png')} resizeMode="cover" style={styles.image}>
                         <View style={{ paddingHorizontal: myContext.CouponModalCon ? 30 : 50, alignItems: 'center' }}>
-                            {myContext.CongratesModalCon ? (
+                            {
+                            myContext.closeAllSheets ? (
                                 <>
                                     <Tick style={{ height: 55, width: 55, marginBottom: 20 }} />
-                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.5), fontFamily:'Gilroy-Bold' }}>Deposit Successfull! </Text>
+                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.5), fontFamily:'Gilroy-Bold' }}>Card Added Successfully! </Text>
+                                    <Text style={{ textAlign: 'center', color: '#666666', ontSize:RFPercentage(1.8), marginTop: 10,fontFamily:'Gilroy-Medium' }}>You have Successfully Added the Card.</Text>
+                                </>
+                            ) :
+                            myContext.CongratesModalCon ? (
+                                <>
+                                    <Tick style={{ height: 55, width: 55, marginBottom: 20 }} />
+                                    <Text style={{ color: '#FF3C40', fontSize: RFPercentage(2.5), fontFamily:'Gilroy-Bold' }}>Deposit Successful! </Text>
                                     <Text style={{ textAlign: 'center', color: '#666666', ontSize:RFPercentage(1.8), marginTop: 10,fontFamily:'Gilroy-Medium' }}>You have Successfully Deposited  the Amount.</Text>
                                 </>
                             ) : myContext.SorryModalCon ? (

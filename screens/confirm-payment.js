@@ -11,67 +11,65 @@ import AddCardSheet from '../components/add-card-sheet'
 import ReviewPayment from '../components/review-pay';
 import Modals from '../components/modals';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import AppContext from '../components/appcontext'
+import AmexIcon from '../assets/svg/amex.svg'
+import DiscIcon from '../assets/svg/discover.svg'
+import JcbIcon from '../assets/svg/jcb.svg'
+import DinnerClub from '../assets/svg/diners-club.svg'
 
+// const defaultCad = [
+//     {
+//         'card_name': 'Visa',
+//         'card_no': '**** 2563',
+//         'id': '1'
+//     },
 
-const defaultCad = [
-    {
-        'card_name': 'Visa',
-        'card_no': '**** 2563',
-        'id': '1'
-    },
-    {
-        'card_name': 'Master Card',
-        'card_no': '**** 8569',
-        'id': '2'
-    },
-    {
-        'card_name': 'American Express',
-        'card_no': '**** 8569',
-        'id': '4'
-    }
-]
+// {
+//     "cvc": "636", 
+//     "expiry": "03/30", 
+//     "name": "Noah Conner", 
+//     "number": "6011 6011 6011 6611", 
+//     "type": "discover"
+//   }
+
+// ]
 const ConfirmPayment = ({navigation,route })=>{
-    
+
+    const myContext = useContext(AppContext);
     const { amount } = route.params;
     const refRBSheet = useRef();
     const refRBSheetReview = useRef();
-    const [cards, setCards] = useState(defaultCad)
-    const [cardSelect,SetcardSelect] = useState(defaultCad[0].card_name);
+    // const [cards, setCards] = useState(myContext.paymentmethods)
+    const [cardSelect,SetcardSelect] = useState(myContext.paymentmethods[0].type);
+
+// console.log(myContext.paymentmethods[0])
+
 
     const cardDiv = (d, i) => {
         return (
-            <View style={{ ...styles.Ccard, marginTop: i == 0 ? 20 : 15 }}>
+            <View style={{ ...styles.Ccard, marginTop: i == 0 ? 20 : 15 }} key={i}>
                 <View style={styles.flexRow}>
                     {
-                        d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 40 }} /> :
-                            d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 40 }} /> :
-                            <PaymentIcon style={{ height: 30, width: 40 }}/>
+                        d.type == 'visa' ? <VisaIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'master-card' ? <MasterIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'discover' ? <DiscIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'jcb' ? <JcbIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'american-express' ? <AmexIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'diners-club' ? <DinnerClub style={{ height: 30, width: 40 }} /> :
+                        <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: RFPercentage(2.3), fontFamily: 'Gilroy-Bold'}}>{d.card_name}</Text>
-                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium'}}>{d.card_no}</Text>
+                        <Text style={{ fontSize: RFPercentage(2.3), fontFamily: 'Gilroy-Bold',textTransform:'capitalize'}}>{d.type}</Text>
+                        <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium'}}>{d.number}</Text>
                     </View>
                 </View>
-                {/* <View>
-                    <CheckBox
-                        title=''
-                        checked={cardSelect == d.card_name ? true : false}
-                        onPress={()=> SetcardSelect(d.card_name)}
-                        iconType='font-awesome'
-                        checkedColor='#1E3865'
-                        uncheckedColor='#E6E6E6'
-                        checkedIcon='dot-circle-o'
-                        uncheckedIcon='circle-o'
-                        containerStyle={{padding:0,marginRight:0}}
-                    />
-                </View> */}
                 <View style={{ position: 'relative', marginTop: 10 }}>
                     <Icon
                         name='square'
                         type='font-awesome'
-                        color={cardSelect == d.card_name ? '#1E3865' : '#E6E6E6'}
+                        color={cardSelect == d.type ? '#1E3865' : '#E6E6E6'}
                         iconStyle={{ fontSize: 28 }}
-                        onPress={()=> SetcardSelect(d.card_name)}
+                        onPress={()=> SetcardSelect(d.type)}
                     />
                     <CheckBox
                         title=''
@@ -79,7 +77,7 @@ const ConfirmPayment = ({navigation,route })=>{
                         uncheckedIcon='square'
                         checkedColor="black"
                         uncheckedColor="transparent"
-                        checked={cardSelect == d.card_name ? true : false}
+                        checked={cardSelect == d.type ? true : false}
                         containerStyle={{ position: 'absolute', right: 30, bottom: -7, padding: 0, width: 0, overflow: 'hidden', borderRadius: 50 }}
                     />
                 </View>
@@ -103,7 +101,7 @@ const ConfirmPayment = ({navigation,route })=>{
                 <View style={{ marginTop: 0, width: '100%', paddingBottom: 80 }}>
                 <SafeAreaView >
                     <FlatList
-                        data={cards}
+                        data={myContext.paymentmethods}
                         renderItem={({ item, index }) => (
                             cardDiv(item, index)
                         )}
@@ -152,9 +150,9 @@ const ConfirmPayment = ({navigation,route })=>{
                         borderTopStartRadius:20
                     }
                 }}
-                height={Dimensions.get('window').height}
+                height={Dimensions.get('window').height-130}
             >
-                <AddCardSheet statement={'deposite'} />
+                <AddCardSheet navigation={navigation} statement={'deposite'} />
             </RBSheet>
 
             {/* review */}

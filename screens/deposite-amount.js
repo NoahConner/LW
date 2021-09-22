@@ -1,11 +1,14 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useContext } from 'react';
 import { View, Text, StyleSheet, Alert ,Dimensions  } from 'react-native';
 import { Image, Button, Icon,Input  } from 'react-native-elements';
 import StackHeader from '../components/stackheader'
 import Wallet from '../assets/svg/wallet.svg';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import AppContext from '../components/appcontext'
 
 const DepositeAmount = ({navigation})=>{
+
+    const myContext = useContext(AppContext);
     const [customAmount,SetcustomAmount] = useState(null)
     const createTwoButtonAlert = () =>
     Alert.alert(
@@ -37,7 +40,7 @@ const DepositeAmount = ({navigation})=>{
                 </View>
                 <View style={{...styles.flexRow,marginTop:10}}>
                     <Text style={styles.txtAmount}>Cuurent Balance: </Text>
-                    <Text style={styles.txtAmount}>$300.00</Text>
+                    <Text style={styles.txtAmount}>${myContext.WalletAmount}</Text>
                 </View>
                 <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'space-between',marginTop:40,width:'100%'}}>
                     <Button

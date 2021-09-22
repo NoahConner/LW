@@ -28,6 +28,7 @@ import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import Collapsible from 'react-native-collapsible';
 import LegalIcon from '../assets/svg/legalicon.svg'
 import SocialIcon from '../assets/svg/social-media.svg'
+import CrossIco from '../assets/svg/x-mark.svg'
 
 
 const DrawerContent = ({ navigation }) => {
@@ -39,9 +40,9 @@ const DrawerContent = ({ navigation }) => {
     return (
         <View style={{ flex: 1, paddingBottom: 30 }}>
            
-                <View style={{...styles.flexCon,backgroundColor: '#FF3C40',alignItems: 'flex-end',paddingLeft:20,paddingRight:10,paddingBottom:10,marginTop:10,marginTop:-5,position:'relative'}} >
-                    <View style={{flexDirection:'row',width:'100%',alignItems: 'center',marginTop:50}}>
-                        <View style={{ width: 65, height: 70, borderRadius: 10,marginTop:0, backgroundColor:'#FFFFFF', display: 'flex', alignItems: 'center' , justifyContent: 'center',overflow: 'hidden'}}>
+                <View style={{...styles.flexCon,backgroundColor: '#FF3C40',alignItems: 'flex-end',position:'relative',padding:20}} >
+                    <View style={{flexDirection:'row',width:'100%',alignItems: 'center'}}>
+                        <View style={{ width: 65, height: 70, borderRadius: 10, backgroundColor:'#FFFFFF', display: 'flex', alignItems: 'center' , justifyContent: 'center',overflow: 'hidden'}}>
                             {
                                 myContext.profileImagee == null ? (
                                     <><Text style={{ fontSize:RFPercentage(3),fontFamily:'Gilroy-Bold',color:"#FF3C40"}}>JG</Text></>
@@ -60,8 +61,8 @@ const DrawerContent = ({ navigation }) => {
                             <Title style={{ ...styles.textStyle, color: '#fff',marginLeft:10,fontSize:RFPercentage(3),fontFamily:'Gilroy-Bold'}} numberOfLines={1}>Jacob Gomez</Title>
                         </View>
                     </View>
-                    <View style={{position: 'absolute',right: 10, top:10}}>
-                        <Icon
+                    <TouchableOpacity style={{position: 'absolute',right: 10, top:10}} onPress={() => navigation.closeDrawer()}>
+                        {/* <Icon
                         name='times'
                         type='font-awesome'
                         color='#FF3C40'
@@ -73,10 +74,11 @@ const DrawerContent = ({ navigation }) => {
                             paddingRight:7,
                             paddingLeft:7,
                         }}
-                        onPress={() => navigation.closeDrawer()} />
-                    </View>
+                        onPress={() => navigation.closeDrawer()} /> */}
+                        <CrossIco />
+                    </TouchableOpacity>
                 </View>
-            <DrawerContentScrollView>
+            <DrawerContentScrollView >
                 <View style={{ marginTop: 40,paddingLeft:20,paddingRight:20,paddingBottom:30}}>
                     <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
                         <View style={{ ...styles.flexCon, marginBottom: 35 }}>
@@ -136,13 +138,13 @@ const DrawerContent = ({ navigation }) => {
                             <TouchableOpacity onPress={()=>navigation.navigate('PrivacyPolicy')} >
                                 <View style={{ ...styles.flexCon, marginBottom: 20 }}>
                                     <TermsIcon style={{  width: 28, height: 24 }} />
-                                    <Text style={styles.textStyle}>Privacy Policy</Text>
+                                    <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Privacy Policy</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={()=>navigation.navigate('TermCondition')} >
                                 <View style={{ ...styles.flexCon }}>
                                     <PrivacyIcon style={{  width: 28, height: 24 }} />
-                                    <Text style={styles.textStyle}>Terms & Condition</Text>
+                                    <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Terms & Condition</Text>
                                 </View>
                             </TouchableOpacity>
                         </Collapsible>
@@ -151,7 +153,7 @@ const DrawerContent = ({ navigation }) => {
                     <TouchableOpacity  onPress={()=>setCollapse2(!collapse2)} >
                         <View style={{ ...styles.flexCon, marginBottom: 25,position:'relative' }}>
                             <SocialIcon  style={{  width: 28, height: 24 }} />
-                            <Text style={styles.textStyle}>Social Media</Text>
+                            <Text style={styles.textStyle}>Share Us</Text>
 
                             <Icon
                                 name='angle-down'
@@ -171,11 +173,12 @@ const DrawerContent = ({ navigation }) => {
                                 <View style={{ ...styles.flexCon, marginBottom: 20 }}>
                                     {/* <TermsIcon style={{  width: 28, height: 24 }} /> */}
                                         <Icon
-                                        name='facebook'
-                                        type='font-awesome'
-                                        color='#ff3c40'
+                                            name='facebook-square'
+                                            type='font-awesome'
+                                            color='#1877f2'
+                                            iconStyle={{fontSize:26,width: 28}}
                                          />
-                                    <Text style={styles.textStyle}>Facebook</Text>
+                                    <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Facebook</Text>
                                 </View>
                             </TouchableOpacity>
                             <TouchableOpacity onPress={()=>navigation.navigate('TermCondition')} >
@@ -184,9 +187,10 @@ const DrawerContent = ({ navigation }) => {
                                     <Icon
                                         name='linkedin'
                                         type='font-awesome'
-                                        color='#ff3c40'
-                                         />
-                                    <Text style={styles.textStyle}>Linked In</Text>
+                                        color='#0073b1'
+                                        iconStyle={{fontSize:26,width: 28}}
+                                    />
+                                    <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Linked In</Text>
                                 </View>
                             </TouchableOpacity>
                         </Collapsible>

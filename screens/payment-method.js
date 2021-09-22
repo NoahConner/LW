@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef,useContext } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity,Dimensions } from 'react-native';
 import { Image, Button, Icon } from 'react-native-elements';
 import StackHeader from '../components/stackheader'
@@ -9,72 +9,58 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import AddCardSheet from '../components/add-card-sheet'
 import PaymentIcon from '../assets/svg/paymentIcon.svg';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import AppContext from '../components/appcontext'
+import AmexIcon from '../assets/svg/amex.svg'
+import DiscIcon from '../assets/svg/discover.svg'
+import JcbIcon from '../assets/svg/jcb.svg'
+import DinnerClub from '../assets/svg/diners-club.svg'
+import Modals from '../components/modals';
 
-const defaultCad = [
-    {
-        'card_name': 'Visa',
-        'card_no': '**** 2563',
-        'id': '1'
-    },
-    {
-        'card_name': 'Master Card',
-        'card_no': '**** 8569',
-        'id': '2'
-    },
-    {
-        'card_name': 'American Express',
-        'card_no': '**** 8569',
-        'id': '4'
-    },
-    {
-        'card_name': 'Visa',
-        'card_no': '**** 2563',
-        'id': '5'
-    },
-    {
-        'card_name': 'Master Card',
-        'card_no': '**** 8569',
-        'id': '6'
-    },
-    {
-        'card_name': 'American Express',
-        'card_no': '**** 8569',
-        'id': '7'
-    },
-    {
-        'card_name': 'Master Card',
-        'card_no': '**** 8569',
-        'id': '8'
-    },
-    {
-        'card_name': 'American Express',
-        'card_no': '**** 8569',
-        'id': '9'
-    }
-]
+// const defaultCad = [
+//     {
+//         'card_name': 'Visa',
+//         'card_no': '**** 2563',
+//         'id': '1'
+//     },
+//     {
+//         'card_name': 'Master Card',
+//         'card_no': '**** 8569',
+//         'id': '2'
+//     },
+//     {
+//         'card_name': 'American Express',
+//         'card_no': '**** 8569',
+//         'id': '4'
+//     }
+// ]
 const PaymentMethod = ({ navigation }) => {
 
+    const myContext = useContext(AppContext);
     const refRBSheet = useRef();
-    var [cards, setCards] = useState(defaultCad)
-
+    var [cards, setCards] = useState(myContext.paymentmethods)
     const removeCard = (i) => {
         var fake = cards.filter(item => item.id != i)
-        setCards(fake)
+        // setCards(fake)
+        myContext.setpaymentmethods(fake)
     }
 
     const cardDiv = (d, i) => {
 
         return (
-            <View style={{ ...styles.Ccard, marginTop: i == 0 ? 20 : 15 }}>
+            <View style={{ ...styles.Ccard, marginTop: i == 0 ? 20 : 15 }} key={i}>
                 <View style={styles.flexRow}>
                     {
-                        d.card_name == 'Visa' ? <VisaIcon style={{ height: 30, width: 32 }} /> :
-                            d.card_name == 'Master Card' ? <MasterIcon style={{ height: 30, width: 32 }} /> :
-                            <PaymentIcon style={{ height: 30, width: 32 }}/>
+                        d.type == 'visa' ? <VisaIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'master-card' ? <MasterIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'discover' ? <DiscIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'jcb' ? <JcbIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'american-express' ? <AmexIcon style={{ height: 30, width: 40 }} /> :
+                        d.type == 'diners-club' ? <DinnerClub style={{ height: 30, width: 40 }} /> :
+                        <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: RFPercentage(2.2), fontFamily:'Gilroy-Bold' }}>{d.card_name}</Text>
-                        <Text style={{ color: '#666666', fontSize: RFPercentage(1.8), marginTop: 5,fontFamily:'Gilroy-Medium' }}>{d.card_no}</Text>
+                        <Text style={{ fontSize: RFPercentage(2.2), fontFamily:'Gilroy-Bold',textTransform:'capitalize' }}>{d.type}</Text>
+                        <Text style={{ color: '#666666', fontSize: RFPercentage(1.8), marginTop: 5,fontFamily:'Gilroy-Medium' }}>{d.number}</Text>
                     </View>
                 </View>
                 <View>
@@ -132,10 +118,12 @@ const PaymentMethod = ({ navigation }) => {
                         borderTopStartRadius:20
                     }
                 }}
-                height={Dimensions.get('window').height}
+                height={Dimensions.get('window').height-130}
             >
-                <AddCardSheet statement={'payment-method'} />
+                <AddCardSheet navigation={navigation} statement={'payment-method'} />
             </RBSheet>
+
+            <Modals navigation={navigation} />
         </View>
     )
 }

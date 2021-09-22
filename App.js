@@ -25,6 +25,16 @@ import TermCondition from './screens/terms-con'
 import PrivacyPolicy from './screens/privacy-policy'
 import MapModal from './components/map'
 
+const defaultCad = [
+  {
+    "cvc": "636", 
+    "expiry": "03/30", 
+    "name": "Noah Conner", 
+    "number": "6011 6011 6011 6611", 
+    "type": "discover",
+    "id": 1
+  }
+]
 
 const App = (navigation) => {
 
@@ -36,6 +46,8 @@ const App = (navigation) => {
   const [WalletAmount,setWalletAmount] = useState(0);
   const [profileImagee,setprofileImagee] = useState(null);
   const [mapModal, setmapModal] = useState(false);
+  const [paymentmethods, setpaymentmethods] = useState(defaultCad);
+  const [closeAllSheets, setcloseAllSheets] = useState(false)
   const userSettings = {
     setting1name: userToken,
     CongratesModalCon:CongratesModal,
@@ -45,6 +57,8 @@ const App = (navigation) => {
     WalletAmount:WalletAmount,
     profileImagee:profileImagee,
     mapModal:mapModal,
+    paymentmethods:paymentmethods,
+    closeAllSheets:closeAllSheets,
     setuserToken,
     setCongratesModal,
     setSorryModal,
@@ -52,7 +66,9 @@ const App = (navigation) => {
     setCurrentCoupon,
     setWalletAmount,
     setprofileImagee,
-    setmapModal
+    setmapModal,
+    setpaymentmethods,
+    setcloseAllSheets
   };
 
 

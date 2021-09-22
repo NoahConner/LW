@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { View, Text, StyleSheet, Alert, Pressable, Dimensions, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
+import { View, Text, StyleSheet, Alert, Pressable, Dimensions,ToastAndroid, TouchableOpacity, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { Image, Button, Icon, Input } from 'react-native-elements';
 
 import SCheader from '../components/screensheader'
@@ -30,10 +30,6 @@ const MapModal = ({ navigation }) => {
     })
     .then(location => {
         console.log(location);
-        // setLATITUDE(location.latitude)
-        // setLONGITUDE(location.longitude)
-        // setLATITUDE_DELTA(0.05000775767387111)
-        // setLONGITUDE_DELTA(0.029845274984822368)
         setRegions(
           {
             latitude: location.latitude,
@@ -52,10 +48,6 @@ const MapModal = ({ navigation }) => {
   const setRegion = (e) => {
     // console.log(e.nativeEvent)
     console.log(e)
-    // setLATITUDE(e.latitude)
-    // setLONGITUDE(e.longitude)
-    // setLATITUDE_DELTA(e.latitudeDelta)
-    // setLONGITUDE_DELTA(e.longitudeDelta)
     setRegions(
       {
         latitude: e.latitude,
@@ -83,7 +75,7 @@ const MapModal = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <SCheader navigation={navigation} backbutton={true} name={'Map'} wallet={false} />
-      <View style={{ position: 'absolute', bottom: 50, left: 0, zIndex: 9999, width: '100%', paddingHorizontal: 20 }}>
+      <View style={{ position: 'absolute', bottom: 20, left: 0, zIndex: 9999, width: '100%', paddingHorizontal: 20 }}>
         <View>
 
           <View style={{ alignItems: 'flex-end' }}>

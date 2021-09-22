@@ -74,7 +74,7 @@ const DepositHistory = ({navigation}) => {
                             {/* <Text style={styles.dater}>*** 1234</Text> */}
                             <View style={{...styles.flexRow,justifyContent:'space-between'}}>
                                 <Text style={styles.dater}>*** 1234</Text>
-                                <Text style={styles.dater}>Service Charge:</Text>
+                                <Text style={styles.dater}>Processing Fee:</Text>
                                 <Text style={{...styles.dater,marginTop:2}}>-$1.00</Text>
                             </View>
                         </View>
@@ -87,7 +87,7 @@ const DepositHistory = ({navigation}) => {
     return(
         <View style={styles.container}>
             <StackHeader navigation={navigation} name={'Deposit History'} />
-            <ScrollView>
+            <ScrollView >
             <View style={{ marginTop: 0, width: '100%', paddingBottom:40,paddingHorizontal:20 }}>
                 <SafeAreaView >
                     {

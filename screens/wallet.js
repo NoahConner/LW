@@ -80,7 +80,7 @@ const Wallet = ({navigation}) => {
                             </View>
                             <View style={{...styles.flexRow,justifyContent:'space-between'}}>
                                 <Text style={styles.dater}>*** 1234</Text>
-                                <Text style={styles.dater}>Service Charge:</Text>
+                                <Text style={styles.dater}>Processing Fee:</Text>
                                 <Text style={{...styles.dater,marginTop:2}}>-$1.00</Text>
                             </View>
                         </View>

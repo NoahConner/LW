@@ -24,7 +24,7 @@ const ReviewPayment = ({navigation,amount})=>{
             <Text style={{marginTop:40,fontSize:RFPercentage(2.3),color:'#666666',fontFamily:'Gilroy-Medium'}}>Deposit Amount</Text>
             <Text style={{marginTop:5,fontSize:RFPercentage(3.5),color:'#000',fontFamily:'Gilroy-Bold'}}>${amount}</Text>
 
-            <Text style={{marginTop:25,fontSize:RFPercentage(2.3),color:'#666666',fontFamily:'Gilroy-Medium'}}>Service Charges</Text>
+            <Text style={{marginTop:25,fontSize:RFPercentage(2.3),color:'#666666',fontFamily:'Gilroy-Medium'}}>Processing Fee</Text>
             <Text style={{marginTop:5,fontSize:RFPercentage(3.5),color:'#000',fontFamily:'Gilroy-Bold'}}>$1.25</Text>
 
             <View style={{alignItems: 'flex-end',justifyContent: 'space-between',flexDirection: 'row',marginBottom:40,marginTop:0}}>

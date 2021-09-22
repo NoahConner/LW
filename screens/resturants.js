@@ -208,6 +208,8 @@ const Resturants = ({navigation}) => {
                                 mode="date"
                                 onConfirm={handleConfirm}
                                 onCancel={hideDatePicker}
+                                display="default"
+                                maximumDate={new Date()}
                             />
                             <View >
                                 <Button

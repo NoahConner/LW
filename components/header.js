@@ -34,13 +34,13 @@ const Header = ({navigation})=>{
                         // onPress={()=> myContext.setmapModal(true)}
                         onPress={()=> navigation.navigate('MapModal')}
                     >
-                        <View style={{marginLeft:25,width:'100%',paddingRight:100}}>
+                        <View style={{marginLeft:25,width:'100%',paddingRight:125}}>
                             <Text style={{fontSize:RFPercentage(2.5),marginBottom:5,fontFamily:'Gilroy-Bold'}}>Location Radius</Text>
                             <View style={{flexDirection: 'row',alignItems: 'center'}}>
                             <Location
                             style={{height:16,width:12,marginRight:10}}
                             />
-                                <Text style={{fontSize:RFPercentage(1.7),fontFamily:'Gilroy-Medium'}} numberOfLines={1}>4001 Oral Lake Road, New York, NY  </Text>
+                                <Text style={{fontSize:RFPercentage(1.7),fontFamily:'Gilroy-Medium'}} numberOfLines={1}>363 North Sam Houston Parkway East Greater Greenspoint,  </Text>
                             </View>
                         </View>
                     </TouchableOpacity>
