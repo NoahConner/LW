@@ -3,21 +3,28 @@ import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
 import { Button,Icon } from 'react-native-elements';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import LeftArr from '../assets/svg/left-arrow.svg'
+import FilterIco from '../assets/svg/filter.svg'
 
 const StackHeader = ({navigation,name})=>{
     return(
         <View style={styles.header}>
-           {/* <Icon
-            name='arrow-left'
-            type='font-awesome'
-            color='#FF3C40'
-            onPress={() => navigation.goBack()} 
-            /> */}
-            <TouchableOpacity onPress={() => navigation.goBack()}>
-                <LeftArr style={{width:30,height:30}}   />
-            </TouchableOpacity>
-           
-            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginLeft:20}}>{name}</Text>
+            <View style={{flexDirection:'row',alignItems:'center'}}>
+                <TouchableOpacity onPress={() => navigation.goBack()}>
+                    <LeftArr style={{width:30,height:30}}   />
+                </TouchableOpacity>
+                
+                <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginLeft:20}}>{name}</Text>
+            </View>
+            {/* {
+                name == 'Deposit History' ? (
+                    <>
+                        <TouchableOpacity>
+                            <FilterIco style={{width:30,height:30}}   />
+                        </TouchableOpacity>
+                    </>
+                ) : null
+            } */}
+            
         </View>
     )
 }
@@ -42,7 +49,7 @@ const styles = StyleSheet.create({
         paddingHorizontal:20,
         borderBottomEndRadius:15,
         borderBottomStartRadius:15,
-        justifyContent: 'flex-start',
+        justifyContent: 'space-between',
         flexDirection: 'row',
         alignItems: 'center'
     }

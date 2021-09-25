@@ -2,7 +2,7 @@ import React, { useState, useRef,useContext } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity,Dimensions,ImageBackground  } from 'react-native';
 import { Image, Button, Icon,Input ,CheckBox } from 'react-native-elements';
 import StackHeader from '../components/stackheader'
-import PaymentIcon from '../assets/svg/paymentIcon.svg';
+import PaymentIcon from '../assets/svg/paymentIconred.svg';
 import VisaIcon from '../assets/svg/visa.svg'
 import MasterIcon from '../assets/svg/master.svg'
 import Trash from '../assets/svg/bin.svg'
@@ -107,84 +107,84 @@ const ConfirmPayment = ({navigation,route })=>{
                 </View>
 
                 <View style={{ marginTop: 0, width: '100%', paddingBottom: 80 }}>
-                <SafeAreaView >
-                    <FlatList
-                        data={myContext.paymentmethods}
-                        renderItem={({ item, index }) => (
-                            cardDiv(item, index)
-                        )}
-                        keyExtractor={item => item.id}
-                        showsVerticalScrollIndicator={false}
-                        showsHorizontalScrollIndicator={false}
-                        ListFooterComponent={
-                            <TouchableOpacity style={{ ...styles.flexRow, marginTop: 20, marginBottom: 20, width: '70%' }} onPress={() => refRBSheet.current.open()}>
-                                <Icon
-                                    name='plus'
-                                    type='font-awesome'
-                                    color='#FF3C40'
-                                    iconStyle={{ fontSize: RFPercentage(2.7) }}
-                                    style={{ marginRight: 24 }}
-                                />
-                                <Text style={{ fontFamily:'Gilroy-Bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
-                            </TouchableOpacity>
-                        }
-                    />
+                    <SafeAreaView >
+                        <FlatList
+                            data={myContext.paymentmethods}
+                            renderItem={({ item, index }) => (
+                                cardDiv(item, index)
+                            )}
+                            keyExtractor={item => item.id}
+                            showsVerticalScrollIndicator={false}
+                            showsHorizontalScrollIndicator={false}
+                            ListFooterComponent={
+                                <TouchableOpacity style={{ ...styles.flexRow, marginTop: 20, marginBottom: 20, width: '70%' }} onPress={() => refRBSheet.current.open()}>
+                                    <Icon
+                                        name='plus'
+                                        type='font-awesome'
+                                        color='#FF3C40'
+                                        iconStyle={{ fontSize: RFPercentage(2.7) }}
+                                        style={{ marginRight: 24 }}
+                                    />
+                                    <Text style={{ fontFamily:'Gilroy-Bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
+                                </TouchableOpacity>
+                            }
+                        />
 
-                </SafeAreaView>
+                    </SafeAreaView>
                 
-            </View>
-            <View style={{position: 'absolute',bottom:15,width:'100%',left:20}}>
-                <Button
-                    title="Review"
-                    buttonStyle={styles.NextBtns}
-                    titleStyle={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold'}}
-                    onPress={() => refRBSheetReview.current.open()}
-                />
-            </View>
-            <RBSheet
-                ref={refRBSheet}
-                closeOnDragDown={true}
-                closeOnPressMask={true}
-                customStyles={{
-                    wrapper: {
-                        backgroundColor: "#0000009e",
-                    },
-                    draggableIcon: {
-                        backgroundColor: "#E6E6E6"
-                    },
-                    container:{
-                        backgroundColor: "#fff",
-                        borderTopEndRadius:20,
-                        borderTopStartRadius:20
-                    }
-                }}
-                height={Dimensions.get('window').height-130}
-            >
-                <AddCardSheet navigation={navigation} statement={'deposite'} />
-            </RBSheet>
+                </View>
+                <View style={{position: 'absolute',bottom:15,width:'100%',left:20}}>
+                    <Button
+                        title="Review"
+                        buttonStyle={styles.NextBtns}
+                        titleStyle={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold'}}
+                        onPress={() => refRBSheetReview.current.open()}
+                    />
+                </View>
+                <RBSheet
+                    ref={refRBSheet}
+                    closeOnDragDown={true}
+                    closeOnPressMask={true}
+                    customStyles={{
+                        wrapper: {
+                            backgroundColor: "#0000009e",
+                        },
+                        draggableIcon: {
+                            backgroundColor: "#E6E6E6"
+                        },
+                        container:{
+                            backgroundColor: "#fff",
+                            borderTopEndRadius:20,
+                            borderTopStartRadius:20
+                        }
+                    }}
+                    height={Dimensions.get('window').height-130}
+                >
+                    <AddCardSheet navigation={navigation} statement={'deposite'} />
+                </RBSheet>
 
             {/* review */}
-            <RBSheet
-                ref={refRBSheetReview}
-                closeOnDragDown={true}
-                closeOnPressMask={true}
-                customStyles={{
-                    wrapper: {
-                        backgroundColor: "#0000009e",
-                    },
-                    draggableIcon: {
-                        backgroundColor: "#E6E6E6"
-                    },
-                    container:{
-                        backgroundColor: "#fff",
-                        borderTopEndRadius:20,
-                        borderTopStartRadius:20
-                    }
-                }}
-                height={530}
-            >
-                <ReviewPayment navigation={navigation} amount={amount}  statement={'deposite'} />
-            </RBSheet>
+                <RBSheet
+                    ref={refRBSheetReview}
+                    closeOnDragDown={true}
+                    closeOnPressMask={true}
+                    customStyles={{
+                        wrapper: {
+                            backgroundColor: "#0000009e",
+                        },
+                        draggableIcon: {
+                            backgroundColor: "#E6E6E6"
+                        },
+                        container:{
+                            backgroundColor: "#fff",
+                            borderTopEndRadius:20,
+                            borderTopStartRadius:20
+                        }
+                    }}
+                    height={560}
+                >
+                    <ReviewPayment navigation={navigation} amount={amount}  statement={'deposite'} />
+                </RBSheet>
 
             </View>
 

@@ -1,8 +1,8 @@
 import React, { useState, useRef,useContext } from 'react';
 import { View, Text, StyleSheet, SafeAreaView, TouchableOpacity ,Dimensions } from 'react-native';
 import { Icon ,CheckBox } from 'react-native-elements';
-import PaymentIcon from '../assets/svg/paymentIcon.svg';
-import History from '../assets/svg/historyIcon.svg';
+import PaymentIcon from '../assets/svg/paymentIconred.svg';
+import History from '../assets/svg/historyIconred.svg';
 import VisaIcon from '../assets/svg/visa.svg'
 import MasterIcon from '../assets/svg/master.svg'
 import RBSheet from "react-native-raw-bottom-sheet";
@@ -10,7 +10,7 @@ import AddCardSheet from '../components/add-card-sheet'
 import StackHeader from '../components/stackheader'
 import Coupon from '../assets/svg/coupon.svg'
 import { ScrollView } from 'react-native-gesture-handler';
-import DepositImg from '../assets/svg/deposite.svg'
+import DepositImg from '../assets/svg/depositered.svg'
 import SCheader from '../components/screensheader'
 import AppContext from '../components/appcontext'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";

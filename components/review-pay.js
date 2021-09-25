@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
     NextBtns:{
         backgroundColor:'#1E3865',
         paddingHorizontal:26,
-        paddingVertical:18
+        paddingVertical:15
         ,borderRadius:15
     },
 })

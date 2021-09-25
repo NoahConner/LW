@@ -4,7 +4,7 @@ import StackHeader from '../components/stackheader'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import VisaIcon from '../assets/svg/visa.svg'
 import MasterIcon from '../assets/svg/master.svg'
-import PaymentIcon from '../assets/svg/paymentIcon.svg';
+import PaymentIcon from '../assets/svg/paymentIconred.svg';
 import RBSheet from "react-native-raw-bottom-sheet";
 
 const defaultCad = [

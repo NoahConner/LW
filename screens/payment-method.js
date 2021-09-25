@@ -7,7 +7,7 @@ import MasterIcon from '../assets/svg/master.svg'
 import Trash from '../assets/svg/bin.svg'
 import RBSheet from "react-native-raw-bottom-sheet";
 import AddCardSheet from '../components/add-card-sheet'
-import PaymentIcon from '../assets/svg/paymentIcon.svg';
+import PaymentIcon from '../assets/svg/paymentIconred.svg';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import AppContext from '../components/appcontext'
 import AmexIcon from '../assets/svg/amex.svg'

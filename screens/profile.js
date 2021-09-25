@@ -165,10 +165,10 @@ const Profile = ({navigation})=>{
     return (
         <View style={styles.container}>
             <StackHeader navigation={navigation} name={'Profile'} />
-            <ScrollView style={{padding:20,marginTop:10,paddingBottom:10}}>
+            <ScrollView style={{padding:20,marginTop:10,marginBottom:0}}>
 
                 <View style={{alignItems: 'center',marginBottom:50}}>
-                    <View style={{position: 'relative',height:120,width:120,backgroundColor:'#F6F8FA',borderRadius:10,overflow: 'hidden'}}>
+                    <TouchableOpacity style={{position: 'relative',height:120,width:120,backgroundColor:'#F6F8FA',borderRadius:10,overflow: 'hidden'}} onPress={() => openSheet('camera')}>
                         <Image
                             source={{ uri: myContext.profileImagee == null ? 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png' : myContext.profileImagee }}
                             style={{ width: 120, height: 120,  resizeMode: 'cover' }}
@@ -177,7 +177,7 @@ const Profile = ({navigation})=>{
                         <TouchableOpacity style={{position:'absolute',right:10,bottom:10}} onPress={() => openSheet('camera')}>
                             <EditIcon style={{height:35,width:20}}/>
                         </TouchableOpacity>
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <View style={styles.mainCard}>
@@ -212,7 +212,7 @@ const Profile = ({navigation})=>{
                     </TouchableOpacity>
                 </View>
 
-                <View style={styles.mainCard}>
+                <View style={{...styles.mainCard,marginBottom:40}}>
                     <Text style={styles.nameF}>Password</Text>
                     <Text style={styles.nameB}>**********</Text>
                     <TouchableOpacity style={{position:'absolute',right:15,top:10}} onPress={() => openSheet('password')}>
