@@ -46,7 +46,6 @@ const MapModal = ({ navigation }) => {
   }
 
   const setRegion = (e) => {
-    // console.log(e.nativeEvent)
     console.log(e)
     setRegions(
       {
@@ -101,14 +100,9 @@ const MapModal = ({ navigation }) => {
         style={{ height: height, width: width }}
         initialRegion={regions}
         region={regions}
-        // showsUserLocation={true}
         loadingEnabled={true}
         onRegionChangeComplete={e => setRegion(e)}
         onMapReady={()=> setTimeout(()=>{setMarkerV(true)},2000) }
-        // onUserLocationChange={e => setRegion(e)}
-        // onPress={e => setRegion(e)}
-        // addressForCoordinate(myCoordinates).then(address => console.log(address))
-        // addressForCoordinate={e => changeAddress(e)}
         
       >
 
