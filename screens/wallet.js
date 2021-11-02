@@ -14,7 +14,7 @@ import DepositImg from '../assets/svg/depositered.svg'
 import SCheader from '../components/screensheader'
 import AppContext from '../components/appcontext'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
-
+import {  moderateScale } from 'react-native-size-matters';
 const defaultCad = [
     {
         'card_name': 'Visa',
@@ -75,9 +75,9 @@ const Wallet = ({navigation}) => {
                     </View>
                         <View style={{flexDirection:'column',width:'83%'}}>
                             <View style={{...styles.flexRow,justifyContent:'space-between'}}>
-                                <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:0}}>Deposited</Text>
+                                <Text style={{fontWeight:'bold',fontSize:moderateScale(13),marginRight:0}}>Deposited</Text>
                                 <Text style={{...styles.dater}}>11/11/2021</Text>
-                                <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
+                                <Text style={{fontWeight:'bold',fontSize:moderateScale(15)}}>-$1.300</Text>
                             </View>
                             <View style={{...styles.flexRow,justifyContent:'space-between'}}>
                                 <Text style={styles.dater}>*** 1234</Text>
@@ -99,9 +99,9 @@ const Wallet = ({navigation}) => {
                     </View>
                     <View style={{flexDirection:'column',width:'83%'}}>
                         <View style={{...styles.flexRow,justifyContent:'space-between'}}>
-                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:0}}>Donated</Text>
+                            <Text style={{fontWeight:'bold',fontSize:moderateScale(13),marginRight:0}}>Donated</Text>
                             <Text style={{...styles.dater}}>11/11/2021</Text>
-                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
+                            <Text style={{fontWeight:'bold',fontSize:moderateScale(15)}}>-$1.300</Text>
                         </View>
                         <Text style={styles.dater}>KFC</Text>
                     </View>
@@ -118,17 +118,17 @@ const Wallet = ({navigation}) => {
                 <View style={styles.depoCard}>
                     <View style={{flexDirection:'row',alignItems: 'center',width:'100%',justifyContent: 'space-between'}}>
                         <View>
-                            <Text style={{fontSize:RFPercentage(2.3),color:'#000',fontFamily:'Gilroy-Medium'}}>Available Credit</Text>
+                            <Text style={{fontSize:moderateScale(13),color:'#000',fontFamily:'Gilroy-Medium'}}>Available Credit</Text>
                         </View>
                         <TouchableOpacity onPress={()=> navigation.navigate('DepositeAmount')}>
                             <View style={{...styles.flexRow}}>
                                 <DepositImg style={{height:33,width:32}} />
-                                <Text style={{fontSize:RFPercentage(2.3),color:'#FF3C40',marginLeft:10,fontFamily:'Gilroy-Medium'}}>Deposit</Text>
+                                <Text style={{fontSize:moderateScale(13),color:'#FF3C40',marginLeft:10,fontFamily:'Gilroy-Medium'}}>Deposit</Text>
                             </View>
                         </TouchableOpacity>
                     </View>
                     <View>
-                        <Text style={{fontSize:RFPercentage(3),color:'#000',fontFamily:'Gilroy-Bold',marginTop:5}}>${myContext.WalletAmount}</Text>
+                        <Text style={{fontSize:moderateScale(18),color:'#000',fontFamily:'Gilroy-Bold',marginTop:5}}>${myContext.WalletAmount}</Text>
                     </View>
                 </View>
             </View>
@@ -136,7 +136,7 @@ const Wallet = ({navigation}) => {
             <View style={{paddingTop:60,paddingBottom:30}}>
                 <View style={{...styles.flexRow,marginTop:20}}>
                     <PaymentIcon style={{ height: 22, width: 32 }}/>
-                    <Text style={{fontFamily:'Gilroy-Bold',fontSize:RFPercentage(2.5),marginLeft:20}}>Deposit History</Text>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize:moderateScale(15),marginLeft:20}}>Deposit History</Text>
                 </View>
                 <View style={{ marginTop: 0, width: '100%', paddingBottom:40 }}>
                     <SafeAreaView >
@@ -152,7 +152,7 @@ const Wallet = ({navigation}) => {
                 <View>
                     <View style={{...styles.flexRow,marginTop:20}}>
                         <History style={{ height: 26, width: 32 }}/>
-                        <Text style={{fontFamily:'Gilroy-Bold',fontSize:RFPercentage(2.5),marginLeft:20}}>Donation History</Text>
+                        <Text style={{fontFamily:'Gilroy-Bold',fontSize:moderateScale(15),marginLeft:20}}>Donation History</Text>
                     </View>
                     <View>
                         {
@@ -186,59 +186,59 @@ const Wallet = ({navigation}) => {
             >
                 <ScrollView style={{paddingBottom:20}}>
                 <View style={{padding:20}}>
-                    <Text style={{fontFamily:'Gilroy-Bold',fontSize: RFPercentage(2.8),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#FF3C40",paddingBottom:15}}>Donation Details</Text>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize: moderateScale(18),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#FF3C40",paddingBottom:15}}>Donation Details</Text>
                     
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Date/Time:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 2021 5:12 am</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Date/Time:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 2021 5:12 am</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Resturant:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>KFC</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Resturant:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>KFC</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Amount:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$40.00</Text>
-                        </View>
-                    </View>
-
-                    <View style={{...styles.flexRow,marginTop:15}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Coupon:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>B45IUOPL</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Amount:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$40.00</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Coupon Status:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Withdrawal</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Coupon:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>B45IUOPL</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',...styles.redColor}}>Withdrawal Time:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 2021 9:38 am</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Coupon Status:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Withdrawal</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Leaper Name:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Ethen James</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',...styles.redColor}}>Withdrawal Time:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 2021 9:38 am</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Leaper DOB:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>06 Sep, 1995</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Leaper Name:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Ethen James</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Leaper DOB:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>06 Sep, 1995</Text>
                         </View>
                     </View>
 
@@ -269,43 +269,43 @@ const Wallet = ({navigation}) => {
             >
                 <ScrollView style={{paddingBottom:20}}>
                 <View style={{padding:20}}>
-                    <Text style={{fontFamily:'Gilroy-Bold',fontSize: RFPercentage(2.8),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#FF3C40",paddingBottom:15}}>Deposit Details</Text>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize: moderateScale(18),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#FF3C40",paddingBottom:15}}>Deposit Details</Text>
                     
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Date/Time:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 2021 5:12 am</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Date/Time:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 2021 5:12 am</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Card:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Visa</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Card:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Visa</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Cardholder:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Noah Conner</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Cardholder:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Noah Conner</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Amount:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.300</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Amount:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.300</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Processing Fee:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.00</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Processing Fee:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.00</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Total:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$2.300</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Total:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$2.300</Text>
                         </View>
                     </View>
 
@@ -343,7 +343,7 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
     },
     dater:{
-        fontSize:RFPercentage(2.2),color:'#666666'
+        fontSize:moderateScale(12),color:'#666666'
     },
     depoCard:{
         shadowColor: "#000",

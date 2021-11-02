@@ -31,6 +31,7 @@ import SocialIcon from '../assets/svg/social-media.svg'
 import CrossIco from '../assets/svg/x-mark.svg'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import LinearGradient from 'react-native-linear-gradient';
+import {  moderateScale } from 'react-native-size-matters';
 
 
 
@@ -54,36 +55,11 @@ const DrawerContent = ({ navigation }) => {
     return (
         <LinearGradient colors={['#FF3C40', '#FF3C40', '#C46163']} style={{ flex: 1, paddingBottom: 20 }}>
             <View style={{ flex: 1, paddingBottom: 0 }}>
-                {/* <View style={{...styles.flexCon,backgroundColor: '#FF3C40',alignItems: 'flex-end',position:'relative',paddingLeft:20,paddingVertical:10}} >
-                    <View style={{flexDirection:'row',width:'100%',alignItems: 'center'}}>
-                        <View style={{ width: 65, height: 70, borderRadius: 10, backgroundColor:'#FFFFFF', display: 'flex', alignItems: 'center' , justifyContent: 'center',overflow: 'hidden'}}>
-                            {
-                                myContext.profileImagee == null ? (
-                                    <><Text style={{ fontSize:RFPercentage(3),fontFamily:'Gilroy-Bold',color:"#FF3C40"}}>JG</Text></>
-                                ) : (
-                                    <>
-                                        <Image
-                                            source={{ uri: myContext.profileImagee}}
-                                            style={{ width: 65, height: 70,  resizeMode: 'cover' }}
-                                            PlaceholderContent={<ActivityIndicator />}
-                                        />
-                                    </>
-                                )
-                            }
-                        </View>
-                        <View style={{ width: '80%'}} numberOfLines={1}>
-                            <Title style={{ ...styles.textStyle, color: '#fff',marginLeft:10,fontSize:RFPercentage(3),fontFamily:'Gilroy-Bold'}} numberOfLines={1}>Jacob Gomez</Title>
-                        </View>
-                    </View>
-                    <TouchableOpacity style={{position: 'absolute',right: 15, top:15}} onPress={() => navigation.closeDrawer()}>
-                        <CrossIco />
-                    </TouchableOpacity>
-                </View> */}
                 <View style={{alignItems:'center',paddingTop:20,marginBottom:20}}>
                     <View style={{ width: 65, height: 70, borderRadius: 10, backgroundColor:'#f1f1f1', display: 'flex', alignItems: 'center' , justifyContent: 'center',overflow: 'hidden'}}>
                         {
                             myContext.profileImagee == null ? (
-                                <><Text style={{ fontSize:RFPercentage(3),fontFamily:'Gilroy-Bold',color:"#FF3C40"}}>JG</Text></>
+                                <><Text style={{ fontSize:moderateScale(18),fontFamily:'Gilroy-Bold',color:"#FF3C40"}}>JG</Text></>
                             ) : (
                                 <>
                                     <Image
@@ -96,10 +72,10 @@ const DrawerContent = ({ navigation }) => {
                         }
                     </View>
                     <View style={{ width: '100%',paddingHorizontal:20,alignItems:'center',marginTop:10}} numberOfLines={1}>
-                        <Title style={{ ...styles.textStyle, color: '#000',fontSize:RFPercentage(3),fontFamily:'Gilroy-Bold',marginLeft:0}} numberOfLines={1}>Jacob Gomez</Title>
+                        <Title style={{ ...styles.textStyle, color: '#000',fontSize:moderateScale(16),fontFamily:'Gilroy-Bold',marginLeft:0}} numberOfLines={1}>Jacob Gomez</Title>
                         <View style={{...styles.flexCon}}>
-                            <Title style={{ color: '#000',fontSize:RFPercentage(2),fontFamily:'Gilroy-Bold',marginLeft:0}} numberOfLines={1}>Balance:</Title>
-                            <Title style={{ color: '#000',fontSize:RFPercentage(2),fontFamily:'Gilroy-Bold',marginLeft:0}} numberOfLines={1}> ${myContext.WalletAmount}</Title>
+                            <Title style={{ color: '#000',fontSize:moderateScale(12),fontFamily:'Gilroy-Bold',marginLeft:0}} numberOfLines={1}>Balance:</Title>
+                            <Title style={{ color: '#000',fontSize:moderateScale(12),fontFamily:'Gilroy-Bold',marginLeft:0}} numberOfLines={1}> ${myContext.WalletAmount}</Title>
                         </View>
                     </View>
                 </View>
@@ -157,13 +133,13 @@ const DrawerContent = ({ navigation }) => {
                                 <TouchableOpacity onPress={()=>navigation.navigate('PrivacyPolicy')} >
                                     <View style={{ ...styles.flexCon, marginBottom: 20 }}>
                                         <TermsIcon style={{  width: 28, height: 24 }} />
-                                        <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Privacy Policy</Text>
+                                        <Text style={{...styles.textStyle,fontSize:moderateScale(12),color:'#666'}}>Privacy Policy</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity onPress={()=>navigation.navigate('TermCondition')} >
                                     <View style={{ ...styles.flexCon }}>
                                         <PrivacyIcon style={{  width: 28, height: 24 }} />
-                                        <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Terms & Condition</Text>
+                                        <Text style={{...styles.textStyle,fontSize:moderateScale(12),color:'#666'}}>Terms & Condition</Text>
                                     </View>
                                 </TouchableOpacity>
                             </Collapsible>
@@ -195,9 +171,9 @@ const DrawerContent = ({ navigation }) => {
                                                 name='facebook-square'
                                                 type='font-awesome'
                                                 color='#1877f2'
-                                                iconStyle={{fontSize:26,width: 28}}
+                                                iconStyle={{fontSize:moderateScale(26),width: 28}}
                                                 />
-                                        <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Facebook</Text>
+                                        <Text style={{...styles.textStyle,fontSize:moderateScale(12),color:'#666'}}>Facebook</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity >
@@ -207,9 +183,9 @@ const DrawerContent = ({ navigation }) => {
                                             name='linkedin'
                                             type='font-awesome'
                                             color='#0073b1'
-                                            iconStyle={{fontSize:26,width: 28}}
+                                            iconStyle={{fontSize:moderateScale(26),width: 28}}
                                         />
-                                        <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>LinkedIn</Text>
+                                        <Text style={{...styles.textStyle,fontSize:moderateScale(12),color:'#666'}}>LinkedIn</Text>
                                     </View>
                                 </TouchableOpacity>
                                 <TouchableOpacity >
@@ -219,9 +195,9 @@ const DrawerContent = ({ navigation }) => {
                                             name='twitter'
                                             type='font-awesome'
                                             color='#1d9bf0'
-                                            iconStyle={{fontSize:26,width: 28}}
+                                            iconStyle={{fontSize:moderateScale(26),width: 28}}
                                         />
-                                        <Text style={{...styles.textStyle,fontSize:RFPercentage(2),color:'#666'}}>Twitter</Text>
+                                        <Text style={{...styles.textStyle,fontSize:moderateScale(12),color:'#666'}}>Twitter</Text>
                                     </View>
                                 </TouchableOpacity>
                             </Collapsible>
@@ -252,14 +228,14 @@ const styles = StyleSheet.create({
     textStyle: {
         fontFamily: 'Gilroy-Medium',
         marginLeft: 20,
-        fontSize: RFPercentage(2.2),
+        fontSize: moderateScale(14),
         color: '#000'
     },
     email:
     {
         textAlign: 'center',
         color: '#fff',
-        fontSize: RFPercentage(2.2),
+        fontSize: moderateScale(14),
         paddingEnd: 10,
     }
 })

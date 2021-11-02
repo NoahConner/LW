@@ -1,9 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet,TouchableOpacity } from 'react-native';
-import { Button,Icon } from 'react-native-elements';
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import LeftArr from '../assets/svg/left-arrow.svg'
-import FilterIco from '../assets/svg/filter.svg'
+import {  moderateScale } from 'react-native-size-matters';
 
 const StackHeader = ({navigation,name})=>{
     return(
@@ -13,7 +11,7 @@ const StackHeader = ({navigation,name})=>{
                     <LeftArr style={{width:30,height:30}}   />
                 </TouchableOpacity>
                 
-                <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginLeft:20}}>{name}</Text>
+                <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginLeft:20}}>{name}</Text>
             </View>
             {/* {
                 name == 'Deposit History' ? (

@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React,{useState,useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet,SafeAreaView } from 'react-native';
 import { createStackNavigator,HeaderStyleInterpolators } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -49,6 +49,7 @@ const App = (navigation) => {
   const [mapModal, setmapModal] = useState(false);
   const [paymentmethods, setpaymentmethods] = useState(defaultCad);
   const [closeAllSheets, setcloseAllSheets] = useState(false)
+  const [modalOpens,setmodalOpens] = useState(false)
   const userSettings = {
     setting1name: userToken,
     CongratesModalCon:CongratesModal,
@@ -60,6 +61,7 @@ const App = (navigation) => {
     mapModal:mapModal,
     paymentmethods:paymentmethods,
     closeAllSheets:closeAllSheets,
+    modalOpens:modalOpens,
     setuserToken,
     setCongratesModal,
     setSorryModal,
@@ -69,7 +71,8 @@ const App = (navigation) => {
     setprofileImagee,
     setmapModal,
     setpaymentmethods,
-    setcloseAllSheets
+    setcloseAllSheets,
+    setmodalOpens
   };
 
   const Root = ({navigation}) => {
@@ -142,17 +145,18 @@ const App = (navigation) => {
   <AppContext.Provider value={userSettings}>
     <NavigationContainer>
        <Drawer.Navigator
+       drawerBackgroundColor= {'black'}
         screenOptions={{
           drawerStyle: {
-            backgroundColor: '#fff',
+            drawerBackgroundColor: 'transparent',
             width: '80%',
-            borderTopEndRadius:25,
-            borderBottomEndRadius:25,
+            // borderTopEndRadius:25,
+            // borderBottomEndRadius:25,
             overflow: 'hidden',
-            
           },
           swipeEnabled: userToken == null ? false : true
         }}
+
         drawerContent={(props) => <DrawerContent {...props} />}
         initialRouteName="Root"
         >

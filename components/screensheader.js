@@ -5,6 +5,7 @@ import Wallet from '../assets/svg/wallet.svg'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import AppContext from '../components/appcontext'
 import LeftArr from '../assets/svg/left-arrow.svg'
+import {  moderateScale } from 'react-native-size-matters';
 
 const SCheader = ({navigation,backbutton,name,wallet}) => {
 
@@ -36,7 +37,7 @@ const SCheader = ({navigation,backbutton,name,wallet}) => {
                     {
                         name != null || name != '' || name != undefined ? (
                             <>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',color:'#fff'}}>{name}</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',color:'#fff'}}>{name}</Text>
                             </>
                         ):(
                             null

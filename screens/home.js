@@ -5,6 +5,7 @@ import Header from '../components/header'
 import Location from '../assets/svg/location.svg';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import AppContext from '../components/appcontext'
+import {  moderateScale } from 'react-native-size-matters';
 // import MapModal from '../components/map'
 
 
@@ -83,12 +84,12 @@ const mcCards = (d, i, navigation) => {
                     />
                 </View>
                 <View style={{ marginLeft: 15, width: '100%', paddingRight: 100 }}>
-                    <Text style={{ fontFamily: 'Gilroy-Bold', fontSize: RFPercentage(2.3), marginBottom: 5 }}>{d.name}</Text>
+                    <Text style={{ fontFamily: 'Gilroy-Bold', fontSize: moderateScale(15), marginBottom: 5 }}>{d.name}</Text>
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>
                         <Location
                             style={{ height: 16, width: 13, marginRight: 10 }}
                         />
-                        <Text numberOfLines={1} style={{ fontSize: RFPercentage(2), fontFamily: 'Gilroy-Medium' }}>{d.distance} </Text>
+                        <Text numberOfLines={1} style={{ fontSize: moderateScale(12), fontFamily: 'Gilroy-Medium' }}>{d.distance} </Text>
                     </View>
                 </View>
             </View>
@@ -119,7 +120,7 @@ const Home = ({ navigation }) => {
                     showsHorizontalScrollIndicator={false}
                     ListHeaderComponent={
                         <View style={{ padding: 20 }}>
-                            <Text style={{ fontSize: RFPercentage(2.7), fontFamily: 'Gilroy-Bold' }}>All Restaurants</Text>
+                            <Text style={{ fontSize: moderateScale(17), fontFamily: 'Gilroy-Bold' }}>All Restaurants</Text>
                         </View>
                     }
                 />

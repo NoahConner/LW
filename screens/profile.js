@@ -10,6 +10,7 @@ import ImagePickerCropper from 'react-native-image-crop-picker';
 import CameraIcon from '../assets/svg/camera.svg'
 import GalleryIcon from '../assets/svg/gallery.svg'
 import AppContext from '../components/appcontext'
+import {  moderateScale } from 'react-native-size-matters';
 
 const Profile = ({navigation})=>{
     const refRBSheet = useRef();
@@ -25,12 +26,12 @@ const Profile = ({navigation})=>{
                         <>
                             <TouchableOpacity style={styles.flexRow} onPress={()=> openCamer('c')}>
                                 <CameraIcon style={{height:30,width:30}} />
-                                <Text style={{fontFamily:'Gilroy-Medium',fontSize:RFPercentage(2.2),marginLeft:10}}>Camera</Text>
+                                <Text style={{fontFamily:'Gilroy-Medium',fontSize:moderateScale(12),marginLeft:10}}>Camera</Text>
                             </TouchableOpacity>
                                 <View style={{width:'70%',height:1,backgroundColor:'lightgrey',marginVertical:15,marginLeft:'15%'}}></View>
                             <TouchableOpacity style={styles.flexRow} onPress={()=> openCamer('g')}>
                                 <GalleryIcon style={{height:30,width:30}} />
-                                <Text style={{fontFamily:'Gilroy-Medium',fontSize:RFPercentage(2.2),marginLeft:10}}>Gallery</Text>
+                                <Text style={{fontFamily:'Gilroy-Medium',fontSize:moderateScale(12),marginLeft:10}}>Gallery</Text>
                             </TouchableOpacity>
                         </>
                     )
@@ -38,7 +39,7 @@ const Profile = ({navigation})=>{
                     editCOn == 'frstname' ? 
                     (
                         <>
-                            <Text style={{fontSize:RFPercentage(2.2),fontFamily:'Gilroy-Medium'}}>First Name</Text>
+                            <Text style={{fontSize:moderateScale(12),fontFamily:'Gilroy-Medium'}}>First Name</Text>
                             <Input
                                 placeholder='Jacob'
                                 containerStyle={{
@@ -55,7 +56,7 @@ const Profile = ({navigation})=>{
                     editCOn == 'lstname' ? 
                     (
                         <>
-                            <Text style={{fontSize:RFPercentage(2.2),fontFamily:'Gilroy-Medium'}}>Last Name</Text>
+                            <Text style={{fontSize:moderateScale(12),fontFamily:'Gilroy-Medium'}}>Last Name</Text>
                             <Input
                                 placeholder='Gomez'
                                 containerStyle={{
@@ -72,7 +73,7 @@ const Profile = ({navigation})=>{
                     editCOn == 'email' ?
                     (
                         <>
-                            <Text style={{fontSize:RFPercentage(2.2),fontFamily:'Gilroy-Medium'}}>Email</Text>
+                            <Text style={{fontSize:moderateScale(12),fontFamily:'Gilroy-Medium'}}>Email</Text>
                             <Input
                                 placeholder='jacob@gmail.com'
                                 containerStyle={{
@@ -89,7 +90,7 @@ const Profile = ({navigation})=>{
                     editCOn == 'phone' ?
                     (
                         <>
-                            <Text style={{fontSize:RFPercentage(2.2),fontFamily:'Gilroy-Medium'}}>Phone</Text>
+                            <Text style={{fontSize:moderateScale(12),fontFamily:'Gilroy-Medium'}}>Phone</Text>
                             <Input
                                 placeholder='+1234567898'
                                 containerStyle={{
@@ -106,7 +107,7 @@ const Profile = ({navigation})=>{
                     editCOn == 'password' ?
                     (
                         <>
-                            <Text style={{fontSize:RFPercentage(2.2),fontFamily:'Gilroy-Medium'}}>Password</Text>
+                            <Text style={{fontSize:moderateScale(12),fontFamily:'Gilroy-Medium'}}>Password</Text>
                             <Input
                                 placeholder='*******'
                                 containerStyle={{
@@ -294,11 +295,11 @@ const styles = StyleSheet.create({
         marginTop:6,fontFamily:'Gilroy-fontFamily'
     },
     nameF:{
-        fontSize:RFPercentage(2),
+        fontSize:moderateScale(12),
         fontFamily:'Gilroy-Medium',color:'grey'
     },
     nameB:{
-        fontSize:RFPercentage(2.4),
+        fontSize:moderateScale(14),
         color:'#666',
         fontFamily:'Gilroy-Bold',
         marginTop:10

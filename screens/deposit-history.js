@@ -1,11 +1,11 @@
 import React,{useRef} from 'react';
 import { View, Text, StyleSheet, Button,FlatList,SafeAreaView,TouchableOpacity,ScrollView } from 'react-native';
 import StackHeader from '../components/stackheader'
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import VisaIcon from '../assets/svg/visa.svg'
 import MasterIcon from '../assets/svg/master.svg'
 import PaymentIcon from '../assets/svg/paymentIconred.svg';
 import RBSheet from "react-native-raw-bottom-sheet";
+import {  moderateScale } from 'react-native-size-matters';
 
 const defaultCad = [
     {
@@ -69,9 +69,9 @@ const DepositHistory = ({navigation}) => {
                     }
                         <View style={{flexDirection:'column',width:'83%'}}>
                             <View style={{...styles.flexRow,justifyContent:'space-between'}}>
-                                <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:0}}>Deposited</Text>
+                                <Text style={{fontWeight:'bold',fontSize:moderateScale(13),marginRight:0}}>Deposited</Text>
                                 <Text style={{...styles.dater}}>11/11/2021</Text>
-                                <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
+                                <Text style={{fontWeight:'bold',fontSize:moderateScale(15)}}>-$1.300</Text>
                             </View>
                             {/* <Text style={styles.dater}>*** 1234</Text> */}
                             <View style={{...styles.flexRow,justifyContent:'space-between'}}>
@@ -124,43 +124,43 @@ const DepositHistory = ({navigation}) => {
             >
                 <ScrollView style={{paddingBottom:20}}>
                 <View style={{padding:20}}>
-                    <Text style={{fontFamily:'Gilroy-Bold',fontSize: RFPercentage(2.8),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#FF3C40",paddingBottom:15}}>Deposit Details</Text>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize: moderateScale(18),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#FF3C40",paddingBottom:15}}>Deposit Details</Text>
                     
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Date/Time:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 2021 5:12 am</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Date/Time:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 2021 5:12 am</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Card:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Visa</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Card:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Visa</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Cardholder:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Noah Conner</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Cardholder:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Noah Conner</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Amount:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.300</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Amount:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.300</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Processing Fee:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.00</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Processing Fee:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$1.00</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Total:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$2.300</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Total:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$2.300</Text>
                         </View>
                     </View>
 
@@ -182,7 +182,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',alignItems: 'center'
     },
     dater:{
-        fontSize:RFPercentage(2),color:'#666666'
+        fontSize:moderateScale(12),color:'#666666'
     },
     redColor:{
         color:'#000'

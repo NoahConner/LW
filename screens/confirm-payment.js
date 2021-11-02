@@ -10,12 +10,12 @@ import RBSheet from "react-native-raw-bottom-sheet";
 import AddCardSheet from '../components/add-card-sheet'
 import ReviewPayment from '../components/review-pay';
 import Modals from '../components/modals';
-import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import AppContext from '../components/appcontext'
 import AmexIcon from '../assets/svg/amex.svg'
 import DiscIcon from '../assets/svg/discover.svg'
 import JcbIcon from '../assets/svg/jcb.svg'
 import DinnerClub from '../assets/svg/diners-club.svg'
+import {  moderateScale } from 'react-native-size-matters';
 
 // const defaultCad = [
 //     {
@@ -64,10 +64,10 @@ const ConfirmPayment = ({navigation,route })=>{
                         <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: RFPercentage(2.3), fontFamily: 'Gilroy-Bold',textTransform:'capitalize'}}>{d.name}</Text>
+                        <Text style={{ fontSize: moderateScale(14), fontFamily: 'Gilroy-Bold',textTransform:'capitalize'}}>{d.name}</Text>
                         <View style={{...styles.flexRow}}>
-                            <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium',textTransform:'capitalize',marginRight:20}}>{d.type} :</Text>
-                            <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium'}}>{splitNo(d.number)}</Text>
+                            <Text style={{ color: '#666666', fontSize: moderateScale(12), marginTop: 5,fontFamily: 'Gilroy-Medium',textTransform:'capitalize',marginRight:20}}>{d.type} :</Text>
+                            <Text style={{ color: '#666666', fontSize: moderateScale(12), marginTop: 5,fontFamily: 'Gilroy-Medium'}}>{splitNo(d.number)}</Text>
                         </View>
                     </View>
                 </View>
@@ -76,7 +76,7 @@ const ConfirmPayment = ({navigation,route })=>{
                         name='square'
                         type='font-awesome'
                         color={cardSelect == d.type ? '#1E3865' : '#E6E6E6'}
-                        iconStyle={{ fontSize: 28 }}
+                        iconStyle={{ fontSize: moderateScale(26) }}
                         onPress={()=> SetcardSelect(d.type)}
                     />
                     <CheckBox
@@ -98,12 +98,12 @@ const ConfirmPayment = ({navigation,route })=>{
             <StackHeader navigation={navigation} name={'Confirm Payment Method'} />
             <View style={{padding:20,width:'100%',height:Dimensions.get('window').height-100}}>
                 <View style={{...styles.flexRow,justifyContent: 'space-between'}}>
-                    <Text style={{color:'#666666',fontSize:RFPercentage(2.5), fontFamily:'Gilroy-Medium'}}>Deposit Amont</Text>
-                    <Text style={{color:'#000',fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold'}}>${amount}</Text>
+                    <Text style={{color:'#666666',fontSize:moderateScale(16), fontFamily:'Gilroy-Medium'}}>Deposit Amont</Text>
+                    <Text style={{color:'#000',fontSize:moderateScale(16),fontFamily:'Gilroy-Bold'}}>${amount}</Text>
                 </View>
                 <View style={{...styles.flexRow,marginTop:50}}>
                     <PaymentIcon style={{ height: 28, width: 38 }}/>
-                    <Text style={{fontFamily:'Gilroy-Bold',fontSize:RFPercentage(2.7),marginLeft:20}}>Payment Methods</Text>
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize:moderateScale(17),marginLeft:20}}>Payment Methods</Text>
                 </View>
 
                 <View style={{ marginTop: 0, width: '100%', paddingBottom: 80 }}>
@@ -122,10 +122,10 @@ const ConfirmPayment = ({navigation,route })=>{
                                         name='plus'
                                         type='font-awesome'
                                         color='#FF3C40'
-                                        iconStyle={{ fontSize: RFPercentage(2.7) }}
+                                        iconStyle={{ fontSize: moderateScale(17) }}
                                         style={{ marginRight: 24 }}
                                     />
-                                    <Text style={{ fontFamily:'Gilroy-Bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
+                                    <Text style={{ fontFamily:'Gilroy-Bold', fontSize: moderateScale(15) }}>Add Payment Method</Text>
                                 </TouchableOpacity>
                             }
                         />
@@ -137,7 +137,7 @@ const ConfirmPayment = ({navigation,route })=>{
                     <Button
                         title="Review"
                         buttonStyle={styles.NextBtns}
-                        titleStyle={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold'}}
+                        titleStyle={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold'}}
                         onPress={() => refRBSheetReview.current.open()}
                     />
                 </View>

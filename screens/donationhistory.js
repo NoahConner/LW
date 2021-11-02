@@ -5,6 +5,7 @@ import Coupon from '../assets/svg/coupon.svg'
 import RBSheet from "react-native-raw-bottom-sheet";
 import { ScrollView } from 'react-native-gesture-handler';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {  moderateScale } from 'react-native-size-matters';
 
 var donationHistory = [
     {
@@ -81,9 +82,9 @@ const dCards = (d,i,refRBSheet)=>{
                     <Coupon style={{marginRight:15}} />
                     <View style={{flexDirection:'column',width:'83%'}}>
                         <View style={{...styles.flexRow,justifyContent:'space-between'}}>
-                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.3),marginRight:0}}>Donated</Text>
+                            <Text style={{fontWeight:'bold',fontSize:moderateScale(13),marginRight:0}}>Donated</Text>
                             <Text style={{...styles.dater}}>11/11/2021</Text>
-                            <Text style={{fontWeight:'bold',fontSize:RFPercentage(2.5)}}>-$1.300</Text>
+                            <Text style={{fontWeight:'bold',fontSize:moderateScale(15)}}>-$1.300</Text>
                         </View>
                         <Text style={styles.dater}>KFC</Text>
                     </View>
@@ -133,59 +134,59 @@ const DonationHistory = ({navigation})=>{
             >
                 <ScrollView style={{paddingBottom:20}}>
                 <View style={{padding:20}}>
-                    <Text style={{fontFamily:'Gilroy-Bold',fontSize: RFPercentage(2.8),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#FF3C40",paddingBottom:15}}>Donation Details</Text>
-                    
+                    <Text style={{fontFamily:'Gilroy-Bold',fontSize: moderateScale(18),marginBottom:15,borderBottomWidth:1,borderBottomColor: "#FF3C40",paddingBottom:15}}>Donation Details</Text>
+                
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Date/Time:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 1821 5:12 am</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Date/Time:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 1821 5:12 am</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Resturant:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>KFC</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Resturant:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>KFC</Text>
                         </View>
                     </View>
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Amount:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$40.00</Text>
-                        </View>
-                    </View>
-
-                    <View style={{...styles.flexRow,marginTop:15}}>
-                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Coupon:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>B45IUOPL</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Amount:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>-$40.00</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Coupon Status:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Withdrawal</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Coupon:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>B45IUOPL</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',...styles.redColor}}>Withdrawal Time:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 1821 9:38 am</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Coupon Status:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Withdrawal</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Leaper Name:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Ethen James</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',...styles.redColor}}>Withdrawal Time:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>4 August, 1821 9:38 am</Text>
                         </View>
                     </View>
 
                     <View style={{...styles.flexRow,marginTop:15}}>
                         <View style={{...styles.flexRow,alignItems: "flex-start"}}>
-                            <Text style={{fontSize:RFPercentage(2.5),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Leaper DOB:</Text>
-                            <Text style={{fontSize:RFPercentage(2),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>06 Sep, 1995</Text>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Leaper Name:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>Ethen James</Text>
+                        </View>
+                    </View>
+
+                    <View style={{...styles.flexRow,marginTop:15}}>
+                        <View style={{...styles.flexRow,alignItems: "flex-start"}}>
+                            <Text style={{fontSize:moderateScale(15),fontFamily:'Gilroy-Bold',marginTop:-3,...styles.redColor}}>Leaper DOB:</Text>
+                            <Text style={{fontSize:moderateScale(12),marginLeft: 16,flexShrink: 1,fontFamily:'Gilroy-Medium',color:'#696868' }}>06 Sep, 1995</Text>
                         </View>
                     </View>
 
@@ -210,7 +211,7 @@ const styles = StyleSheet.create({
         flexDirection:'row',alignItems: 'center'
     },
     dater:{
-        fontSize:RFPercentage(2),color:'#666666'
+        fontSize:moderateScale(12),color:'#666666'
     },
     redColor:{
         color:'#000'

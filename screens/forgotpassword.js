@@ -6,6 +6,7 @@ import FacebookIcon from '../assets/svg/facebook.svg'
 import GoogleIcon from '../assets/svg/google.svg'
 import { Dimensions } from 'react-native';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
+import {  moderateScale } from 'react-native-size-matters';
 
 const ForgotPassword = ({navigation})=>{
     const [remember,setRemember] = useState(false)
@@ -14,8 +15,8 @@ const ForgotPassword = ({navigation})=>{
         <View style={styles.container}>
             
             <View style={{alignItems: 'center',width: '100%',justifyContent: 'center'}}>
-                <Text style={{color:'#E83131',fontSize:RFPercentage(4),fontWeight:'bold',marginTop:30}}>Forgot Password</Text>
-                <Text style={{color:'#666666',fontSize:RFPercentage(2),marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text>
+                <Text style={{color:'#E83131',fontSize:moderateScale(20),fontWeight:'bold',marginTop:30}}>Forgot Password</Text>
+                <Text style={{color:'#666666',fontSize:moderateScale(12),marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text>
                 <View style={{width:'100%'}}>
                     <Input
                      placeholder='Email Adress'

@@ -15,24 +15,7 @@ import DiscIcon from '../assets/svg/discover.svg'
 import JcbIcon from '../assets/svg/jcb.svg'
 import DinnerClub from '../assets/svg/diners-club.svg'
 import Modals from '../components/modals';
-
-// const defaultCad = [
-//     {
-//         'card_name': 'Visa',
-//         'card_no': '**** 2563',
-//         'id': '1'
-//     },
-//     {
-//         'card_name': 'Master Card',
-//         'card_no': '**** 8569',
-//         'id': '2'
-//     },
-//     {
-//         'card_name': 'American Express',
-//         'card_no': '**** 8569',
-//         'id': '4'
-//     }
-// ]
+import {  moderateScale } from 'react-native-size-matters';
 const PaymentMethod = ({ navigation }) => {
 
     const myContext = useContext(AppContext);
@@ -66,10 +49,10 @@ const PaymentMethod = ({ navigation }) => {
                         <PaymentIcon style={{ height: 30, width: 40 }}/>
                     }
                     <View style={{ marginLeft: 20 }}>
-                        <Text style={{ fontSize: RFPercentage(2.3), fontFamily: 'Gilroy-Bold',textTransform:'capitalize'}}>{d.name}</Text>
+                        <Text style={{ fontSize: moderateScale(14), fontFamily: 'Gilroy-Bold',textTransform:'capitalize'}}>{d.name}</Text>
                         <View style={{...styles.flexRow}}>
-                            <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium',textTransform:'capitalize',marginRight:20}}>{d.type} :</Text>
-                            <Text style={{ color: '#666666', fontSize: RFPercentage(2), marginTop: 5,fontFamily: 'Gilroy-Medium'}}>{splitNo(d.number)}</Text>
+                            <Text style={{ color: '#666666', fontSize: moderateScale(12), marginTop: 5,fontFamily: 'Gilroy-Medium',textTransform:'capitalize',marginRight:20}}>{d.type} :</Text>
+                            <Text style={{ color: '#666666', fontSize: moderateScale(12), marginTop: 5,fontFamily: 'Gilroy-Medium'}}>{splitNo(d.number)}</Text>
                         </View>
                     </View>
                 </View>
@@ -101,10 +84,10 @@ const PaymentMethod = ({ navigation }) => {
                                     name='plus'
                                     type='font-awesome'
                                     color='#FF3C40'
-                                    iconStyle={{ fontSize: RFPercentage(2.5) }}
+                                    iconStyle={{ fontSize: moderateScale(15) }}
                                     style={{ marginRight: 24 }}
                                 />
-                                <Text style={{ fontWeight: 'bold', fontSize: RFPercentage(2.5) }}>Add Payment Method</Text>
+                                <Text style={{ fontWeight: 'bold', fontSize: moderateScale(15) }}>Add Payment Method</Text>
                             </TouchableOpacity>
                         }
                     />
