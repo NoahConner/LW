@@ -1,17 +1,144 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, ScrollView,Dimensions } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, StyleSheet, TouchableOpacity, ScrollView, Dimensions } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Input, CheckBox, Button } from 'react-native-elements';
 import FacebookIcon from '../assets/svg/facebook.svg'
 import GoogleIcon from '../assets/svg/google.svg'
 import { moderateScale } from 'react-native-size-matters';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import Toast from 'react-native-toast-message';
+import axiosconfig from '../providers/axios';
+import Loader from './loader';
+import {
+    GoogleSignin,
+    GoogleSigninButton,
+    statusCodes,
+  } from '@react-native-google-signin/google-signin';
+
 const windowHeight = Dimensions.get('window').height;
 const SignIn = ({ navigation }) => {
-    const [remember, setRemember] = useState(false)
+
+    const [remember, setRemember] = useState(false);
+    const [signData, setSignData] = useState([]);
+    const [loader, setLoader] = useState(false)
+
+    const showToast = (t, e) => {
+        console.log(t)
+        Toast.show({
+            type: t,
+            text1: e,
+        })
+    }
+
+    useEffect(() => {
+        let DoP = {
+            'name': null,
+            'email': null,
+            'password': null,
+            'confirm_password': null,
+            'type': 'user',
+            'opt': null
+        }
+        setSignData(DoP);
+        GoogleSignin.configure({
+            webClientId: "Your-web-client-id", 
+            offlineAccess: true
+        });
+    }, [])
+
+    const setFormDatat = (e, t) => {
+        signData[t] = e;
+        setSignData(signData);
+    }
+
+    const signUp = async () => {
+
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+
+        for (const property in signData) {
+            if (property != 'opt') {
+                if (signData[property] == null || signData[property] == '') {
+                    showToast('error', `${capitalizeFirstLetter(property)} Required!`);
+                    return false;
+                }
+            }
+        }
+
+        if (!signData.email.match(mailformat)) {
+            showToast('error', 'Invalid Email!');
+            return false;
+        }
+
+        setLoader(true)
+
+
+        await axiosconfig.get(`app/check-mail/${signData.email}`).then((res: any) => {
+            console.log(res)
+            if (res.status == 200) {
+                otpSend()
+            } else {
+                setLoader(false)
+                showToast('error', res.data.message)
+            }
+        }).catch((err) => {
+            console.log(err.response)
+            setLoader(false)
+            showToast('error', err.response.data.message)
+        })
+
+        console.log(signData);
+    }
+
+    const otpSend = async () => {
+        await axiosconfig.post('app/otp', { email: signData.email }).then((res: any) => {
+            setLoader(false)
+            navigation.navigate('OPT', signData);
+            console.log(res.data)
+        }).catch((err) => {
+            setLoader(false)
+            console.log(err)
+        })
+    }
+
+    const capitalizeFirstLetter = (string) => {
+        if (string == 'name') {
+            return `Full ${string.charAt(0).toUpperCase() + string.slice(1)}`;
+        }
+        else {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+        }
+    }
+
+    const GoogleSingUp = async () => {
+        try {
+          await GoogleSignin.hasPlayServices();
+          await GoogleSignin.signIn().then(result => { console.log(result) });
+        } catch (error) {
+          if (error.code === statusCodes.SIGN_IN_CANCELLED) {
+            // user cancelled the login flow
+            showToast('error','User cancelled the login flow !');
+          } else if (error.code === statusCodes.IN_PROGRESS) {
+            showToast('error','Signin in progress');
+            // operation (f.e. sign in) is in progress already
+          } else if (error.code === statusCodes.PLAY_SERVICES_NOT_AVAILABLE) {
+            showToast('error','Google play services not available or outdated !');
+            // play services not available or outdated
+          } else {
+            console.log(error)
+          }
+        }
+      };
+
     return (
-        <ScrollView contentContainerStyle={{height:windowHeight,backgroundColor:'#fff'}}>
-            <SafeAreaView style={{backgroundColor:'#000'}}>
+        <ScrollView contentContainerStyle={{ height: windowHeight + 70, backgroundColor: '#fff' }}>
+            {
+                loader ? (
+                    <>
+                        <Loader />
+                    </>
+                ) : null
+            }
+            <SafeAreaView style={{ backgroundColor: '#000' }}>
                 <View style={styles.container}>
 
                     <View style={{ alignItems: 'center', width: '100%' }}>
@@ -27,6 +154,7 @@ const SignIn = ({ navigation }) => {
                                 inputContainerStyle={{
                                     ...styles.inputContainerStyle
                                 }}
+                                onChangeText={(e) => setFormDatat(e, 'name')}
                             />
                             <Input
                                 placeholder='Email Adress'
@@ -37,6 +165,7 @@ const SignIn = ({ navigation }) => {
                                 inputContainerStyle={{
                                     ...styles.inputContainerStyle
                                 }}
+                                onChangeText={(e) => setFormDatat(e, 'email')}
                             />
                             <Input
                                 placeholder='Password'
@@ -47,6 +176,8 @@ const SignIn = ({ navigation }) => {
                                 inputContainerStyle={{
                                     ...styles.inputContainerStyle
                                 }}
+                                secureTextEntry={true}
+                                onChangeText={(e) => setFormDatat(e, 'password')}
                             />
                             <Input
                                 placeholder='Confirm Password'
@@ -57,18 +188,21 @@ const SignIn = ({ navigation }) => {
                                 inputContainerStyle={{
                                     ...styles.inputContainerStyle
                                 }}
+                                secureTextEntry={true}
+                                onChangeText={(e) => setFormDatat(e, 'confirm_password')}
                             />
                         </View>
 
                         <View style={{ width: '100%', marginTop: 20 }}>
                             <Button
-                                title="Log In"
+                                title="Sign Up"
                                 type="solid"
                                 buttonStyle={{
                                     backgroundColor: '#1E3865',
                                     padding: 15,
                                     borderRadius: 15
                                 }}
+                                onPress={() => signUp()}
                             />
                             <Text style={{ color: '#666666', textAlign: 'center', fontSize: moderateScale(16), marginTop: 10, marginBottom: 10 }}>Or</Text>
                             <Button
@@ -95,7 +229,7 @@ const SignIn = ({ navigation }) => {
                                 }
                             />
                             <Button
-                                title="Continue with Facebook"
+                                title="Continue with Google"
                                 type="solid"
                                 buttonStyle={{
                                     backgroundColor: '#F6F8FA',

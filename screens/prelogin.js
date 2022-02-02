@@ -14,7 +14,8 @@ const PreLogin = ({navigation})=>{
                <View style={{width:'100%',alignItems: 'center'}}>
                     <PreImg style={{height:RFPercentage(32),width:'100%'}} />
                     <Text style={{color:'#FF4D4D',fontSize:moderateScale(20),fontWeight:'bold',marginTop:30}}>Donate Food</Text>
-                    <Text style={{color:'#666666',fontSize:moderateScale(12),marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text>
+                    {/* <Text style={{color:'#666666',fontSize:moderateScale(12),marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text> */}
+                    <Text style={{color:'#666666',fontSize:moderateScale(12),marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate food to people in need in just 3 easy steps!!</Text>
                     <View style={{width:'100%'}}>
                         <Button
                             title="Sign Up"

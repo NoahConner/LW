@@ -44,7 +44,7 @@ const DrawerContent = ({ navigation }) => {
     const storeData = async (value) => {
         console.log(value)
         try {
-          await AsyncStorage.removeItem('@storage_Key')
+          await AsyncStorage.removeItem('@auth_token')
           myContext.setuserToken(value)
         } catch (e) {
           console.log(e)

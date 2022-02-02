@@ -42,34 +42,6 @@ var donationHistory = [
         'date':'11/11/2021',
         'amount':'-$1.300',
         'id':'5'
-    },
-    {
-        'status':'donated',
-        'restaurant':'KFC',
-        'date':'11/11/2021',
-        'amount':'-$1.300',
-        'id':'6'
-    },
-    {
-        'status':'donated',
-        'restaurant':'KFC',
-        'date':'11/11/2021',
-        'amount':'-$1.300',
-        'id':'9'
-    },
-    {
-        'status':'donated',
-        'restaurant':'KFC',
-        'date':'11/11/2021',
-        'amount':'-$1.300',
-        'id':'7'
-    },
-    {
-        'status':'donated',
-        'restaurant':'KFC',
-        'date':'11/11/2021',
-        'amount':'-$1.300',
-        'id':'8'
     }
 ]
 

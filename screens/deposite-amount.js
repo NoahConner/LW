@@ -40,7 +40,7 @@ const DepositeAmount = ({navigation})=>{
                     <Text style={{fontFamily:'Gilroy-Bold',fontSize:moderateScale(15),marginLeft:15}}>Wallet</Text>
                 </View>
                 <View style={{...styles.flexRow,marginTop:10}}>
-                    <Text style={styles.txtAmount}>Cuurent Balance: </Text>
+                    <Text style={styles.txtAmount}>Current Balance: </Text>
                     <Text style={styles.txtAmount}>${myContext.WalletAmount}</Text>
                 </View>
                 <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'space-between',marginTop:40,width:'100%'}}>

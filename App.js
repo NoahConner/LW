@@ -5,6 +5,7 @@ import { createStackNavigator,HeaderStyleInterpolators } from '@react-navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import Toast from 'react-native-toast-message';
 
 import AppContext  from './components/appcontext';
 import Home from './screens/home'
@@ -25,6 +26,8 @@ import DepositHistory from './screens/deposit-history'
 import TermCondition from './screens/terms-con'
 import PrivacyPolicy from './screens/privacy-policy'
 import MapModal from './components/map'
+import OPT from './screens/opt';
+import NewPassword from './screens/newPassword';
 
 const defaultCad = [
   {
@@ -98,6 +101,8 @@ const App = (navigation) => {
             <Stack.Screen name="Login" component={Login} options={{headerShown:false}} />
             <Stack.Screen name="SignIn" component={SignIn} options={{headerShown:false}}  />
             <Stack.Screen name="ForgotPassword" component={ForgotPassword} options={{headerShown:false}}  />
+            <Stack.Screen name="OPT" component={OPT} options={{headerShown:false}}  />
+            <Stack.Screen name="NewPassword" component={NewPassword} options={{headerShown:false}}  />
           </>
         ) : (
           <>
@@ -121,7 +126,7 @@ const App = (navigation) => {
   }
   const getData = async () => {
     try {
-      const value = await AsyncStorage.getItem('@storage_Key')
+      const value = await AsyncStorage.getItem('@auth_token')
       if(value !== null) {
         setuserToken(value)
       }
@@ -163,6 +168,7 @@ const App = (navigation) => {
         <Drawer.Screen name="List" options={{headerShown:false}} component={Root} />
       </Drawer.Navigator>
     </NavigationContainer>
+    <Toast />
   </AppContext.Provider>
   );
 }

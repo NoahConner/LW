@@ -7,13 +7,68 @@ import GoogleIcon from '../assets/svg/google.svg'
 import { Dimensions } from 'react-native';
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 import {  moderateScale } from 'react-native-size-matters';
+import Toast from 'react-native-toast-message';
+import axiosconfig from '../providers/axios';
+import Loader from './loader';
 
 const ForgotPassword = ({navigation})=>{
-    const [remember,setRemember] = useState(false)
+    
+    const [email,setemail] = useState();
+    const [loader, setLoader] = useState(false)
+
+    const showToast = (t, e) => {
+        console.log(t)
+        Toast.show({
+            type: t,
+            text1: e,
+        })
+    }
+
+    const sendOtp = async() => {
+        
+        if(email == '' || email == null){
+            showToast('error', 'Email cannot be null.');
+            return false
+        }
+        setLoader(true)
+        
+        await axiosconfig.get(`app/check-mail/${email}`).then((res: any) => {
+            console.log(res,'ress')
+            if (res.status == 200) {
+                setLoader(false)
+                showToast('error', 'Email not found')
+            }
+        }).catch((err) => {
+            console.log(err.response)
+            otpSend()
+        })
+    }
+
+    const  otpSend = async() => {
+        var signData = {
+            type:'forgot',
+            email:email
+        }
+        await axiosconfig.post('app/otp', { email: email }).then((res: any) => {
+            setLoader(false)
+            navigation.navigate('OPT', signData);
+            console.log(res.data)
+        }).catch((err) => {
+            setLoader(false)
+            console.log(err)
+        })
+    }
+
     return(
         <ScrollView>
+            {
+                loader ? (
+                    <>
+                        <Loader />
+                    </>
+                ) : null
+            }
         <View style={styles.container}>
-            
             <View style={{alignItems: 'center',width: '100%',justifyContent: 'center'}}>
                 <Text style={{color:'#E83131',fontSize:moderateScale(20),fontWeight:'bold',marginTop:30}}>Forgot Password</Text>
                 <Text style={{color:'#666666',fontSize:moderateScale(12),marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text>
@@ -27,6 +82,7 @@ const ForgotPassword = ({navigation})=>{
                     inputContainerStyle={{
                         ...styles.inputContainerStyle
                     }}
+                    onChangeText={(e) => setemail(e)}
                     />
                 </View>
                 
@@ -39,6 +95,7 @@ const ForgotPassword = ({navigation})=>{
                             padding:15,
                             borderRadius:15
                         }}
+                        onPress={()=>sendOtp()}
                     />
                 </View>
                     <View style={{flexDirection:'row',alignItems: 'center',justifyContent: 'center',marginTop:20}}>

@@ -7,22 +7,77 @@ import GoogleIcon from '../assets/svg/google.svg'
 import AppContext from '../components/appcontext'
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {  moderateScale } from 'react-native-size-matters';
+import Loader from './loader';
+import Toast from 'react-native-toast-message';
+import axiosconfig from '../providers/axios';
 
 const Login = ({navigation})=>{
     
+    const [loader, setLoader] = useState(false);
+    const [email, setEmail] = useState();
+    const [password, setPassword] = useState();
+    const [remember,setRemember] = useState(false);
+    const myContext = useContext(AppContext)
+
+    const showToast = (t, e) => {
+        console.log(t)
+        Toast.show({
+            type: t,
+            text1: e,
+        })
+    }
+
     const storeData = async (value) => {
         try {
-          await AsyncStorage.setItem('@storage_Key', value)
-          myContext.setuserToken(value)
+          await AsyncStorage.setItem('@auth_token', value)
+          myContext.setuserToken(value);
+          navigation.navigate('Home')
         } catch (e) {
           console.log(e)
         }
       }
+    
+    
 
-    const [remember,setRemember] = useState(false);
-    const myContext = useContext(AppContext)
+    const loginForm = async() => {
+        let data = {
+            email:email,
+            password:password
+        }
+
+        if(email == '' || email == null){
+            showToast('error','Email Required!');
+            return false
+        }
+        if(password == '' || password == null){
+            showToast('error','Password Required!');
+            return false
+        }
+        setLoader(true)
+        await axiosconfig.post('app/login',data).then((res:any)=>{
+            setLoader(false)
+            if(res.data.error != "invalid_grant"){
+                storeData(res.data.access_token)
+            }else{
+                showToast('error',res.data.message);
+            }
+        }).catch((err)=>{
+            console.log(err)
+            setLoader(false)
+            showToast('error','Invalid Credentials');
+        })
+
+    }
+
     return(
         <View style={styles.container}>
+             {
+                loader ? (
+                    <>
+                        <Loader />
+                    </>
+                ) : null
+            }
             <View style={{alignItems: 'center',width: '100%'}}>
                 <Text style={{color:'#E83131',fontSize:moderateScale(20),fontWeight:'bold',marginTop:30}}>Log In</Text>
                 <Text style={{color:'#666666',fontSize:moderateScale(12),marginTop:10,textAlign: 'center',width:240,marginBottom:60}}>Donate Food to Poor people in just 3 easy steps</Text>
@@ -36,6 +91,7 @@ const Login = ({navigation})=>{
                     inputContainerStyle={{
                         ...styles.inputContainerStyle
                     }}
+                    onChangeText={(t) => setEmail(t)}
                     />
                     <Input
                      placeholder='Password'
@@ -46,6 +102,8 @@ const Login = ({navigation})=>{
                     inputContainerStyle={{
                         ...styles.inputContainerStyle
                     }}
+                    onChangeText={(t) => setPassword(t)}
+                    secureTextEntry={true}
                     />
                 </View>
                 <View style={{marginTop:0,flexDirection:'row',alignItems: 'center',justifyContent: 'space-between',width:'100%'}}>
@@ -70,7 +128,7 @@ const Login = ({navigation})=>{
                     <Button
                         title="Log In"
                         type="solid"
-                        onPress={()=> storeData('0256985sd225sdwe')}
+                        onPress={()=> loginForm()}
                         buttonStyle={{
                             backgroundColor:'#1E3865',
                             padding:15,
@@ -102,7 +160,7 @@ const Login = ({navigation})=>{
                           }
                     />
                     <Button
-                        title="Continue with Facebook"
+                        title="Continue with Google"
                         type="solid"
                         buttonStyle={{
                             backgroundColor:'#F6F8FA',
